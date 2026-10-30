@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Createk — прототип редизайна</title>
+<title>Createk — прототип v2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -332,6 +332,187 @@ footer a:hover{color:var(--red)}
   .hero h1{font-size:27px}
   .hero-stats{flex-wrap:wrap}
 }
+
+/* ===== v2: бренды, условия, техника ===== */
+:root{--ok:#18864B}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.status.in{color:var(--ok)}
+.status.order{color:var(--muted)}
+.thumb .tag.mgp{background:var(--red);color:#fff}
+.thumb .tag.forview{background:var(--ink);color:#fff}
+
+/* hero: путь детали */
+.route{background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:26px}
+.route h3{margin:0 0 4px;font-size:19px}
+.route > p{margin:0 0 18px;color:var(--muted);font-size:14px}
+.route ol{list-style:none;margin:0;padding:0}
+.route li{display:grid;grid-template-columns:40px 1fr;gap:14px;position:relative;padding-bottom:14px}
+.route li:last-child{padding-bottom:0}
+.route li::before{content:"";position:absolute;left:19px;top:40px;bottom:0;width:2px;background:var(--line)}
+.route li:last-child::before{display:none}
+.route .dot{width:40px;height:40px;border-radius:50%;background:var(--red-soft);color:var(--red);display:flex;align-items:center;justify-content:center}
+.route .dot .ico{width:20px;height:20px}
+.route b{display:block;font-size:15px;padding-top:1px}
+.route li span:not(.dot){font-size:13.5px;color:var(--muted)}
+
+/* бренды */
+.brands{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
+.brand{display:flex;flex-direction:column;gap:14px;padding:28px;border-radius:16px;border:1px solid var(--line);background:#fff;transition:.15s;min-height:310px}
+.brand:hover{box-shadow:var(--shadow);border-color:var(--ink)}
+.brand.main{background:var(--ink);color:#fff;border-color:var(--ink)}
+.brand-badge{align-self:flex-start;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:6px;background:var(--gray);color:var(--ink-2)}
+.brand.main .brand-badge,.bhero.dark .brand-badge{background:var(--red);color:#fff}
+.brand-name{font-size:40px;font-weight:800;letter-spacing:.04em;line-height:1}
+.brand p{margin:0;color:var(--muted);font-size:15px}
+.brand.main p{color:#bbb}
+.brand ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:14.5px}
+.brand li{display:flex;gap:8px;align-items:center}
+.brand li .ico{width:18px;height:18px;color:var(--red);flex:none}
+.brand .link{margin-top:auto}
+.brand.main .link{color:#fff}
+
+/* шаги */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:s}
+.steps.s4{grid-template-columns:repeat(4,1fr)}
+.step{padding:22px;border-radius:14px;background:var(--gray)}
+.step::before{counter-increment:s;content:counter(s);display:flex;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;align-items:center;justify-content:center;margin-bottom:14px}
+.step b{display:block;font-size:16px;margin-bottom:4px}
+.step span{font-size:14px;color:var(--muted)}
+.trust .step{background:#1f1f1f}
+.trust .step span{color:#aaa}
+.trust .sec-head .link{color:#fff}
+
+/* тизер техники */
+.mach{display:grid;grid-template-columns:1fr 1fr;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.mach-img{background:linear-gradient(135deg,#2a2a2a,#111);display:flex;align-items:center;justify-content:center;min-height:320px;position:relative;overflow:hidden}
+.mach-img::after{content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;border-radius:50%;border:40px solid rgba(227,6,19,.5)}
+.mach-img .ico{width:42%;height:auto;aspect-ratio:1;color:#6a6a6a;stroke-width:.9;position:relative;z-index:1}
+.mach-text{padding:36px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.mach-text h2{margin:0;font-size:28px;line-height:1.15}
+.mach-text p{margin:0;color:var(--ink-2)}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ticks li{display:flex;gap:10px;align-items:flex-start}
+.ticks .ico{width:20px;height:20px;color:var(--red);flex:none;margin-top:2px}
+
+/* шапка бренда / раздела */
+.bhero{background:var(--gray);padding:0 0 36px}
+.bhero.dark{background:var(--ink);color:#fff}
+.bhero.dark .crumbs{color:#999}
+.bhero.dark .crumbs a:hover{color:#fff}
+.bhero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end;margin-top:12px}
+.bhero h1{font-size:54px;letter-spacing:.03em;margin:14px 0 12px;line-height:1.02;font-weight:800}
+.bhero p{margin:0 0 4px;font-size:17px;max-width:620px;color:var(--ink-2)}
+.bhero.dark p{color:#bbb}
+.bhero .btns{margin-top:22px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.fact{background:#fff;border-radius:12px;padding:16px}
+.bhero.dark .fact{background:#222}
+.fact b{display:block;font-size:19px;font-weight:800;line-height:1.2}
+.fact span{font-size:13px;color:var(--muted)}
+.bhero.dark .fact span{color:#999}
+.note{background:#FFF7E0;border:1px solid #F1DFA6;border-radius:12px;padding:13px 16px;font-size:14px;color:#6b5a1e;margin-bottom:20px}
+.bchips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.bchips a{padding:8px 14px;border-radius:20px;border:1.5px solid var(--line);font-size:14px;font-weight:700;white-space:nowrap}
+.bchips a:hover{border-color:var(--ink)}
+.bchips a.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.bchips a.off{opacity:.4;pointer-events:none}
+.bchips em{font-style:normal;color:var(--muted);font-weight:500;margin-left:4px}
+.bchips a.on em{color:#bbb}
+.empty{border:1.5px dashed var(--line);border-radius:14px;padding:36px;text-align:center;color:var(--muted)}
+
+/* меню каталога */
+.drawer-label{font-size:12px;text-transform:uppercase;color:var(--muted);font-weight:700;letter-spacing:.06em;margin:0 12px 8px}
+.drawer-brands{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.drawer-brands a{padding:12px 14px;border-radius:10px;background:var(--gray);display:grid;gap:2px}
+.drawer-brands a:hover{background:var(--red-soft)}
+.drawer-brands b{font-weight:800;letter-spacing:.03em}
+.drawer-brands small{color:var(--muted);font-size:12.5px}
+
+/* условия работы */
+.terms{display:grid;grid-template-columns:240px 1fr;gap:44px;align-items:start;padding-top:36px}
+.terms > *,.layout > *{min-width:0}
+.toc{position:sticky;top:104px;display:grid;gap:2px}
+.toc a{padding:8px 12px;border-radius:8px;font-weight:600;font-size:14.5px;color:var(--ink-2)}
+.toc a:hover{background:var(--gray)}
+.tblock{padding-bottom:36px;margin-bottom:36px;border-bottom:1px solid var(--line);scroll-margin-top:100px}
+.tblock:last-child{border-bottom:0;margin-bottom:0}
+.tblock h2{margin:0 0 14px;font-size:26px;line-height:1.2}
+.tblock > p{margin:0 0 14px;color:var(--ink-2);max-width:760px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.box{border:1px solid var(--line);border-radius:14px;padding:20px}
+.box h3{margin:0 0 8px;font-size:17px;display:flex;align-items:center;gap:10px}
+.box h3 .ico{color:var(--red);width:22px;height:22px;flex:none}
+.box p,.box li{font-size:14.5px;color:var(--ink-2);margin:0}
+.box ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.tscroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+.ttable{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+.ttable th,.ttable td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.ttable tr:last-child td{border-bottom:0}
+.ttable th{background:var(--gray);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.ttable td b{white-space:nowrap}
+details.faq{border-bottom:1px solid var(--line);padding:16px 0}
+details.faq summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--red);font-size:24px;line-height:1;flex:none}
+details.faq[open] summary::after{content:"−"}
+details.faq p{margin:10px 0 0;color:var(--ink-2)}
+
+/* спецтехника */
+.mtypes{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.mtype{border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.mtype .ico{width:46px;height:46px;color:var(--red);stroke-width:1.3}
+.mtype b{font-size:17px}
+.mtype span{font-size:14px;color:var(--muted)}
+
+@media (max-width:1100px){
+  .brands{grid-template-columns:1fr 1fr}
+  .brands .brand.main{grid-column:1/-1;min-height:0}
+  .steps,.steps.s4{grid-template-columns:repeat(3,1fr)}
+  .mtypes{grid-template-columns:repeat(3,1fr)}
+  .bhero h1{font-size:44px}
+}
+@media (max-width:960px){
+  .brands{grid-template-columns:1fr;gap:10px}
+  .brand{min-height:0;padding:22px;gap:12px}
+  .brand-name{font-size:32px}
+  .steps,.steps.s4{grid-template-columns:1fr;gap:8px}
+  .step{display:grid;grid-template-columns:34px 1fr;column-gap:14px;padding:16px}
+  .step::before{grid-row:1/3;margin:0}
+  .step b{margin:0}
+  .mach{grid-template-columns:1fr}
+  .mach-img{min-height:170px}
+  .mach-img .ico{width:120px}
+  .mach-text{padding:24px 20px}
+  .mach-text h2{font-size:23px}
+  .mach-text .btns{flex-direction:column}
+  .route{padding:20px}
+  .bhero{padding-bottom:26px}
+  .bhero-grid{grid-template-columns:1fr;gap:20px}
+  .bhero h1{font-size:36px}
+  .bhero p{font-size:15.5px}
+  .bhero .btns{flex-direction:column}
+  .facts{gap:8px}
+  .fact{padding:12px}
+  .fact b{font-size:15.5px}
+  .fact span{font-size:12px}
+  .bchips{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px 14px;padding:0 16px 4px;scrollbar-width:none}
+  .bchips::-webkit-scrollbar{display:none}
+  .drawer-label{margin:16px 20px 8px}
+  .drawer-brands{grid-template-columns:1fr 1fr;padding:0 8px 16px;margin-bottom:0}
+  .terms{grid-template-columns:1fr;gap:20px;padding-top:20px}
+  .toc{position:static;display:flex;overflow-x:auto;gap:6px;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
+  .toc::-webkit-scrollbar{display:none}
+  .toc a{flex:none;background:var(--gray);border-radius:20px;font-size:14px}
+  .tblock{padding-bottom:28px;margin-bottom:28px}
+  .tblock h2{font-size:22px}
+  .grid2{grid-template-columns:1fr;gap:10px}
+  .mtypes{grid-template-columns:1fr 1fr;gap:10px}
+  .mtype{padding:16px}
+  .mtype .ico{width:36px;height:36px}
+  .mtype b{font-size:15px}
+  .mtype span{font-size:13px}
+}
 </style>
 </head>
 <body>
@@ -367,18 +548,26 @@ footer a:hover{color:var(--red)}
     <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
     <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
     <symbol id="logo" viewBox="0 0 48 48"><g fill="#E30613"><path d="M24 4c5 0 8 3 8 8v4h-8a8 8 0 0 1 0-12z"/><path d="M44 24c0 5-3 8-8 8h-4v-8a8 8 0 0 1 12 0z"/><path d="M24 44c-5 0-8-3-8-8v-4h8a8 8 0 0 1 0 12z"/><path d="M4 24c0-5 3-8 8-8h4v8a8 8 0 0 1-12 0z"/></g><circle cx="24" cy="24" r="5" fill="#E30613"/></symbol>
+    <symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V10l5 3v-3l5 3v-3l5 3V4h3v17z"/><path d="M7 17h2M12 17h2M17 17h1"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h12v3"/><path d="M16 13.5h2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-excavator" viewBox="0 0 24 24"><path d="M2 17h11a2 2 0 0 1 0 4H2a2 2 0 0 1 0-4zM3 17v-4h7l1.5 4M5 13V10h4"/><path d="M10 11l5-6 5 4-2 4"/><path d="M18 13l3 3-4 .5"/></symbol>
+    <symbol id="i-loader" viewBox="0 0 24 24"><path d="M3 17V9h6l2 4h3v4"/><path d="M5 9V6h3"/><path d="M14 13l4-5h3v3l-2 3h-3"/><circle cx="6" cy="18" r="2"/><circle cx="13" cy="18" r="2"/></symbol>
+    <symbol id="i-dumper" viewBox="0 0 24 24"><path d="M2 14 3.5 7h10l1 7z"/><path d="M14.5 9h3.5l3 3.5V16H2v-2"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+    <symbol id="i-crane" viewBox="0 0 24 24"><path d="M2 16h12v-4h4l3 3v1H2"/><path d="M5 12l10-8M15 4v5"/><circle cx="6" cy="18.5" r="1.8"/><circle cx="17" cy="18.5" r="1.8"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c.5-4 3.5-6 7-6s6.5 2 7 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14c3 0 5 2 5.5 5"/></symbol>
   </defs>
 </svg>
 
-<div class="proto"><b>Прототип редизайна createk.pro.</b> Логотип, тексты, цифры и изображения условные.</div>
+<div class="proto"><b>Прототип v2: прямые поставки из Китая.</b> Название, тексты, сроки, цифры и позиции MGP и Forview условные.</div>
 
 <div class="topbar">
   <div class="wrap">
     <nav>
-      <a href="#/">О компании</a>
-      <a href="#/">Оплата и доставка</a>
-      <a href="#/">Партнёрам</a>
-      <a href="#/">Новости</a>
+      <a href="#/usloviya">Условия работы</a>
+      <a href="#/usloviya/dostavka">Доставка из Китая</a>
+      <a href="#/tekhnika">Спецтехника</a>
+      <a href="#/usloviya/opt">Оптовикам</a>
       <a href="#/">Контакты</a>
     </nav>
     <div class="city"><svg class="ico"><use href="#i-pin"/></svg>Благовещенск</div>
@@ -388,12 +577,12 @@ footer a:hover{color:var(--red)}
 <header class="header" id="header">
   <div class="wrap">
     <button class="icon-btn" data-open-drawer aria-label="Каталог"><svg class="ico"><use href="#i-menu"/></svg></button>
-    <a href="#/" class="logo" aria-label="Createk, на главную">
+    <a href="#/" class="logo" aria-label="На главную">
       <svg class="logo-mark"><use href="#logo"/></svg>
-      <span class="logo-text"><b>CREATEK</b><small>Technology created excellence</small></span>
+      <span class="logo-text"><b>CREATEK</b><small>Запчасти и техника из Китая</small></span>
     </a>
     <button class="catalog-btn" data-open-drawer><svg class="ico"><use href="#i-menu"/></svg>Каталог</button>
-    <label class="search"><svg class="ico"><use href="#i-search"/></svg><input type="search" placeholder="Название или артикул, например 612600020373"></label>
+    <label class="search"><svg class="ico"><use href="#i-search"/></svg><input type="search" placeholder="Название или артикул, например MGP-OF1012"></label>
     <div class="phones">
       <a href="tel:88002501598">8 800 250-15-98</a>
       <span>Бесплатно по России</span>
@@ -407,6 +596,9 @@ footer a:hover{color:var(--red)}
 <div class="drawer-bg" id="drawer-bg"></div>
 <nav class="drawer" id="drawer" aria-label="Каталог">
   <div class="drawer-head"><b>Каталог</b><button class="icon-btn" data-close-drawer aria-label="Закрыть"><svg class="ico"><use href="#i-x"/></svg></button></div>
+  <div class="drawer-label">Бренды</div>
+  <div class="drawer-brands" id="drawer-brands"></div>
+  <div class="drawer-label">Запчасти по узлам</div>
   <div class="drawer-grid" id="drawer-grid"></div>
   <div class="drawer-extra" id="drawer-extra"></div>
 </nav>
@@ -417,11 +609,17 @@ footer a:hover{color:var(--red)}
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="#/" class="logo" style="margin-bottom:16px"><svg class="logo-mark"><use href="#logo"/></svg><span class="logo-text"><b>CREATEK</b><small>Technology created excellence</small></span></a>
-        <p style="margin:0;color:var(--muted);max-width:340px">Официальный представитель Createk на Дальнем Востоке. Запчасти для грузовой техники оптом и в розницу.</p>
+        <a href="#/" class="logo" style="margin-bottom:16px"><svg class="logo-mark"><use href="#logo"/></svg><span class="logo-text"><b>CREATEK</b><small>Запчасти и техника из Китая</small></span></a>
+        <p style="margin:0;color:var(--muted);max-width:340px">Прямые поставки запчастей для грузовиков и спецтехники с заводов Китая. Собственный бренд MGP, Forview и Createk. Склад в Благовещенске, доставка по России.</p>
       </div>
-      <div><h4>Каталог</h4><ul id="foot-cats"></ul></div>
-      <div><h4>Компания</h4><ul><li><a href="#/">О компании</a></li><li><a href="#/">Оплата и доставка</a></li><li><a href="#/">Партнёрам</a></li><li><a href="#/">Новости</a></li><li><a href="#/">Контакты</a></li></ul></div>
+      <div><h4>Бренды</h4><ul id="foot-brands"></ul></div>
+      <div><h4>Покупателям</h4><ul>
+        <li><a href="#/usloviya">Условия работы</a></li>
+        <li><a href="#/usloviya/oplata">Оплата</a></li>
+        <li><a href="#/usloviya/dostavka">Доставка из Китая</a></li>
+        <li><a href="#/usloviya/garantiya">Гарантия и возврат</a></li>
+        <li><a href="#/usloviya/opt">Оптовикам и автопаркам</a></li>
+      </ul></div>
       <div><h4>Контакты</h4>
         <a class="foot-phone" href="tel:88002501598">8 800 250-15-98</a><span style="color:var(--muted)">бесплатно по России</span>
         <a class="foot-phone" href="tel:84162381598" style="margin-top:12px">8 4162 38-15-98</a><span style="color:var(--muted)">Благовещенск</span>
@@ -433,7 +631,7 @@ footer a:hover{color:var(--red)}
 
 <div class="mbar">
   <a class="btn btn-line" href="tel:88002501598"><svg class="ico"><use href="#i-phone"/></svg>Позвонить</a>
-  <button class="btn btn-red" data-request>Запросить цену</button>
+  <button class="btn btn-red" data-request>Оставить заявку</button>
 </div>
 
 <div class="modal-bg" id="modal-bg">
@@ -441,12 +639,12 @@ footer a:hover{color:var(--red)}
     <button class="close" data-close-modal aria-label="Закрыть"><svg class="ico"><use href="#i-x"/></svg></button>
     <div id="m-form">
       <h3 id="m-title">Запросить цену</h3>
-      <p class="sub">Менеджер перезвонит в рабочее время и сообщит цену и наличие.</p>
+      <p class="sub" id="m-sub">Менеджер перезвонит в рабочее время, сообщит цену, наличие и срок поставки.</p>
       <div class="item" id="m-item"></div>
       <form id="req-form">
         <label class="field">Имя<input name="name" autocomplete="name" required></label>
         <label class="field">Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7" required></label>
-        <label class="field">Комментарий<textarea name="msg" rows="3" placeholder="Количество, VIN или что-то ещё"></textarea></label>
+        <label class="field">Комментарий<textarea name="msg" id="m-msg" rows="3" placeholder="Количество, VIN или что-то ещё"></textarea></label>
         <label class="consent"><input type="checkbox" required checked>Согласен на обработку персональных данных</label>
         <button class="btn btn-red" type="submit">Отправить заявку</button>
       </form>
@@ -745,81 +943,145 @@ const P = [
   {"id": 263, "cat": "elektrika", "name": "Клапан электромагнитный", "sku": "CK81521606115", "fits": []},
   {"id": 264, "cat": "elektrika", "name": "Клапан электромагнитный", "sku": "DZ9100716009", "fits": []}
 ];
+const BRANDS = [
+  {id:'mgp', label:'MGP', name:'MGP', badge:'Собственный бренд', demo:1,
+   short:'Наш бренд. Ходовые позиции держим на складе в Благовещенске.',
+   desc:'Собственная марка запчастей для грузовиков. Производство на заводах-партнёрах в Китае под нашим контролем качества. Ходовые позиции на складе в Благовещенске, остальное под заказ.',
+   points:['Часть позиций в наличии','Контроль качества на заводе','Цена без посредников'],
+   facts:[['Склад','в Благовещенске'],['1–2 дня','отгрузка со склада'],['Гарантия','от производителя']]},
+  {id:'forview', label:'Forview', name:'FORVIEW', badge:'Бренд-партнёр', demo:1,
+   short:'Поставляем напрямую от производителя под заказ.',
+   desc:'Запчасти Forview поставляем напрямую от производителя по договору, без посредников. Позиции под заказ, срок и цену фиксируем в счёте.',
+   points:['Прямой контракт с заводом','Поставка под заказ','Документы и сертификаты'],
+   facts:[['Под заказ','с завода'],['20–35 дней','срок поставки'],['Договор','с производителем']]},
+  {id:'createk', label:'Createk', name:'CREATEK', badge:'Базовый каталог',
+   short:'Каталог, с которого начиналась компания. Все позиции под заказ.',
+   desc:'С каталога Createk начиналась компания. Позиции поставляем под заказ, цену и срок называем по запросу.',
+   points:['470+ позиций в каталоге','Только под заказ','Цена и срок по запросу'],
+   facts:[['470+','позиций'],['Под заказ','поставка'],['По запросу','цена']]},
+];
+// примеры позиций: реальный ассортимент MGP и Forview нужно получить у клиента
+const MGP_ITEMS = [
+  ['filtry','Фильтр масляный','MGP-OF1012',1], ['filtry','Фильтр топливный тонкой очистки','MGP-FF2031',1], ['filtry','Фильтр воздушный','MGP-AF3045',1],
+  ['tormoznaya-sistema','Колодки тормозные задние','MGP-BP4410',1], ['tormoznaya-sistema','Барабан тормозной','MGP-BD4502',0], ['tormoznaya-sistema','Энергоаккумулятор тормозной','MGP-BC4620',1],
+  ['sceplenie','Диск сцепления 430 мм','MGP-CD5430',1], ['sceplenie','Корзина сцепления 430 мм','MGP-CP5431',1], ['sceplenie','Подшипник выжимной','MGP-RB5502',0],
+  ['podveska','Рессора передняя','MGP-LS6101',0], ['podveska','Амортизатор кабины','MGP-SA6220',1], ['podveska','Палец рессоры','MGP-SP6305',1],
+  ['remni','Ремень поликлиновой','MGP-PK7810',1], ['remni','Ролик натяжной','MGP-TR7902',1],
+  ['sistema-okhlazhdeniya','Помпа водяная','MGP-WP8150',1], ['sistema-okhlazhdeniya','Термостат','MGP-TH8210',1],
+  ['elektrika','Стартер 24 В','MGP-ST9024',0], ['elektrika','Генератор 28 В','MGP-GN9128',0],
+  ['dvigatel','Комплект прокладок двигателя','MGP-GK1105',1], ['dvigatel','Поршневая группа','MGP-PG1220',0],
+  ['podshipniki','Подшипник ступицы','MGP-HB3315',1], ['kuzov-i-kabina','Фара головного света','MGP-HL2410',1],
+  ['kuzov-i-kabina','Зеркало боковое','MGP-MR2502',1], ['rulevoj-mekhanizm','Наконечник рулевой тяги','MGP-TE3610',1],
+];
+const FV_ITEMS = [
+  ['filtry','Фильтр масляный','FV-1170',0], ['filtry','Фильтр сепаратор топлива','FV-1185',0],
+  ['tormoznaya-sistema','Колодки тормозные передние','FV-2210',0], ['tormoznaya-sistema','Кран тормозной главный','FV-2290',0],
+  ['dvigatel','Турбокомпрессор','FV-3105',0], ['dvigatel','Форсунка топливная','FV-3140',0], ['dvigatel','Гильза цилиндра','FV-3162',0],
+  ['toplivnaya-sistema','ТНВД','FV-4020',0], ['toplivnaya-sistema','Насос подкачки топлива','FV-4055',0],
+  ['sceplenie','ПГУ сцепления','FV-5110',0], ['kpp','Синхронизатор КПП','FV-6201',0],
+  ['most','Сальник ступицы','FV-7130',0], ['podshipniki','Подшипник КПП','FV-7340',0], ['elektrika','Датчик давления масла','FV-8015',0],
+];
+const STEPS = [['Заявка','Артикул, VIN или фото детали'], ['Счёт','Фиксируем цену и срок поставки'], ['Оплата','Со склада полностью, под заказ предоплата'], ['Поставка','Выкуп на заводе, таможня, доставка'], ['Получение','Самовывоз или отправка по России']];
+const ROUTE = [['factory','Завод в Китае','Выкупаем напрямую, без посредников'], ['shield','Проверка качества','Осматриваем партию перед отгрузкой'], ['doc','Таможня','Оформляем документы и сертификаты'], ['box','Склад в Благовещенске','Принимаем и комплектуем заказ'], ['truck','Доставка по России','Самовывоз или транспортная компания']];
+const LEAD = {mgp:'20–30 дней', forview:'20–35 дней', createk:'25–45 дней'};
+
+P.forEach(p => { p.brand = 'createk'; p.stock = false; });
+let nid = 1000;
+const mk = brand => ([cat, name, sku, stock]) => ({id: ++nid, brand, cat, name, sku, fits: [], stock: !!stock, demo: 1});
+P.push(...MGP_ITEMS.map(mk('mgp')), ...FV_ITEMS.map(mk('forview')));
+
 const catById = id => CATS.find(c => c.id === id);
+const brandById = id => BRANDS.find(b => b.id === id);
 const ico = (name, cls='ico') => `<svg class="${cls}"><use href="#i-${name}"/></svg>`;
 const plural = (n, a, b, c) => { const m10=n%10, m100=n%100; return n+' '+(m10===1&&m100!==11?a:m10>=2&&m10<=4&&(m100<10||m100>=20)?b:c); };
+const ORDER = {mgp:0, forview:1, createk:2};
+const sortP = list => list.slice().sort((x, y) => (y.stock - x.stock) || (ORDER[x.brand] - ORDER[y.brand]));
+// сколько позиций: у Createk по старому сайту, у остальных по примерам
+const total = (brand, cat) => (brand ? [brand] : BRANDS.map(b => b.id)).reduce((s, b) =>
+  s + (b === 'createk' ? (cat ? [catById(cat)] : CATS).reduce((t, c) => t + c.n, 0) : P.filter(p => p.brand === b && (!cat || p.cat === cat)).length), 0);
+const status = p => p.stock ? `<span class="status in">В наличии</span>` : `<span class="status order">Под заказ</span>`;
+const more = (shown, all) => shown < all ? `<div style="display:flex;justify-content:center;margin-top:24px"><button class="btn btn-line">Показать ещё</button></div>` : '';
 
 function card(p){
-  const c = catById(p.cat);
+  const c = catById(p.cat), b = brandById(p.brand);
   return `<article class="card">
-    <a href="#/p/${p.id}" class="thumb">${ico(c.icon)}<span class="tag">${c.name}</span></a>
+    <a href="#/p/${p.id}" class="thumb">${ico(c.icon)}<span class="tag ${p.brand}">${b.label}</span></a>
     <div class="card-body">
-      <span class="sku">Арт. ${p.sku}</span>
+      <span class="sku">${c.name} · ${p.sku}</span>
       <h3><a href="#/p/${p.id}">${p.name}</a></h3>
+      ${status(p)}
       <div class="card-foot">
-        <span class="price">Цена по запросу<small>Наличие уточняйте</small></span>
+        <span class="price">Цена по запросу</span>
         <button class="req" data-request="${p.id}">Запросить</button>
       </div>
     </div>
   </article>`;
 }
 
+const steps = (list = STEPS, cls = '') => `<div class="steps ${cls}">${list.map(([b, s]) => `<div class="step"><b>${b}</b><span>${s}</span></div>`).join('')}</div>`;
+
+function brandCard(b){
+  return `<a class="brand ${b.id === 'mgp' ? 'main' : ''}" href="#/b/${b.id}">
+    <span class="brand-badge">${b.badge}</span>
+    <span class="brand-name">${b.name}</span>
+    <p>${b.short}</p>
+    <ul>${b.points.map(x => `<li>${ico('check')}${x}</li>`).join('')}</ul>
+    <span class="link">Смотреть ${b.label} ${ico('arrow')}</span>
+  </a>`;
+}
+
 function home(){
+  const stock = P.filter(p => p.brand === 'mgp' && p.stock).slice(0, 8);
   return `
   <div class="hero"><div class="wrap">
     <div>
-      <span class="eyebrow">Официальный представитель</span>
-      <h1>Запчасти <span>Createk</span> для грузовиков на Дальнем Востоке</h1>
-      <p>Двигатель, КПП, мосты, подвеска и кабина для Shacman, Howo, FAW и двигателей Weichai и Cummins. Оптом и в розницу.</p>
+      <span class="eyebrow">Прямые поставки из Китая</span>
+      <h1>Запчасти и спецтехника <span>напрямую с заводов Китая</span></h1>
+      <p>Собственный бренд MGP со склада в Благовещенске, Forview и Createk под заказ. Без посредников: выкупаем на заводе, оформляем таможню и доставляем по России.</p>
       <div class="btns">
-        <a class="btn btn-red" href="#/c/dvigatel">Перейти в каталог ${ico('arrow')}</a>
-        <button class="btn btn-line" data-request>Запросить цену</button>
+        <a class="btn btn-red" href="#/b/mgp">MGP в наличии ${ico('arrow')}</a>
+        <a class="btn btn-line" href="#/usloviya">Условия работы</a>
       </div>
       <div class="hero-stats">
-        <div><b>470+</b><span>позиций в каталоге</span></div>
-        <div><b>16</b><span>разделов</span></div>
-        <div><b>8 800</b><span>бесплатный звонок</span></div>
+        <div><b>3 бренда</b><span>MGP, Forview, Createk</span></div>
+        <div><b>${Math.floor(total() / 50) * 50}+</b><span>позиций</span></div>
+        <div><b>1–2 дня</b><span>отгрузка со склада</span></div>
       </div>
     </div>
-    <div class="cert">
-      <div class="cert-doc"><svg class="logo-mark"><use href="#logo"/></svg><b>СЕРТИФИКАТ</b><i></i><i></i><i style="width:50%"></i></div>
-      <div>
-        <h3>Официальный дистрибьютор Createk</h3>
-        <p>Работаем напрямую с заводом. Сертификат подтверждает происхождение каждой детали.</p>
-        <a href="#/" class="link">Посмотреть сертификат ${ico('arrow')}</a>
-      </div>
+    <div class="route"><h3>Путь детали</h3><p>От завода в Китае до вашего склада</p>
+      <ol>${ROUTE.map(([i, b, s]) => `<li><span class="dot">${ico(i)}</span><div><b>${b}</b><span>${s}</span></div></li>`).join('')}</ol>
     </div>
   </div></div>
 
   <section><div class="wrap">
-    <div class="sec-head"><div><h2>Каталог запчастей</h2><p>Выберите узел, чтобы посмотреть позиции</p></div></div>
-    <div class="cats">${CATS.map(c => `<a class="cat" href="#/c/${c.id}">${ico(c.icon)}<b>${c.name}</b><span>${plural(c.n,'позиция','позиции','позиций')}</span></a>`).join('')}</div>
-  </div></section>
-
-  <section class="trust"><div class="wrap">
-    <div class="sec-head"><div><h2>Почему Createk</h2><p>Блок доверия: формулировки уточняются с клиентом</p></div></div>
-    <div class="trust-grid">
-      <div class="trust-item">${ico('shield')}<b>Оригинальные детали</b><span>Поставки напрямую от производителя, с сертификатом</span></div>
-      <div class="trust-item">${ico('box')}<b>Склад в Благовещенске</b><span>Ходовые позиции в наличии, остальное под заказ</span></div>
-      <div class="trust-item">${ico('truck')}<b>Доставка по России</b><span>Отправляем транспортными компаниями</span></div>
-      <div class="trust-item">${ico('hand')}<b>Опт и розница</b><span>Специальные условия для автопарков и СТО</span></div>
-    </div>
-  </div></section>
-
-  <section><div class="wrap">
-    <div class="sec-head"><div><h2>Популярные позиции</h2><p>Что чаще всего спрашивают</p></div><a href="#/c/dvigatel" class="link">Весь каталог ${ico('arrow')}</a></div>
-    <div class="products">${P.filter(p => p.top).slice(0,8).map(card).join('')}</div>
+    <div class="sec-head"><div><h2>Бренды</h2><p>Собственный бренд, партнёр и базовый каталог</p></div></div>
+    <div class="brands">${BRANDS.map(brandCard).join('')}</div>
   </div></section>
 
   <section style="padding-top:0"><div class="wrap">
-    <div class="sec-head"><div><h2>Новости</h2></div><a href="#/" class="link">Все новости ${ico('arrow')}</a></div>
-    <div class="news">
-      <a href="#/" class="news-img"><span>Фото с выставки</span></a>
-      <div class="news-text">
-        <time>Новости компании</time>
-        <h3>Выставка продукции Createk в Шанхае</h3>
-        <p>Рассказываем о новинках завода и о том, какие позиции появятся на складе в Благовещенске.</p>
-        <a href="#/" class="link">Читать ${ico('arrow')}</a>
+    <div class="sec-head"><div><h2>MGP в наличии</h2><p>Отгружаем со склада в Благовещенске за 1–2 дня</p></div><a href="#/b/mgp" class="link">Весь каталог MGP ${ico('arrow')}</a></div>
+    <div class="products">${stock.map(card).join('')}</div>
+  </div></section>
+
+  <section class="trust"><div class="wrap">
+    <div class="sec-head"><div><h2>Как мы работаем</h2><p>Пять шагов от заявки до получения</p></div><a href="#/usloviya" class="link">Все условия ${ico('arrow')}</a></div>
+    ${steps()}
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="sec-head"><div><h2>Запчасти по узлам</h2><p>Все бренды в одном каталоге</p></div></div>
+    <div class="cats">${CATS.map(c => `<a class="cat" href="#/c/${c.id}">${ico(c.icon)}<b>${c.name}</b><span>${plural(total(null, c.id), 'позиция', 'позиции', 'позиций')}</span></a>`).join('')}</div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="mach">
+      <div class="mach-img">${ico('excavator')}</div>
+      <div class="mach-text">
+        <span class="eyebrow">Под заказ</span>
+        <h2>Поставляем и спецтехнику</h2>
+        <p>Самосвалы, тягачи, погрузчики и экскаваторы с заводов Китая. Подбираем под задачу и привозим с документами для регистрации.</p>
+        <ul class="ticks"><li>${ico('check')}Работаем по договору, оплата поэтапно</li><li>${ico('check')}Срок поставки от 30 до 60 дней</li><li>${ico('check')}Таможня и ЭПТС под ключ</li></ul>
+        <div class="btns"><a class="btn btn-dark" href="#/tekhnika">Условия поставки техники</a></div>
       </div>
     </div>
   </div></section>
@@ -829,68 +1091,111 @@ function home(){
   </div></section>`;
 }
 
-function ctaBlock(){
+function ctaBlock(title = 'Не нашли нужную деталь?', sub = 'Назовите артикул или пришлите фото. Найдём у заводов в Китае и назовём цену и срок.', req = ''){
   return `<div class="cta">
-    <div><h2>Не нашли нужную деталь?</h2><p>Назовите артикул или опишите деталь, и мы проверим наличие и цену.</p></div>
-    <div class="btns"><a class="btn btn-line" href="tel:88002501598">${ico('phone')}8 800 250-15-98</a><button class="btn btn-dark" data-request>Оставить заявку</button></div>
+    <div><h2>${title}</h2><p>${sub}</p></div>
+    <div class="btns"><a class="btn btn-line" href="tel:88002501598">${ico('phone')}8 800 250-15-98</a><button class="btn btn-dark" data-request="${req}">Оставить заявку</button></div>
   </div>`;
 }
 
-function category(id){
+function category(id, brand){
   const c = catById(id) || CATS[0];
-  let items = P.filter(p => p.cat === c.id);
-  const real = items.length > 0;
-  // в прототипе товары есть не во всех разделах, добиваем сетку условными позициями
-  for (let i = items.length; i < 6; i++) items.push({id:'', cat:c.id, name:`Позиция раздела «${c.name}»`, sku:'—', fits:[]});
+  const b = brandById(brand);
+  const items = sortP(P.filter(p => p.cat === c.id && (!b || p.brand === b.id)));
+  const shown = items.slice(0, 24);
+  const all = total(b && b.id, c.id);
+  const sfx = b ? '/' + b.id : '';
+  let grid;
+  if (shown.length) grid = `<div class="products">${shown.map(card).join('')}</div>${more(shown.length, all)}`;
+  else if (b) grid = `<div class="empty">У ${b.label} в разделе «${c.name}» пока нет позиций.<br><a class="link" href="#/c/${c.id}" style="margin-top:10px">Все бренды ${ico('arrow')}</a></div>`;
+  else grid = `<div class="empty">Позиции раздела появятся после переноса каталога.</div>`;
   return `<div class="wrap">
     <div class="crumbs"><a href="#/">Главная</a>/<a href="#/c/dvigatel">Каталог</a>/<span>${c.name}</span></div>
-    <div class="page-title"><h1>${c.name}</h1><span>${plural(c.n,'позиция','позиции','позиций')}</span></div>
-    <div class="chips">${CATS.map(x => `<a href="#/c/${x.id}" class="${x.id===c.id?'on':''}">${x.name}</a>`).join('')}</div>
+    <div class="page-title"><h1>${c.name}</h1><span>${plural(all, 'позиция', 'позиции', 'позиций')}</span></div>
+    <div class="chips">${CATS.map(x => `<a href="#/c/${x.id}${sfx}" class="${x.id === c.id ? 'on' : ''}">${x.name}</a>`).join('')}</div>
     <div class="layout">
-      <aside class="side">${CATS.map(x => `<a href="#/c/${x.id}" class="${x.id===c.id?'on':''}">${ico(x.icon)}${x.name}</a>`).join('')}</aside>
+      <aside class="side">${CATS.map(x => `<a href="#/c/${x.id}${sfx}" class="${x.id === c.id ? 'on' : ''}">${ico(x.icon)}${x.name}</a>`).join('')}</aside>
       <div>
+        <div class="bchips"><a href="#/c/${c.id}" class="${!b ? 'on' : ''}">Все бренды <em>${total(null, c.id)}</em></a>${BRANDS.map(x => { const n = total(x.id, c.id); return `<a href="#/c/${c.id}/${x.id}" class="${b && b.id === x.id ? 'on' : ''} ${n ? '' : 'off'}">${x.label} <em>${n}</em></a>`; }).join('')}</div>
         <div class="toolbar">
           <label class="search"><svg class="ico"><use href="#i-search"/></svg><input type="search" placeholder="Поиск в разделе «${c.name}»"></label>
-          <select aria-label="Сортировка"><option>По популярности</option><option>По названию</option><option>Сначала новые</option></select>
-          <span class="count">${real ? `Показано ${items.length} из ${c.n}` : 'Позиции раздела появятся после переноса каталога'}</span>
+          <select aria-label="Сортировка"><option>Сначала в наличии</option><option>По названию</option><option>По бренду</option></select>
+          <span class="count">${shown.length ? `Показано ${shown.length} из ${all}` : ''}</span>
         </div>
-        <div class="products">${items.map(card).join('')}</div>
-        ${real && items.length < c.n ? `<div style="display:flex;justify-content:center;margin-top:24px"><button class="btn btn-line">Показать ещё</button></div>` : ''}
+        ${grid}
       </div>
     </div>
     <section style="padding-bottom:0">${ctaBlock()}</section>
   </div>`;
 }
 
+function bhero(o){
+  return `<div class="bhero ${o.dark ? 'dark' : ''}"><div class="wrap">
+    <div class="crumbs"><a href="#/">Главная</a>/${o.crumbs}</div>
+    <div class="bhero-grid">
+      <div><span class="brand-badge">${o.badge}</span><h1>${o.title}</h1><p>${o.text}</p>${o.btns || ''}</div>
+      <div class="facts">${o.facts.map(([x, y]) => `<div class="fact"><b>${x}</b><span>${y}</span></div>`).join('')}</div>
+    </div>
+  </div></div>`;
+}
+
+function brandPage(id, cat){
+  const b = brandById(id) || BRANDS[0];
+  const c = catById(cat);
+  const cats = CATS.filter(x => P.some(p => p.brand === b.id && p.cat === x.id));
+  const items = sortP(P.filter(p => p.brand === b.id && (!c || p.cat === c.id)));
+  const shown = items.slice(0, 24);
+  const all = total(b.id, c && c.id);
+  return bhero({dark: b.id === 'mgp', crumbs: `<span>Бренды</span>/${c ? `<a href="#/b/${b.id}">${b.label}</a>/<span>${c.name}</span>` : `<span>${b.label}</span>`}`, badge: b.badge, title: b.name, text: b.desc, facts: b.facts}) +
+  `<div class="wrap" style="padding-top:28px">
+    ${b.demo ? `<div class="note">Позиции ${b.label} в прототипе приведены для примера. Реальный ассортимент и остатки подставим по данным клиента.</div>` : ''}
+    <div class="bchips"><a href="#/b/${b.id}" class="${!c ? 'on' : ''}">Все разделы <em>${total(b.id)}</em></a>${cats.map(x => `<a href="#/b/${b.id}/${x.id}" class="${c && c.id === x.id ? 'on' : ''}">${x.name} <em>${total(b.id, x.id)}</em></a>`).join('')}</div>
+    <div class="toolbar">
+      <label class="search"><svg class="ico"><use href="#i-search"/></svg><input type="search" placeholder="Поиск по ${b.label}"></label>
+      <select aria-label="Сортировка"><option>Сначала в наличии</option><option>По названию</option></select>
+      <span class="count">Показано ${shown.length} из ${all}</span>
+    </div>
+    <div class="products">${shown.map(card).join('')}</div>
+    ${more(shown.length, all)}
+    <section style="padding-bottom:0">${ctaBlock(`Нужна позиция ${b.label}, которой нет в списке?`, 'Пришлите артикул или фото. Проверим у производителя и назовём цену и срок.')}</section>
+  </div>`;
+}
+
 function product(id){
   const p = P.find(x => x.id == id) || P[0];
-  const c = catById(p.cat);
-  const similar = P.filter(x => x.id !== p.id && x.cat === p.cat).concat(P.filter(x => x.cat !== p.cat)).slice(0,4);
+  const c = catById(p.cat), b = brandById(p.brand);
+  const rest = P.filter(x => x.id !== p.id);
+  const similar = sortP(rest.filter(x => x.cat === p.cat)).concat(rest.filter(x => x.cat !== p.cat && x.brand === p.brand)).slice(0, 4);
+  const lead = p.stock ? '1–2 дня со склада' : LEAD[p.brand];
   return `<div class="wrap">
-    <div class="crumbs"><a href="#/">Главная</a>/<a href="#/c/${c.id}">${c.name}</a>/<span>${p.sku}</span></div>
+    <div class="crumbs"><a href="#/">Главная</a>/<a href="#/b/${b.id}">${b.label}</a>/<a href="#/b/${b.id}/${c.id}">${c.name}</a>/<span>${p.sku}</span></div>
     <div class="pp">
       <div class="gallery"><div class="main">${ico(c.icon)}</div><div class="thumbs"><div></div><div></div><div></div><div></div></div></div>
       <div class="pp-info">
-        <div class="sku"><span>Артикул: <b>${p.sku}</b></span><span>Производитель: <b>Createk</b></span></div>
+        <div class="sku"><span>Артикул: <b>${p.sku}</b></span><span>Бренд: <a href="#/b/${b.id}"><b>${b.label}</b></a></span></div>
         <h1>${p.name}</h1>
         ${p.fits.length ? `<div class="fits">${p.fits.map(f => `<span>${f}</span>`).join('')}</div>` : ''}
         <div class="buybox">
-          <div class="pr"><b>Цена по запросу</b><span>Опт и розница</span></div>
+          <div class="pr"><b>Цена по запросу</b>${status(p)}</div>
           <div class="btns"><button class="btn btn-red" data-request="${p.id}">Запросить цену</button><a class="btn btn-line" href="tel:88002501598">${ico('phone')}Позвонить</a></div>
           <ul>
-            <li>${ico('shield')}Оригинальная деталь, есть сертификат</li>
-            <li>${ico('box')}Наличие на складе в Благовещенске уточняйте у менеджера</li>
+            ${p.stock ? `<li>${ico('box')}В наличии на складе в Благовещенске, отгрузка 1–2 дня</li>`
+              : `<li>${ico('clock')}Под заказ с завода, срок ${LEAD[p.brand]}</li><li>${ico('wallet')}Предоплата, точная цена и срок в счёте</li>`}
+            <li>${ico('shield')}Прямая поставка, документы и сертификаты</li>
             <li>${ico('truck')}Доставка по России транспортными компаниями</li>
           </ul>
+          <a class="link" href="#/usloviya">Условия работы ${ico('arrow')}</a>
         </div>
         <div class="specs"><h2>Характеристики</h2><table>
           <tr><td>Артикул</td><td>${p.sku}</td></tr>
+          <tr><td>Бренд</td><td>${b.label}</td></tr>
           <tr><td>Раздел</td><td>${c.name}</td></tr>
+          <tr><td>Наличие</td><td>${p.stock ? 'В наличии' : 'Под заказ'}</td></tr>
+          <tr><td>Срок поставки</td><td>${lead}</td></tr>
           <tr><td>Применимость</td><td>${p.fits.join(', ') || 'Уточняйте у менеджера'}</td></tr>
-          <tr><td>Производитель</td><td>Createk</td></tr>
-          <tr><td>Вес, кг</td><td>Уточняется</td></tr>
+          <tr><td>Страна производства</td><td>Китай</td></tr>
         </table></div>
-        <div class="desc"><h2>Описание</h2><p>Здесь будет описание детали: для каких узлов подходит, особенности установки, комплектация. Сейчас на сайте описаний нет, их нужно получить у клиента.</p></div>
+        <div class="desc"><h2>Описание</h2><p>${p.demo ? 'Это пример позиции для прототипа. На сайте здесь будет описание детали, применимость и фото от производителя.' : 'Здесь будет описание детали: для каких узлов подходит, особенности установки, комплектация. Сейчас на сайте описаний нет, их нужно получить у клиента.'}</p></div>
       </div>
     </div>
     <section style="padding-bottom:0">
@@ -900,23 +1205,129 @@ function product(id){
   </div>`;
 }
 
+const TOC = [['kak','Как мы работаем'], ['sroki','Наличие и сроки'], ['oplata','Оплата'], ['dostavka','Доставка из Китая'], ['dokumenty','Таможня и документы'], ['garantiya','Гарантия и возврат'], ['opt','Оптовикам и автопаркам'], ['voprosy','Вопросы']];
+const box = (icon, title, body) => `<div class="box"><h3>${ico(icon)}${title}</h3>${body}</div>`;
+const ul = list => `<ul>${list.map(x => `<li>${x}</li>`).join('')}</ul>`;
+const faq = (q, a) => `<details class="faq"><summary>${q}</summary><p>${a}</p></details>`;
+
+function terms(){
+  return bhero({crumbs: '<span>Условия работы</span>', badge: 'Покупателям', title: 'Условия работы', text: 'Как мы поставляем запчасти из Китая: наличие и сроки, оплата, доставка, таможня и гарантия.', facts: [['1–2 дня','со склада'],['20–45 дней','под заказ'],['По России','доставка']]}) +
+  `<div class="wrap"><div class="terms">
+    <nav class="toc">${TOC.map(([id, t]) => `<a href="#/usloviya/${id}">${t}</a>`).join('')}</nav>
+    <div>
+      <div class="note">Сроки, проценты и условия в прототипе условные. Заполняются по данным клиента.</div>
+
+      <div class="tblock" id="t-kak"><h2>Как мы работаем</h2>
+        <p>Работаем напрямую с заводами в Китае, без посредников. Часть позиций MGP держим на складе в Благовещенске, остальное привозим под заказ.</p>
+        ${steps()}
+      </div>
+
+      <div class="tblock" id="t-sroki"><h2>Наличие и сроки</h2>
+        <p>Точный срок называем в счёте. Он зависит от завода, объёма партии и способа доставки.</p>
+        <div class="tscroll"><table class="ttable">
+          <tr><th>Что</th><th>Откуда</th><th>Срок</th></tr>
+          <tr><td>MGP в наличии</td><td>Склад в Благовещенске</td><td><b>1–2 рабочих дня</b></td></tr>
+          <tr><td>MGP под заказ</td><td>Завод-партнёр в Китае</td><td><b>20–30 дней</b></td></tr>
+          <tr><td>Forview</td><td>Завод производителя</td><td><b>20–35 дней</b></td></tr>
+          <tr><td>Createk</td><td>Под заказ</td><td><b>25–45 дней</b></td></tr>
+          <tr><td>Спецтехника</td><td>Завод, по договору</td><td><b>30–60 дней</b></td></tr>
+        </table></div>
+      </div>
+
+      <div class="tblock" id="t-oplata"><h2>Оплата</h2>
+        <div class="grid2">
+          ${box('doc', 'Юрлица и ИП', '<p>Безналичный расчёт по счёту, договор поставки. Работаем с НДС.</p>')}
+          ${box('wallet', 'Частные лица', '<p>Оплата картой или переводом по счёту, наличными в офисе в Благовещенске.</p>')}
+          ${box('clock', 'Под заказ', '<p>Предоплата 30–50%, остаток перед отгрузкой со склада в Благовещенске.</p>')}
+          ${box('shield', 'Цена фиксируется', '<p>Цена в счёте не меняется в течение срока его действия, даже при колебаниях курса юаня.</p>')}
+        </div>
+      </div>
+
+      <div class="tblock" id="t-dostavka"><h2>Доставка из Китая</h2>
+        <p>Груз идёт с завода до Благовещенска через пограничный переход. Здесь проходим таможню, принимаем товар на склад и отправляем дальше.</p>
+        <div class="grid2">
+          ${box('box', 'По Благовещенску', '<p>Самовывоз со склада или доставка по городу.</p>')}
+          ${box('truck', 'По России', '<p>Отправляем транспортной компанией на выбор клиента. Довозим до терминала бесплатно.</p>')}
+          ${box('factory', 'Сборные грузы', '<p>Объединяем заказ с другими партиями, чтобы снизить стоимость доставки из Китая.</p>')}
+          ${box('clock', 'Отслеживание', '<p>Сообщаем статус на каждом этапе: выкуп, отгрузка с завода, таможня, склад.</p>')}
+        </div>
+      </div>
+
+      <div class="tblock" id="t-dokumenty"><h2>Таможня и документы</h2>
+        <p>Таможенное оформление берём на себя, оно включено в цену. Вместе с товаром передаём полный пакет документов.</p>
+        ${box('doc', 'Что вы получаете', ul(['Договор поставки и счёт', 'УПД или товарная накладная', 'Таможенная декларация (по запросу)', 'Сертификаты и декларации соответствия']))}
+      </div>
+
+      <div class="tblock" id="t-garantiya"><h2>Гарантия и возврат</h2>
+        <div class="grid2">
+          ${box('shield', 'Гарантия', '<p>На запчасти действует гарантия производителя. На MGP мы отвечаем сами как владелец бренда.</p>')}
+          ${box('check', 'Брак и пересорт', '<p>Меняем деталь или возвращаем деньги после проверки. Заявку принимаем в течение 14 дней.</p>')}
+        </div>
+      </div>
+
+      <div class="tblock" id="t-opt"><h2>Оптовикам и автопаркам</h2>
+        <p>Для магазинов, СТО и автопарков: особые цены и поставки по графику.</p>
+        <div class="grid2">
+          ${box('hand', 'Цена от объёма', '<p>Скидка зависит от суммы заказа и регулярности закупок.</p>')}
+          ${box('users', 'Персональный менеджер', '<p>Один контакт по всем заказам, подбор по VIN и спискам артикулов.</p>')}
+          ${box('clock', 'Поставки по графику', '<p>Формируем партии под вашу потребность, ходовые позиции резервируем на складе.</p>')}
+          ${box('wallet', 'Отсрочка платежа', '<p>Для постоянных клиентов после нескольких заказов.</p>')}
+        </div>
+      </div>
+
+      <div class="tblock" id="t-voprosy"><h2>Вопросы</h2>
+        ${faq('Можно заказать деталь, которой нет в каталоге?', 'Да. Пришлите артикул, VIN или фото детали. Найдём у заводов и назовём цену и срок.')}
+        ${faq('Почему цены по запросу?', 'Цена зависит от курса, объёма партии и способа доставки. Мы называем точную цену в счёте и фиксируем её.')}
+        ${faq('Чем MGP отличается от других брендов?', 'MGP наш собственный бренд. Мы сами выбираем заводы, контролируем качество и держим ходовые позиции на складе.')}
+        ${faq('Можно забрать заказ самому?', 'Да, со склада в Благовещенске. Адрес и часы работы сообщит менеджер.')}
+      </div>
+    </div>
+  </div>
+  <section style="padding-bottom:0">${ctaBlock('Остались вопросы по условиям?', 'Позвоните или оставьте заявку. Менеджер расскажет, как будет идти ваша поставка.')}</section>
+  </div>`;
+}
+
+const MTYPES = [['dumper','Самосвалы','Для строительства, карьеров и дорог'], ['truck','Седельные тягачи','Магистральные и карьерные перевозки'], ['loader','Фронтальные погрузчики','Для складов, стройки и карьеров'], ['excavator','Экскаваторы','Гусеничные и колёсные'], ['crane','Техника на шасси','Миксеры, манипуляторы, автокраны']];
+const MSTEPS = [['Подбор','Подбираем модель и комплектацию под задачу'], ['Договор','Фиксируем цену, срок и этапы оплаты'], ['Поставка','Выкуп на заводе, доставка, таможня'], ['Передача','ЭПТС и передача техники в Благовещенске']];
+
+function tekhnika(){
+  return bhero({dark: 1, crumbs: '<span>Спецтехника</span>', badge: 'Под заказ', title: 'Спецтехника из Китая', text: 'Подбираем и привозим грузовую и специальную технику с заводов Китая под ваши задачи. Новая техника с документами для регистрации в России.', btns: `<div class="btns"><button class="btn btn-red" data-request="tekhnika">Запросить подбор</button><a class="btn btn-line" style="border-color:#fff;color:#fff" href="tel:88002501598">${ico('phone')}8 800 250-15-98</a></div>`, facts: [['Под заказ','по вашей задаче'],['30–60 дней','срок поставки'],['ЭПТС','документы для учёта']]}) +
+  `<div class="wrap">
+    <section><div class="sec-head"><div><h2>Что поставляем</h2><p>Каталога техники нет: подбираем под задачу</p></div></div>
+      <div class="mtypes">${MTYPES.map(([i, b, s]) => `<div class="mtype">${ico(i)}<b>${b}</b><span>${s}</span></div>`).join('')}</div>
+    </section>
+    <section style="padding-top:0"><div class="sec-head"><div><h2>Как проходит поставка</h2></div></div>${steps(MSTEPS, 's4')}</section>
+    <section style="padding-top:0"><div class="sec-head"><div><h2>Условия</h2></div></div>
+      <div class="grid2">
+        ${box('wallet', 'Оплата', '<p>Поэтапно по договору: аванс при заказе, остаток перед отгрузкой с завода.</p>')}
+        ${box('doc', 'Документы', '<p>Договор, таможенная декларация, ЭПТС. Техника готова к постановке на учёт.</p>')}
+        ${box('truck', 'Доставка', '<p>До Благовещенска, дальше тралом или своим ходом в ваш город.</p>')}
+        ${box('shield', 'Гарантия и запчасти', '<p>Заводская гарантия. Запчасти для обслуживания поставляем сами.</p>')}
+      </div>
+    </section>
+    <section style="padding:0">${ctaBlock('Нужна техника под задачу?', 'Опишите, что нужно: тип техники, объём работ, город. Подберём варианты и рассчитаем срок.', 'tekhnika')}</section>
+  </div>`;
+}
+
 /* router */
 const app = document.getElementById('app');
 function route(){
-  const h = location.hash.replace(/^#\/?/, '');
-  const [type, id] = h.split('/');
-  app.innerHTML = type === 'c' ? category(id) : type === 'p' ? product(id) : home();
+  const [type, a, b] = location.hash.replace(/^#\/?/, '').split('/');
+  const pages = {c: () => category(a, b), b: () => brandPage(a, b), p: () => product(a), usloviya: terms, tekhnika};
+  app.innerHTML = (pages[type] || home)();
   closeDrawer();
-  window.scrollTo(0, 0);
+  const anchor = type === 'usloviya' && a && document.getElementById('t-' + a);
+  anchor ? anchor.scrollIntoView() : window.scrollTo(0, 0);
 }
 window.addEventListener('hashchange', route);
 
 /* drawer */
 const drawer = document.getElementById('drawer'), drawerBg = document.getElementById('drawer-bg');
-document.getElementById('drawer-grid').innerHTML = CATS.map(c => `<a href="#/c/${c.id}">${ico(c.icon)}${c.name}<em>${c.n}</em></a>`).join('');
-document.getElementById('drawer-extra').innerHTML = `<a href="#/">О компании</a><a href="#/">Оплата и доставка</a><a href="#/">Партнёрам</a><a href="#/">Новости</a><a href="#/">Контакты</a>
+document.getElementById('drawer-brands').innerHTML = BRANDS.map(b => `<a href="#/b/${b.id}"><b>${b.label}</b><small>${b.badge}</small></a>`).join('') + `<a href="#/tekhnika"><b>Спецтехника</b><small>Под заказ</small></a>`;
+document.getElementById('drawer-grid').innerHTML = CATS.map(c => `<a href="#/c/${c.id}">${ico(c.icon)}${c.name}<em>${total(null, c.id)}</em></a>`).join('');
+document.getElementById('drawer-extra').innerHTML = `<a href="#/usloviya">Условия работы</a><a href="#/usloviya/dostavka">Доставка из Китая</a><a href="#/usloviya/opt">Оптовикам</a><a href="#/">Контакты</a>
   <div><a class="foot-phone" href="tel:88002501598">8 800 250-15-98</a><span style="color:var(--muted);font-weight:500;font-size:14px">бесплатно по России</span></div>`;
-document.getElementById('foot-cats').innerHTML = CATS.slice(0,6).map(c => `<li><a href="#/c/${c.id}">${c.name}</a></li>`).join('') + '<li><a href="#/c/dvigatel">Все разделы</a></li>';
+document.getElementById('foot-brands').innerHTML = BRANDS.map(b => `<li><a href="#/b/${b.id}">${b.label}</a></li>`).join('') + '<li><a href="#/tekhnika">Спецтехника</a></li><li><a href="#/c/dvigatel">Запчасти по узлам</a></li>';
 function openDrawer(){
   const hdr = document.getElementById('header').getBoundingClientRect();
   drawer.style.setProperty('--drawer-top', hdr.bottom + 'px');
@@ -938,10 +1349,14 @@ document.addEventListener('click', e => {
   const r = e.target.closest('[data-request]');
   if (r) {
     const id = r.dataset.request || (location.hash.match(/#\/p\/(\d+)/) || [])[1];
-    const p = P.find(x => x.id == id);
+    const mach = id === 'tekhnika' || (!id && location.hash.startsWith('#/tekhnika'));
+    const p = !mach && P.find(x => x.id == id);
     const item = document.getElementById('m-item');
-    item.hidden = !p;
-    if (p) item.innerHTML = `<b>${p.name}</b>Артикул ${p.sku}`;
+    document.getElementById('m-title').textContent = mach ? 'Подбор спецтехники' : p ? 'Запросить цену' : 'Оставить заявку';
+    document.getElementById('m-msg').placeholder = mach ? 'Тип техники, объём работ, город' : 'Артикул, количество, VIN или что-то ещё';
+    item.hidden = !p && !mach;
+    if (mach) item.innerHTML = '<b>Спецтехника под заказ</b>Подберём варианты и рассчитаем срок поставки';
+    else if (p) item.innerHTML = `<b>${p.name}</b>${brandById(p.brand).label} · ${p.sku} · ${p.stock ? 'в наличии' : 'под заказ'}`;
     document.getElementById('m-form').hidden = false;
     document.getElementById('m-done').hidden = true;
     modalBg.classList.add('open');

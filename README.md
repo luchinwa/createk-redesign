@@ -1,8 +1,10 @@
 # Createk: прототип редизайна
 
-Прототип нового сайта createk.pro: главная, разделы каталога, карточка товара, форма «Запросить цену», мобильная версия. Страница закрыта от индексации (`noindex`).
+Прототип нового сайта createk.pro. Страница закрыта от индексации (`noindex`).
 
-Товары и количество позиций взяты со старого сайта (около 470 позиций в 16 разделах). Названия частично приведены в порядок. Логотип, фото и тексты блоков условные.
+**v2 (текущая):** прямые поставки запчастей и спецтехники из Китая. Бренды MGP (собственный, часть в наличии), Forview и Createk (базовый каталог, под заказ), страница условий работы, короткий раздел о спецтехнике. Домен createk.pro сохраняется ради возраста.
+
+Позиции Createk взяты со старого сайта (около 470 в 16 разделах). Позиции MGP и Forview, сроки, проценты и тексты условные.
 
 ## Страницы для показа
 
@@ -11,13 +13,16 @@
 | Страница | Ссылка |
 |---|---|
 | Главная | https://luchinwa.github.io/createk-redesign/ |
-| Двигатель | https://luchinwa.github.io/createk-redesign/#/c/dvigatel |
-| Мост | https://luchinwa.github.io/createk-redesign/#/c/most |
-| Подшипники | https://luchinwa.github.io/createk-redesign/#/c/podshipniki |
-| Тормозная система | https://luchinwa.github.io/createk-redesign/#/c/tormoznaya-sistema |
-| Кузов и кабина | https://luchinwa.github.io/createk-redesign/#/c/kuzov-i-kabina |
-| Ремни | https://luchinwa.github.io/createk-redesign/#/c/remni |
-| Карточка товара | https://luchinwa.github.io/createk-redesign/#/p/99 |
+| Бренд MGP | https://luchinwa.github.io/createk-redesign/#/b/mgp |
+| Бренд Forview | https://luchinwa.github.io/createk-redesign/#/b/forview |
+| Бренд Createk | https://luchinwa.github.io/createk-redesign/#/b/createk |
+| Раздел с фильтром по брендам | https://luchinwa.github.io/createk-redesign/#/c/tormoznaya-sistema |
+| Карточка MGP (в наличии) | https://luchinwa.github.io/createk-redesign/#/p/1004 |
+| Карточка Createk (под заказ) | https://luchinwa.github.io/createk-redesign/#/p/99 |
+| Условия работы | https://luchinwa.github.io/createk-redesign/#/usloviya |
+| Спецтехника | https://luchinwa.github.io/createk-redesign/#/tekhnika |
+
+Первая версия (редизайн старого сайта под Createk): https://luchinwa.github.io/createk-redesign/v1.html
 
 ## Как обновить GitHub Pages
 

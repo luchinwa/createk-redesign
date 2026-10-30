@@ -1037,7 +1037,7 @@ function home(){
     <div>
       <span class="eyebrow">Прямые поставки из Китая</span>
       <h1>Запчасти и спецтехника <span>напрямую с заводов Китая</span></h1>
-      <p>Собственный бренд MGP со склада в Благовещенске, Forview и Createk под заказ. Без посредников: выкупаем на заводе, оформляем таможню и доставляем по России.</p>
+      <p>Собственный бренд MGP со склада в Благовещенске, Forview и Createk под заказ. Спецтехника в наличии и под заказ. Без посредников: выкупаем на заводе, оформляем таможню и доставляем по России.</p>
       <div class="btns">
         <a class="btn btn-red" href="#/b/mgp">MGP в наличии ${ico('arrow')}</a>
         <a class="btn btn-line" href="#/usloviya">Условия работы</a>
@@ -1077,13 +1077,15 @@ function home(){
     <div class="mach">
       <div class="mach-img">${ico('excavator')}</div>
       <div class="mach-text">
-        <span class="eyebrow">Под заказ</span>
-        <h2>Поставляем и спецтехнику</h2>
-        <p>Самосвалы, тягачи, погрузчики и экскаваторы с заводов Китая. Подбираем под задачу и привозим с документами для регистрации.</p>
-        <ul class="ticks"><li>${ico('check')}Работаем по договору, оплата поэтапно</li><li>${ico('check')}Срок поставки от 30 до 60 дней</li><li>${ico('check')}Таможня и ЭПТС под ключ</li></ul>
-        <div class="btns"><a class="btn btn-dark" href="#/tekhnika">Условия поставки техники</a></div>
+        <span class="eyebrow">В наличии и под заказ</span>
+        <h2>Спецтехника из Китая</h2>
+        <p>Самосвалы, тягачи, погрузчики, экскаваторы и техника на шасси. Большая часть в наличии на площадке в Благовещенске, остальное привезём под заказ.</p>
+        <ul class="ticks"><li>${ico('check')}Много техники в наличии, можно осмотреть</li><li>${ico('check')}Под заказ: от 30 до 60 дней</li><li>${ico('check')}Таможня и ЭПТС под ключ</li></ul>
+        <div class="btns"><a class="btn btn-dark" href="#/tekhnika">Смотреть технику</a></div>
       </div>
     </div>
+    <div class="sec-head" style="margin-top:40px"><div><h2>Техника в наличии</h2><p>Можно осмотреть на площадке в Благовещенске</p></div><a href="#/tekhnika" class="link">Вся техника ${ico('arrow')}</a></div>
+    <div class="products">${MACH.filter(m => m.stock).filter((m, i, a) => a.findIndex(x => x.type === m.type) === i).slice(0, 4).map(mcard).join('')}</div>
   </div></section>
 
   <section style="padding-top:0"><div class="wrap">
@@ -1230,7 +1232,8 @@ function terms(){
           <tr><td>MGP под заказ</td><td>Завод-партнёр в Китае</td><td><b>20–30 дней</b></td></tr>
           <tr><td>Forview</td><td>Завод производителя</td><td><b>20–35 дней</b></td></tr>
           <tr><td>Createk</td><td>Под заказ</td><td><b>25–45 дней</b></td></tr>
-          <tr><td>Спецтехника</td><td>Завод, по договору</td><td><b>30–60 дней</b></td></tr>
+          <tr><td>Спецтехника в наличии</td><td>Площадка в Благовещенске</td><td><b>1–3 дня</b></td></tr>
+          <tr><td>Спецтехника под заказ</td><td>Завод, по договору</td><td><b>30–60 дней</b></td></tr>
         </table></div>
       </div>
 
@@ -1279,6 +1282,7 @@ function terms(){
         ${faq('Можно заказать деталь, которой нет в каталоге?', 'Да. Пришлите артикул, VIN или фото детали. Найдём у заводов и назовём цену и срок.')}
         ${faq('Почему цены по запросу?', 'Цена зависит от курса, объёма партии и способа доставки. Мы называем точную цену в счёте и фиксируем её.')}
         ${faq('Чем MGP отличается от других брендов?', 'MGP наш собственный бренд. Мы сами выбираем заводы, контролируем качество и держим ходовые позиции на складе.')}
+        ${faq('Можно посмотреть технику до покупки?', 'Да. Технику в наличии можно осмотреть и проверить на площадке в Благовещенске.')}
         ${faq('Можно забрать заказ самому?', 'Да, со склада в Благовещенске. Адрес и часы работы сообщит менеджер.')}
       </div>
     </div>
@@ -1287,22 +1291,51 @@ function terms(){
   </div>`;
 }
 
-const MTYPES = [['dumper','Самосвалы','Для строительства, карьеров и дорог'], ['truck','Седельные тягачи','Магистральные и карьерные перевозки'], ['loader','Фронтальные погрузчики','Для складов, стройки и карьеров'], ['excavator','Экскаваторы','Гусеничные и колёсные'], ['crane','Техника на шасси','Миксеры, манипуляторы, автокраны']];
+const MTYPES = [['dumper','dumper','Самосвалы'], ['tyagach','truck','Тягачи'], ['loader','loader','Погрузчики'], ['excavator','excavator','Экскаваторы'], ['shassi','crane','Техника на шасси']];
+// примеры техники: реальный парк и остатки нужно получить у клиента
+const MACH = [
+  ['dumper','Самосвал 6×4','Грузоподъёмность 25 т · 380 л.с.',1], ['dumper','Самосвал 8×4','Грузоподъёмность 31 т · 430 л.с.',1], ['dumper','Самосвал 6×4 карьерный','Грузоподъёмность 40 т · 430 л.с.',0],
+  ['tyagach','Седельный тягач 6×4','430 л.с. · КПП 12 ступеней',1], ['tyagach','Седельный тягач 4×2','400 л.с. · магистральный',1], ['tyagach','Седельный тягач 6×4 газовый','460 л.с. · метан',0],
+  ['loader','Фронтальный погрузчик','Ковш 3 м³ · 5 т',1], ['loader','Фронтальный погрузчик','Ковш 1,8 м³ · 3 т',1], ['loader','Телескопический погрузчик','Подъём 4 т · 17 м',0],
+  ['excavator','Экскаватор гусеничный','Масса 22 т · ковш 1,2 м³',1], ['excavator','Экскаватор гусеничный','Масса 35 т · ковш 1,8 м³',0], ['excavator','Экскаватор колёсный','Масса 15 т · ковш 0,6 м³',1],
+  ['shassi','Автобетоносмеситель','Барабан 10 м³ · шасси 6×4',1], ['shassi','Кран-манипулятор','12 т · шасси 6×4',1], ['shassi','Автокран','25 т · стрела 33 м',0],
+].map(([type, name, spec, stock], i) => ({id: 'm' + (i + 1), type, name, spec, stock: !!stock}));
 const MSTEPS = [['Подбор','Подбираем модель и комплектацию под задачу'], ['Договор','Фиксируем цену, срок и этапы оплаты'], ['Поставка','Выкуп на заводе, доставка, таможня'], ['Передача','ЭПТС и передача техники в Благовещенске']];
+const mtype = id => MTYPES.find(t => t[0] === id);
 
-function tekhnika(){
-  return bhero({dark: 1, crumbs: '<span>Спецтехника</span>', badge: 'Под заказ', title: 'Спецтехника из Китая', text: 'Подбираем и привозим грузовую и специальную технику с заводов Китая под ваши задачи. Новая техника с документами для регистрации в России.', btns: `<div class="btns"><button class="btn btn-red" data-request="tekhnika">Запросить подбор</button><a class="btn btn-line" style="border-color:#fff;color:#fff" href="tel:88002501598">${ico('phone')}8 800 250-15-98</a></div>`, facts: [['Под заказ','по вашей задаче'],['30–60 дней','срок поставки'],['ЭПТС','документы для учёта']]}) +
+function mcard(m){
+  return `<article class="card">
+    <div class="thumb">${ico(mtype(m.type)[1])}<span class="tag">${mtype(m.type)[2]}</span></div>
+    <div class="card-body">
+      <span class="sku">${m.spec}</span>
+      <h3>${m.name}</h3>
+      ${status(m)}
+      <div class="card-foot">
+        <span class="price">Цена по запросу</span>
+        <button class="req" data-request="${m.id}">Запросить</button>
+      </div>
+    </div>
+  </article>`;
+}
+
+function tekhnika(type){
+  const t = mtype(type);
+  const list = MACH.filter(m => !t || m.type === t[0]).sort((x, y) => y.stock - x.stock);
+  const inStock = MACH.filter(m => m.stock).length;
+  return bhero({dark: 1, crumbs: '<span>Спецтехника</span>', badge: 'В наличии и под заказ', title: 'Спецтехника из Китая', text: 'Самосвалы, тягачи, погрузчики, экскаваторы и техника на шасси. Большая часть в наличии на площадке в Благовещенске, остальное привезём с завода под заказ.', btns: `<div class="btns"><button class="btn btn-red" data-request="tekhnika">Запросить подбор</button><a class="btn btn-line" style="border-color:#fff;color:#fff" href="tel:88002501598">${ico('phone')}8 800 250-15-98</a></div>`, facts: [['В наличии','на площадке в Благовещенске'],['30–60 дней','под заказ с завода'],['ЭПТС','документы для учёта']]}) +
   `<div class="wrap">
-    <section><div class="sec-head"><div><h2>Что поставляем</h2><p>Каталога техники нет: подбираем под задачу</p></div></div>
-      <div class="mtypes">${MTYPES.map(([i, b, s]) => `<div class="mtype">${ico(i)}<b>${b}</b><span>${s}</span></div>`).join('')}</div>
+    <section style="padding-bottom:44px"><div class="sec-head"><div><h2>Техника</h2><p>${plural(inStock, 'единица', 'единицы', 'единиц')} в наличии, можно осмотреть на площадке</p></div></div>
+      <div class="note">Модели и характеристики в прототипе приведены для примера. Реальный парк и остатки подставим по данным клиента.</div>
+      <div class="bchips"><a href="#/tekhnika" class="${!t ? 'on' : ''}">Вся техника <em>${MACH.length}</em></a>${MTYPES.map(([id, , name]) => `<a href="#/tekhnika/${id}" class="${t && t[0] === id ? 'on' : ''}">${name} <em>${MACH.filter(m => m.type === id).length}</em></a>`).join('')}</div>
+      <div class="products">${list.map(mcard).join('')}</div>
     </section>
-    <section style="padding-top:0"><div class="sec-head"><div><h2>Как проходит поставка</h2></div></div>${steps(MSTEPS, 's4')}</section>
+    <section style="padding-top:0"><div class="sec-head"><div><h2>Под заказ: как проходит поставка</h2><p>Если нужной модели или комплектации нет в наличии</p></div></div>${steps(MSTEPS, 's4')}</section>
     <section style="padding-top:0"><div class="sec-head"><div><h2>Условия</h2></div></div>
       <div class="grid2">
-        ${box('wallet', 'Оплата', '<p>Поэтапно по договору: аванс при заказе, остаток перед отгрузкой с завода.</p>')}
+        ${box('box', 'Техника в наличии', '<p>Осмотр и проверка на площадке в Благовещенске. Оформление и передача за 1–3 дня.</p>')}
+        ${box('wallet', 'Под заказ', '<p>Комплектация под задачу, срок 30–60 дней. Оплата поэтапно по договору: аванс при заказе, остаток перед отгрузкой с завода.</p>')}
         ${box('doc', 'Документы', '<p>Договор, таможенная декларация, ЭПТС. Техника готова к постановке на учёт.</p>')}
-        ${box('truck', 'Доставка', '<p>До Благовещенска, дальше тралом или своим ходом в ваш город.</p>')}
-        ${box('shield', 'Гарантия и запчасти', '<p>Заводская гарантия. Запчасти для обслуживания поставляем сами.</p>')}
+        ${box('truck', 'Доставка и сервис', '<p>Тралом или своим ходом в ваш город. Заводская гарантия, запчасти для обслуживания поставляем сами.</p>')}
       </div>
     </section>
     <section style="padding:0">${ctaBlock('Нужна техника под задачу?', 'Опишите, что нужно: тип техники, объём работ, город. Подберём варианты и рассчитаем срок.', 'tekhnika')}</section>
@@ -1313,7 +1346,7 @@ function tekhnika(){
 const app = document.getElementById('app');
 function route(){
   const [type, a, b] = location.hash.replace(/^#\/?/, '').split('/');
-  const pages = {c: () => category(a, b), b: () => brandPage(a, b), p: () => product(a), usloviya: terms, tekhnika};
+  const pages = {c: () => category(a, b), b: () => brandPage(a, b), p: () => product(a), usloviya: terms, tekhnika: () => tekhnika(a)};
   app.innerHTML = (pages[type] || home)();
   closeDrawer();
   const anchor = type === 'usloviya' && a && document.getElementById('t-' + a);
@@ -1323,7 +1356,7 @@ window.addEventListener('hashchange', route);
 
 /* drawer */
 const drawer = document.getElementById('drawer'), drawerBg = document.getElementById('drawer-bg');
-document.getElementById('drawer-brands').innerHTML = BRANDS.map(b => `<a href="#/b/${b.id}"><b>${b.label}</b><small>${b.badge}</small></a>`).join('') + `<a href="#/tekhnika"><b>Спецтехника</b><small>Под заказ</small></a>`;
+document.getElementById('drawer-brands').innerHTML = BRANDS.map(b => `<a href="#/b/${b.id}"><b>${b.label}</b><small>${b.badge}</small></a>`).join('') + `<a href="#/tekhnika"><b>Спецтехника</b><small>В наличии и под заказ</small></a>`;
 document.getElementById('drawer-grid').innerHTML = CATS.map(c => `<a href="#/c/${c.id}">${ico(c.icon)}${c.name}<em>${total(null, c.id)}</em></a>`).join('');
 document.getElementById('drawer-extra').innerHTML = `<a href="#/usloviya">Условия работы</a><a href="#/usloviya/dostavka">Доставка из Китая</a><a href="#/usloviya/opt">Оптовикам</a><a href="#/">Контакты</a>
   <div><a class="foot-phone" href="tel:88002501598">8 800 250-15-98</a><span style="color:var(--muted);font-weight:500;font-size:14px">бесплатно по России</span></div>`;
@@ -1349,14 +1382,15 @@ document.addEventListener('click', e => {
   const r = e.target.closest('[data-request]');
   if (r) {
     const id = r.dataset.request || (location.hash.match(/#\/p\/(\d+)/) || [])[1];
-    const mach = id === 'tekhnika' || (!id && location.hash.startsWith('#/tekhnika'));
-    const p = !mach && P.find(x => x.id == id);
+    const m = MACH.find(x => x.id === id);
+    const mach = !m && (id === 'tekhnika' || (!id && location.hash.startsWith('#/tekhnika')));
+    const p = !mach && (m || P.find(x => x.id == id));
     const item = document.getElementById('m-item');
     document.getElementById('m-title').textContent = mach ? 'Подбор спецтехники' : p ? 'Запросить цену' : 'Оставить заявку';
     document.getElementById('m-msg').placeholder = mach ? 'Тип техники, объём работ, город' : 'Артикул, количество, VIN или что-то ещё';
     item.hidden = !p && !mach;
     if (mach) item.innerHTML = '<b>Спецтехника под заказ</b>Подберём варианты и рассчитаем срок поставки';
-    else if (p) item.innerHTML = `<b>${p.name}</b>${brandById(p.brand).label} · ${p.sku} · ${p.stock ? 'в наличии' : 'под заказ'}`;
+    else if (p) item.innerHTML = `<b>${p.name}</b>${m ? m.spec : brandById(p.brand).label + ' · ' + p.sku} · ${p.stock ? 'в наличии' : 'под заказ'}`;
     document.getElementById('m-form').hidden = false;
     document.getElementById('m-done').hidden = true;
     modalBg.classList.add('open');

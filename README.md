@@ -6,18 +6,18 @@
 
 ## Страницы для показа
 
-Вместо `<адрес>` подставить адрес GitHub Pages, например `https://<логин>.github.io/<репозиторий>/`.
+Адрес: https://luchinwa.github.io/createk-redesign/
 
 | Страница | Ссылка |
 |---|---|
-| Главная | `<адрес>` |
-| Двигатель | `<адрес>#/c/dvigatel` |
-| Мост | `<адрес>#/c/most` |
-| Подшипники | `<адрес>#/c/podshipniki` |
-| Тормозная система | `<адрес>#/c/tormoznaya-sistema` |
-| Кузов и кабина | `<адрес>#/c/kuzov-i-kabina` |
-| Ремни | `<адрес>#/c/remni` |
-| Карточка товара | `<адрес>#/p/99` |
+| Главная | https://luchinwa.github.io/createk-redesign/ |
+| Двигатель | https://luchinwa.github.io/createk-redesign/#/c/dvigatel |
+| Мост | https://luchinwa.github.io/createk-redesign/#/c/most |
+| Подшипники | https://luchinwa.github.io/createk-redesign/#/c/podshipniki |
+| Тормозная система | https://luchinwa.github.io/createk-redesign/#/c/tormoznaya-sistema |
+| Кузов и кабина | https://luchinwa.github.io/createk-redesign/#/c/kuzov-i-kabina |
+| Ремни | https://luchinwa.github.io/createk-redesign/#/c/remni |
+| Карточка товара | https://luchinwa.github.io/createk-redesign/#/p/99 |
 
 ## Как обновить GitHub Pages
 

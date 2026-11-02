@@ -2,9 +2,9 @@
 
 Прототип нового сайта createk.pro. Страница закрыта от индексации (`noindex`).
 
-**v2 (текущая):** прямые поставки запчастей и спецтехники из Китая. Бренды MGP (собственный, часть в наличии), Forview и Createk (базовый каталог, под заказ), страница условий работы, спецтехника в наличии и под заказ. Домен createk.pro сохраняется ради возраста.
+**v2 (текущая):** прямые поставки запчастей и спецтехники из Китая. Каталог только MGP (собственный бренд, часть в наличии); Forview и Createk — страницы о бренде: ассортимент, качество, история завода, выставки, страница условий работы, спецтехника в наличии и под заказ. Домен createk.pro сохраняется ради возраста.
 
-Позиции Createk взяты со старого сайта (около 470 в 16 разделах). Позиции MGP и Forview, модели техники, сроки, проценты и тексты условные.
+Позиции MGP, модели техники, сроки, проценты и тексты условные.
 
 ## Страницы для показа
 
@@ -14,11 +14,10 @@
 |---|---|
 | Главная | https://luchinwa.github.io/createk-redesign/ |
 | Бренд MGP | https://luchinwa.github.io/createk-redesign/#/b/mgp |
-| Бренд Forview | https://luchinwa.github.io/createk-redesign/#/b/forview |
-| Бренд Createk | https://luchinwa.github.io/createk-redesign/#/b/createk |
-| Раздел с фильтром по брендам | https://luchinwa.github.io/createk-redesign/#/c/tormoznaya-sistema |
+| О бренде Forview | https://luchinwa.github.io/createk-redesign/#/b/forview |
+| О бренде Createk | https://luchinwa.github.io/createk-redesign/#/b/createk |
+| Раздел каталога MGP | https://luchinwa.github.io/createk-redesign/#/c/filtry |
 | Карточка MGP (в наличии) | https://luchinwa.github.io/createk-redesign/#/p/1004 |
-| Карточка Createk (под заказ) | https://luchinwa.github.io/createk-redesign/#/p/99 |
 | Условия работы | https://luchinwa.github.io/createk-redesign/#/usloviya |
 | Спецтехника | https://luchinwa.github.io/createk-redesign/#/tekhnika |
 

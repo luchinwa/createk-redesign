@@ -516,6 +516,22 @@ details.faq p{margin:10px 0 0;color:var(--ink-2)}
   .mtype b{font-size:15px}
   .mtype span{font-size:13px}
 }
+
+/* история завода */
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tl{border-top:3px solid var(--red);padding-top:16px}
+.tl b{display:block;font-size:18px;margin-bottom:6px}
+.tl span{color:var(--muted);font-size:14.5px}
+div.cat:hover{border-color:var(--line);box-shadow:none}
+@media (max-width:960px){.timeline{grid-template-columns:1fr;gap:12px}}
+
+/* выставки */
+.expo{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.expo-img{aspect-ratio:4/3;border-radius:14px;background:linear-gradient(150deg,#f6f6f4,#e8e8e3);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.expo-img .ico{width:30%;height:auto;aspect-ratio:1;color:#c2c2bc;stroke-width:1}
+.expo b{display:block}
+.expo span{color:var(--muted);font-size:14px}
+@media (max-width:960px){.expo{grid-template-columns:1fr 1fr;gap:10px}}
 </style>
 </head>
 <body>
@@ -601,7 +617,7 @@ details.faq p{margin:10px 0 0;color:var(--ink-2)}
   <div class="drawer-head"><b>Каталог</b><button class="icon-btn" data-close-drawer aria-label="Закрыть"><svg class="ico"><use href="#i-x"/></svg></button></div>
   <div class="drawer-label">Бренды</div>
   <div class="drawer-brands" id="drawer-brands"></div>
-  <div class="drawer-label">Запчасти по узлам</div>
+  <div class="drawer-label">Запчасти MGP по узлам</div>
   <div class="drawer-grid" id="drawer-grid"></div>
   <div class="drawer-extra" id="drawer-extra"></div>
 </nav>
@@ -680,272 +696,7 @@ const CATS = [
   {id:'elektrika', name:'Электрика', icon:'bolt', n:24},
   {id:'pricepy', name:'Прицепы и полуприцепы', icon:'trailer', n:10},
 ];
-const P = [
-  {"id": 1, "cat": "dvigatel", "name": "Блок цилиндров в сборе Евро 2", "sku": "61500070374B", "fits": [], "top": 1},
-  {"id": 2, "cat": "dvigatel", "name": "Коленвал в сборе евро 3 FAW", "sku": "1005014", "fits": ["FAW"]},
-  {"id": 3, "cat": "dvigatel", "name": "Коленвал в сборе FAW Euro 2", "sku": "1005010", "fits": ["FAW"]},
-  {"id": 4, "cat": "dvigatel", "name": "Коленвал в сборе", "sku": "61800020022", "fits": []},
-  {"id": 5, "cat": "dvigatel", "name": "Коленвал в сборе Cummins 310-375HP Euro 3", "sku": "C3965012", "fits": ["Cummins"]},
-  {"id": 6, "cat": "dvigatel", "name": "Поршневая группа", "sku": "612630020024", "fits": ["Weichai WP12"]},
-  {"id": 7, "cat": "dvigatel", "name": "Коленвал в сборе WP10", "sku": "612600020373", "fits": ["Weichai WP10"]},
-  {"id": 8, "cat": "dvigatel", "name": "Поршневая группа", "sku": "PISTON4987914", "fits": []},
-  {"id": 9, "cat": "dvigatel", "name": "Коленвал в сборе", "sku": "61560020029", "fits": []},
-  {"id": 10, "cat": "dvigatel", "name": "Поршневая группа", "sku": "—", "fits": []},
-  {"id": 11, "cat": "dvigatel", "name": "Поршневая группа", "sku": "612600030034", "fits": ["Weichai WP10"]},
-  {"id": 12, "cat": "dvigatel", "name": "Поршневая группа", "sku": "PISTON3917707", "fits": []},
-  {"id": 13, "cat": "dvigatel", "name": "Поршневая группа", "sku": "KC1560030011", "fits": []},
-  {"id": 14, "cat": "dvigatel", "name": "Поршневая группа", "sku": "KC1560030010", "fits": []},
-  {"id": 15, "cat": "dvigatel", "name": "Турбокомпрессор WP10", "sku": "612601110954", "fits": ["Weichai WP10"]},
-  {"id": 16, "cat": "dvigatel", "name": "Турбокомпрессор", "sku": "1118010", "fits": []},
-  {"id": 17, "cat": "dvigatel", "name": "Турбокомпрессор", "sku": "VG1560118229", "fits": []},
-  {"id": 18, "cat": "dvigatel", "name": "Турбокомпрессор", "sku": "VG2600118898", "fits": []},
-  {"id": 19, "cat": "dvigatel", "name": "Турбокомпрессор", "sku": "VG2600118899", "fits": []},
-  {"id": 20, "cat": "dvigatel", "name": "Турбокомпрессор", "sku": "VG1560118228", "fits": []},
-  {"id": 21, "cat": "dvigatel", "name": "Турбокомпрессор", "sku": "VG2600118895", "fits": []},
-  {"id": 22, "cat": "dvigatel", "name": "Турбокомпрессор", "sku": "VG1560118227", "fits": []},
-  {"id": 23, "cat": "dvigatel", "name": "Двойное О-кольцо", "sku": "190003120602", "fits": []},
-  {"id": 24, "cat": "dvigatel", "name": "ГБЦ в сборе WP10 EVB", "sku": "612600040362", "fits": ["Weichai WP10"]},
-  {"id": 25, "cat": "kpp", "name": "Ремкомплект рычага переключения передач", "sku": "81326706184", "fits": [], "top": 1},
-  {"id": 26, "cat": "kpp", "name": "Шестерня солнечная", "sku": "99012340005", "fits": []},
-  {"id": 27, "cat": "kpp", "name": "Переключатель низшей и высшей передач", "sku": "99012710069", "fits": []},
-  {"id": 28, "cat": "kpp", "name": "Рычаг переключения скоростей в сборе", "sku": "81326706184", "fits": []},
-  {"id": 29, "cat": "kpp", "name": "Выключатель задней передачи", "sku": "79100710068", "fits": []},
-  {"id": 30, "cat": "kpp", "name": "Выключатель нейтрального положения", "sku": "99012710041", "fits": []},
-  {"id": 31, "cat": "kpp", "name": "Ремкомплект цилиндра переключения передач КПП Fuller", "sku": "14344", "fits": ["Fuller"]},
-  {"id": 32, "cat": "kpp", "name": "Сальник переднего вала КПП", "sku": "F91410", "fits": []},
-  {"id": 33, "cat": "kpp", "name": "Ремкомплект 9-ой передачи КПП Fuller", "sku": "—", "fits": ["Fuller"]},
-  {"id": 34, "cat": "kpp", "name": "Клапан двойной", "sku": "F99660", "fits": []},
-  {"id": 35, "cat": "kuzov-i-kabina", "name": "Стеклоподъемник правый в сборе", "sku": "81626406058", "fits": [], "top": 1},
-  {"id": 36, "cat": "kuzov-i-kabina", "name": "Стеклоподъемник левый в сборе", "sku": "81626406057", "fits": []},
-  {"id": 37, "cat": "kuzov-i-kabina", "name": "Крышка бака железная", "sku": "CK9112550210", "fits": []},
-  {"id": 38, "cat": "kuzov-i-kabina", "name": "Ремкомплект торсиона кабины", "sku": "81417156010", "fits": []},
-  {"id": 39, "cat": "kuzov-i-kabina", "name": "Сайлентблок торсиона кабины", "sku": "81962100437A", "fits": []},
-  {"id": 40, "cat": "kuzov-i-kabina", "name": "Гидроцилиндр подъема кабины", "sku": "DZ1640820020", "fits": []},
-  {"id": 41, "cat": "kuzov-i-kabina", "name": "Насос подъёма кабины усилительный", "sku": "DZ93259820100", "fits": []},
-  {"id": 42, "cat": "kuzov-i-kabina", "name": "Насос подъёма кабины", "sku": "WG9719820001", "fits": []},
-  {"id": 43, "cat": "kuzov-i-kabina", "name": "Шланг подъёма кабины 3515 мм", "sku": "WG1642440072", "fits": []},
-  {"id": 44, "cat": "kuzov-i-kabina", "name": "Шланг подъёма кабины 1010 мм", "sku": "WG1642440075", "fits": []},
-  {"id": 45, "cat": "kuzov-i-kabina", "name": "Шланг подъёма кабины 3230 мм", "sku": "WG9719820007", "fits": []},
-  {"id": 46, "cat": "kuzov-i-kabina", "name": "Шланг подъёма кабины 2120 мм", "sku": "WG9719820005", "fits": []},
-  {"id": 47, "cat": "kuzov-i-kabina", "name": "Шланг подъёма кабины 1090 мм", "sku": "WG9719820006", "fits": []},
-  {"id": 48, "cat": "kuzov-i-kabina", "name": "Насос подъёма кабины", "sku": "199100820025", "fits": []},
-  {"id": 49, "cat": "kuzov-i-kabina", "name": "Боковой фонарь 1250 мм wire", "sku": "81252606101", "fits": []},
-  {"id": 50, "cat": "kuzov-i-kabina", "name": "Втулка торсиона кабины", "sku": "AZ1642430261B", "fits": []},
-  {"id": 51, "cat": "kuzov-i-kabina", "name": "Поворотник", "sku": "81253206082", "fits": []},
-  {"id": 52, "cat": "kuzov-i-kabina", "name": "Боковой фонарь", "sku": "WG9100720012", "fits": []},
-  {"id": 53, "cat": "kuzov-i-kabina", "name": "Замок зажигания в сборе", "sku": "81464336009", "fits": []},
-  {"id": 54, "cat": "kuzov-i-kabina", "name": "Замок кабины в сборе", "sku": "81618516023", "fits": []},
-  {"id": 55, "cat": "kuzov-i-kabina", "name": "Втулка торсиона кабины", "sku": "AZ1642430061", "fits": []},
-  {"id": 56, "cat": "kuzov-i-kabina", "name": "Втулка верхняя замка кабины", "sku": "81962100364", "fits": []},
-  {"id": 57, "cat": "kuzov-i-kabina", "name": "Втулка верхняя замка кабины", "sku": "81962100462", "fits": []},
-  {"id": 58, "cat": "kuzov-i-kabina", "name": "Отбойник", "sku": "81962100536", "fits": []},
-  {"id": 59, "cat": "most", "name": "Двойной сальник заднего колеса", "sku": "WG9112340113", "fits": [], "top": 1},
-  {"id": 60, "cat": "most", "name": "Дифференциал межосевой", "sku": "AZ9231320271", "fits": []},
-  {"id": 61, "cat": "most", "name": "Дифференциал межосевой", "sku": "199014320166", "fits": []},
-  {"id": 62, "cat": "most", "name": "Дифференциал межколёсный", "sku": "199014320165", "fits": []},
-  {"id": 63, "cat": "most", "name": "Корпус сателлитов бортового редуктора", "sku": "199112340029", "fits": []},
-  {"id": 64, "cat": "most", "name": "Сальник вторичного вала", "sku": "CKC0103219109", "fits": []},
-  {"id": 65, "cat": "most", "name": "Shacman F3000 Ремкомплект шкворня Толстый главный палец", "sku": "81442050055", "fits": ["Shacman"]},
-  {"id": 66, "cat": "most", "name": "Shacman F3000 Ремкомплект шкворня", "sku": "81442050055", "fits": ["Shacman"]},
-  {"id": 67, "cat": "most", "name": "Сальник проходного вала редуктора среднего моста (внутренний/внешний)", "sku": "CKWG9231320026", "fits": []},
-  {"id": 68, "cat": "most", "name": "Shacman F2000 Ремкомплект шкворня Толстый главный палец", "sku": "81442050057", "fits": ["Shacman"]},
-  {"id": 69, "cat": "most", "name": "Shacman F2000 Ремкомплект шкворня", "sku": "81442050057", "fits": ["Shacman"]},
-  {"id": 70, "cat": "most", "name": "Ремкомплект шкворня FAW-16T", "sku": "3001044", "fits": ["FAW"]},
-  {"id": 71, "cat": "most", "name": "Ремкомплект шкворня A7", "sku": "AZ9100413045", "fits": ["Howo"]},
-  {"id": 72, "cat": "most", "name": "Проходной вал", "sku": "AZ9231320031", "fits": []},
-  {"id": 73, "cat": "most", "name": "Howo Ремкомплект шкворня Толстый главный палец", "sku": "199112410057", "fits": ["Howo"]},
-  {"id": 74, "cat": "most", "name": "Сальник заднийв сборе", "sku": "VG1047010050", "fits": []},
-  {"id": 75, "cat": "most", "name": "Howo Ремкомплект шкворня", "sku": "199112410057", "fits": ["Howo"]},
-  {"id": 76, "cat": "most", "name": "Проходной вал 8 зубьев", "sku": "199114320031", "fits": []},
-  {"id": 77, "cat": "most", "name": "Сальник передний", "sku": "VG1047010038", "fits": []},
-  {"id": 78, "cat": "most", "name": "Втулка шкворня верхняя малая F2000", "sku": "81930200706", "fits": ["Shacman"]},
-  {"id": 79, "cat": "most", "name": "Болт крепления заднего колеса для карьерного самосвала", "sku": "WG9970340008", "fits": []},
-  {"id": 80, "cat": "most", "name": "Сальник балансира", "sku": "WG9925520223", "fits": []},
-  {"id": 81, "cat": "most", "name": "Втулка шкворня верхняя малая", "sku": "1880410035", "fits": []},
-  {"id": 82, "cat": "most", "name": "Втулка шкворня нижняя большая", "sku": "1880410029", "fits": []},
-  {"id": 83, "cat": "podveska", "name": "Амортизатор", "sku": "81417226036", "fits": [], "top": 1},
-  {"id": 84, "cat": "podveska", "name": "Амортизатор задний", "sku": "WG1642440021", "fits": []},
-  {"id": 85, "cat": "podveska", "name": "Палец + втулка рессоры передней", "sku": "WG9000520078199100520065", "fits": []},
-  {"id": 86, "cat": "podveska", "name": "Подушка рессоры 6 отверстий", "sku": "AZ9725520278", "fits": []},
-  {"id": 87, "cat": "podveska", "name": "Втулка переднего стабилизатора (сайлентблок) F3000", "sku": "81962100450", "fits": ["Shacman"]},
-  {"id": 88, "cat": "podveska", "name": "Амортизатор передний", "sku": "199112680014", "fits": []},
-  {"id": 89, "cat": "podveska", "name": "Амортизатор передний", "sku": "199114680004", "fits": []},
-  {"id": 90, "cat": "podveska", "name": "Втулка рессоры передней", "sku": "WG9000520078", "fits": []},
-  {"id": 91, "cat": "podveska", "name": "Амортизатор передний", "sku": "DZ9525968001213", "fits": []},
-  {"id": 92, "cat": "podveska", "name": "Амортизатор передний", "sku": "WG9100680001", "fits": []},
-  {"id": 93, "cat": "podveska", "name": "Втулка стабилизатора заднего", "sku": "1780680035", "fits": []},
-  {"id": 94, "cat": "podveska", "name": "Амортизатор передний", "sku": "DZ13241430100", "fits": []},
-  {"id": 95, "cat": "podveska", "name": "Амортизатор передний", "sku": "WG1642430385", "fits": []},
-  {"id": 96, "cat": "podveska", "name": "Втулки стабилизатора поперечной устойчивости (перед)", "sku": "991100680052", "fits": []},
-  {"id": 97, "cat": "podveska", "name": "Амортизатор задний", "sku": "DZ13241440100", "fits": []},
-  {"id": 98, "cat": "podveska", "name": "Втулка передней рессоры", "sku": "81437220061", "fits": []},
-  {"id": 99, "cat": "podshipniki", "name": "Подшипник передней ступицы 32311*2A", "sku": "WG9100032311", "fits": [], "top": 1},
-  {"id": 100, "cat": "podshipniki", "name": "Роликоподшипник 32310 GB/T297-9", "sku": "190003326531", "fits": []},
-  {"id": 101, "cat": "podshipniki", "name": "Подшипник 9-ой передачи КПП 192310E", "sku": "192310E", "fits": []},
-  {"id": 102, "cat": "podshipniki", "name": "Подшипник воздушного компрессора NJ2207EM", "sku": "190003320154", "fits": []},
-  {"id": 103, "cat": "podshipniki", "name": "Подшипник 30308x2", "sku": "570304002", "fits": []},
-  {"id": 104, "cat": "podshipniki", "name": "Подшипник 6019-Z GB", "sku": "190003310239", "fits": []},
-  {"id": 105, "cat": "podshipniki", "name": "Подшипник заднего моста 30312GB/T297-9", "sku": "190003326236", "fits": []},
-  {"id": 106, "cat": "podshipniki", "name": "Подшипник давления 249211K F3000", "sku": "DZ9003326025", "fits": ["Shacman"]},
-  {"id": 107, "cat": "podshipniki", "name": "Подшипник проходного вала 6312 N", "sku": "190003311543", "fits": []},
-  {"id": 108, "cat": "podshipniki", "name": "Подшипник передней ступицы 30311", "sku": "30311", "fits": []},
-  {"id": 109, "cat": "podshipniki", "name": "Подшипник NJ308E", "sku": "42308ENJ308E", "fits": []},
-  {"id": 110, "cat": "podshipniki", "name": "Подшипник давления 249210K F2000", "sku": "06328190017", "fits": ["Shacman"]},
-  {"id": 111, "cat": "podshipniki", "name": "Игольчатый подшипник HK546227 F3000", "sku": "81442080011", "fits": ["Shacman"]},
-  {"id": 112, "cat": "podshipniki", "name": "Подшипник", "sku": "—", "fits": []},
-  {"id": 113, "cat": "podshipniki", "name": "Подшипник", "sku": "192309ENUP309EN", "fits": []},
-  {"id": 114, "cat": "podshipniki", "name": "Подшипник шкворня", "sku": "WG880410049", "fits": []},
-  {"id": 115, "cat": "podshipniki", "name": "Подшипник шкворня", "sku": "WG9700411049", "fits": []},
-  {"id": 116, "cat": "podshipniki", "name": "Игольчатый подшипник HK505825 F2000", "sku": "81934026003", "fits": ["Shacman"]},
-  {"id": 117, "cat": "podshipniki", "name": "Подшипник КПП Fuller NJ307E", "sku": "42307E", "fits": ["Fuller"]},
-  {"id": 118, "cat": "podshipniki", "name": "Выжимной подшипник 996914", "sku": "996914", "fits": []},
-  {"id": 119, "cat": "podshipniki", "name": "Подшипник первичного вала Fuller 6212-NZ", "sku": "150212K81504", "fits": ["Fuller"]},
-  {"id": 120, "cat": "podshipniki", "name": "Подшипник проходного вала 6212 GB/T276-94", "sku": "190003311036", "fits": []},
-  {"id": 121, "cat": "podshipniki", "name": "Подшипник выжимной (6395FO) Valeo", "sku": "AZ9114160030", "fits": ["Valeo"]},
-  {"id": 122, "cat": "podshipniki", "name": "Подшипник задней ступицы внешний 32222 G", "sku": "190003326167", "fits": []},
-  {"id": 123, "cat": "remni", "name": "Ремень вентилятора 8PK2358", "sku": "8PK2358", "fits": [], "top": 1},
-  {"id": 124, "cat": "remni", "name": "Ремень 10PK1900", "sku": "10PK1900", "fits": []},
-  {"id": 125, "cat": "remni", "name": "Ремень 10PK1451", "sku": "10PK1451", "fits": []},
-  {"id": 126, "cat": "remni", "name": "Ремень 10PK1422", "sku": "10PK1422", "fits": ["Weichai WP12"]},
-  {"id": 127, "cat": "remni", "name": "Ремень вентилятора А7", "sku": "10PK1282", "fits": ["Howo"]},
-  {"id": 128, "cat": "remni", "name": "Ремень вентилятора на Howo А7 D12", "sku": "10PK1267", "fits": ["Howo"]},
-  {"id": 129, "cat": "remni", "name": "Ремень 10PK1462", "sku": "VG1246060080", "fits": []},
-  {"id": 130, "cat": "remni", "name": "Ремень 10PK1262", "sku": "10PK1262", "fits": []},
-  {"id": 131, "cat": "remni", "name": "Ремень 10PK1062", "sku": "10PK1062", "fits": []},
-  {"id": 132, "cat": "remni", "name": "Ремень 10PK1054", "sku": "10PK1054", "fits": []},
-  {"id": 133, "cat": "remni", "name": "Ремень вентилятора на двигатель WP10 и WP12", "sku": "10PK1045", "fits": ["Weichai WP10", "Weichai WP12"]},
-  {"id": 134, "cat": "remni", "name": "Ремень генератора", "sku": "8PK1725", "fits": []},
-  {"id": 135, "cat": "remni", "name": "Ремень генератора А7", "sku": "6PK1425", "fits": ["Howo"]},
-  {"id": 136, "cat": "remni", "name": "Ремень вентилятора 10PK1068", "sku": "612600061361", "fits": []},
-  {"id": 137, "cat": "remni", "name": "Ремень вентилятора STR", "sku": "8PK1480", "fits": []},
-  {"id": 138, "cat": "remni", "name": "Ремень 8PK1165", "sku": "8PK1165", "fits": []},
-  {"id": 139, "cat": "remni", "name": "Ремень вентилятора 8PK1160", "sku": "8PK1160", "fits": []},
-  {"id": 140, "cat": "remni", "name": "Ремень клиновой вентилятора", "sku": "8PK1062", "fits": []},
-  {"id": 141, "cat": "remni", "name": "Ремень 6PK1400", "sku": "6PK1400", "fits": []},
-  {"id": 142, "cat": "remni", "name": "Ремень клиновой генератора", "sku": "6PK1399", "fits": ["Weichai WP12"]},
-  {"id": 143, "cat": "remni", "name": "Ремень клиновой вентилятора", "sku": "8PK1050", "fits": []},
-  {"id": 144, "cat": "remni", "name": "Ремень 8PK1054", "sku": "8PK1054", "fits": []},
-  {"id": 145, "cat": "remni", "name": "Ремень 8PK1045", "sku": "8PK1045", "fits": []},
-  {"id": 146, "cat": "remni", "name": "Ремень клиновой", "sku": "—", "fits": []},
-  {"id": 147, "cat": "rulevoj-mekhanizm", "name": "Наконечник тяги поперечной рулевой левый", "sku": "3003055", "fits": [], "top": 1},
-  {"id": 148, "cat": "rulevoj-mekhanizm", "name": "Наконечник тяги поперечной рулевой правый", "sku": "3003060", "fits": []},
-  {"id": 149, "cat": "rulevoj-mekhanizm", "name": "Сайлентблок для тяги реактивной (резина) 85*77", "sku": "CK9631521175", "fits": []},
-  {"id": 150, "cat": "rulevoj-mekhanizm", "name": "Механизм ГУР ZF8098 мелкий шлиц", "sku": "SZ94700939", "fits": ["ZF 8098"]},
-  {"id": 151, "cat": "rulevoj-mekhanizm", "name": "Механизм ГУР ZF8098 крупный шлиц", "sku": "SZ94700939", "fits": ["ZF 8098"]},
-  {"id": 152, "cat": "rulevoj-mekhanizm", "name": "Сайлентблок для тяги реактивной (резина) 85*57", "sku": "CK9631521174", "fits": []},
-  {"id": 153, "cat": "rulevoj-mekhanizm", "name": "Наконечник продольной рулевой тяги правый", "sku": "199100430701", "fits": []},
-  {"id": 154, "cat": "rulevoj-mekhanizm", "name": "Наконечник продольной рулевой тяги правый", "sku": "199100430704", "fits": []},
-  {"id": 155, "cat": "rulevoj-mekhanizm", "name": "Сайлентблок для тяги реактивной (резина) 85*53", "sku": "CK9631521272", "fits": []},
-  {"id": 156, "cat": "rulevoj-mekhanizm", "name": "Сайлентблок для тяги реактивной (железо) 80*52", "sku": "CK9114521175", "fits": []},
-  {"id": 157, "cat": "rulevoj-mekhanizm", "name": "Наконечник тяги поперечной рулевой левый", "sku": "AZ9100430218", "fits": []},
-  {"id": 158, "cat": "rulevoj-mekhanizm", "name": "Наконечник тяги поперечной рулевой правый", "sku": "AZ9100430218", "fits": []},
-  {"id": 159, "cat": "rulevoj-mekhanizm", "name": "Наконечник продольной рулевой тяги правый", "sku": "CK199100430701", "fits": []},
-  {"id": 160, "cat": "rulevoj-mekhanizm", "name": "Наконечник продольной рулевой тяги правый", "sku": "CK199100430704", "fits": []},
-  {"id": 161, "cat": "rulevoj-mekhanizm", "name": "Тяга V-образная старого образца", "sku": "CK9631523272", "fits": []},
-  {"id": 162, "cat": "rulevoj-mekhanizm", "name": "Наконечник тяги поперечной рулевой левый", "sku": "CK9100430218", "fits": []},
-  {"id": 163, "cat": "rulevoj-mekhanizm", "name": "Наконечник тяги поперечной рулевой правый", "sku": "CK9100430218", "fits": []},
-  {"id": 164, "cat": "rulevoj-mekhanizm", "name": "Наконечник рулевого гидроцилиндра", "sku": "CK9118470025", "fits": []},
-  {"id": 165, "cat": "rulevoj-mekhanizm", "name": "Наконечник рулевого гидроцилиндра", "sku": "CK9118470024", "fits": []},
-  {"id": 166, "cat": "rulevoj-mekhanizm", "name": "Верхняя реактивная тяга в сборе", "sku": "CK9631524175", "fits": []},
-  {"id": 167, "cat": "rulevoj-mekhanizm", "name": "Нижняя реактивная тяга в сборе", "sku": "CK9631524174", "fits": []},
-  {"id": 168, "cat": "rulevoj-mekhanizm", "name": "Реактивная тяга верхняя", "sku": "DZ91259525274", "fits": []},
-  {"id": 169, "cat": "rulevoj-mekhanizm", "name": "Реактивная тяга нижняя", "sku": "DZ91259525275", "fits": []},
-  {"id": 170, "cat": "rulevoj-mekhanizm", "name": "Наконечник тяги поперечной рулевой левый + правый одна пара", "sku": "—", "fits": []},
-  {"id": 171, "cat": "tormoznaya-sistema", "name": "Регулировочный рычаг тормоза А7", "sku": "CKAZ9111340040", "fits": ["Howo"], "top": 1},
-  {"id": 172, "cat": "tormoznaya-sistema", "name": "Ремкомплект компрессор одноцилиндровый", "sku": "AZ1560130070", "fits": []},
-  {"id": 173, "cat": "tormoznaya-sistema", "name": "Трещотка передняя", "sku": "AZ9100440005", "fits": []},
-  {"id": 174, "cat": "tormoznaya-sistema", "name": "Накладка задняя верхняя + низкая", "sku": "DZ9112340062", "fits": []},
-  {"id": 175, "cat": "tormoznaya-sistema", "name": "Поршень воздушного компрессора (толщина кольца 5мм)", "sku": "61800130043", "fits": []},
-  {"id": 176, "cat": "tormoznaya-sistema", "name": "Поршень воздушного компрессора (толщина кольца 4мм)", "sku": "612600130177", "fits": []},
-  {"id": 177, "cat": "tormoznaya-sistema", "name": "Накладка передняя верхняя + нижняя", "sku": "81502210535", "fits": []},
-  {"id": 178, "cat": "tormoznaya-sistema", "name": "Накладка задняя 14 отверстия", "sku": "WG9231342068", "fits": []},
-  {"id": 179, "cat": "tormoznaya-sistema", "name": "Накладка задняя", "sku": "WG9200340068", "fits": []},
-  {"id": 180, "cat": "tormoznaya-sistema", "name": "Накладка тормозная задняя", "sku": "3502ZAS01", "fits": []},
-  {"id": 181, "cat": "tormoznaya-sistema", "name": "Осушитель воздуха в сборе", "sku": "AZ9100368471", "fits": []},
-  {"id": 182, "cat": "tormoznaya-sistema", "name": "Накладка задняя верхняя", "sku": "DZ9112340062", "fits": []},
-  {"id": 183, "cat": "tormoznaya-sistema", "name": "Трещотка передняя", "sku": "81506106231", "fits": []},
-  {"id": 184, "cat": "tormoznaya-sistema", "name": "Накладка задняя низкая", "sku": "DZ9112340063", "fits": []},
-  {"id": 185, "cat": "tormoznaya-sistema", "name": "Накладка задняя Dongfeng 16 отверстий", "sku": "DZ9160340068", "fits": ["Dongfeng"]},
-  {"id": 186, "cat": "tormoznaya-sistema", "name": "Накладка задняя 8 отверстия", "sku": "WG9231342018", "fits": []},
-  {"id": 187, "cat": "tormoznaya-sistema", "name": "Накладка передняя верхняя", "sku": "81502210535", "fits": []},
-  {"id": 188, "cat": "tormoznaya-sistema", "name": "Накладка передняя верхняя", "sku": "81502210540", "fits": []},
-  {"id": 189, "cat": "tormoznaya-sistema", "name": "Кольца поршневые воздушного компрессора толщина 5мм", "sku": "61800130043", "fits": []},
-  {"id": 190, "cat": "tormoznaya-sistema", "name": "Кольца поршневые воздушного компрессора толщина 4мм", "sku": "612600130177", "fits": []},
-  {"id": 191, "cat": "tormoznaya-sistema", "name": "Накладка передняя большая", "sku": "WG9100440029", "fits": []},
-  {"id": 192, "cat": "tormoznaya-sistema", "name": "Накладка передняя маленькая", "sku": "WG9100440027", "fits": []},
-  {"id": 193, "cat": "tormoznaya-sistema", "name": "Заклепка", "sku": "VG1560080219", "fits": []},
-  {"id": 194, "cat": "tormoznaya-sistema", "name": "Заклепка медный", "sku": "189000340068", "fits": []},
-  {"id": 195, "cat": "filtry", "name": "Фильтр влагоотделителя", "sku": "3588201", "fits": [], "top": 1},
-  {"id": 196, "cat": "filtry", "name": "Фильтроэлемент K2032", "sku": "—", "fits": []},
-  {"id": 197, "cat": "filtry", "name": "Топливный фильтр тонкой очистки", "sku": "VG1560080012", "fits": []},
-  {"id": 198, "cat": "filtry", "name": "Топливный фильтр тонкой очистки", "sku": "VG1540080310", "fits": []},
-  {"id": 199, "cat": "filtry", "name": "Масляный фильтр", "sku": "VG1540070007", "fits": []},
-  {"id": 200, "cat": "filtry", "name": "Масляный фильтр", "sku": "612630010239", "fits": []},
-  {"id": 201, "cat": "filtry", "name": "Топливный фильтр тонкой очистки", "sku": "612630081334", "fits": []},
-  {"id": 202, "cat": "filtry", "name": "Масляный фильтр Евро 2", "sku": "6100007005", "fits": []},
-  {"id": 203, "cat": "filtry", "name": "Фильтроэлемент K3249/3250", "sku": "—", "fits": []},
-  {"id": 204, "cat": "filtry", "name": "Сиденье фильтра", "sku": "—", "fits": []},
-  {"id": 205, "cat": "filtry", "name": "Сиденье фильтра", "sku": "—", "fits": []},
-  {"id": 206, "cat": "filtry", "name": "Сиденье фильтра", "sku": "—", "fits": []},
-  {"id": 207, "cat": "filtry", "name": "Фильтр воздушный 2850", "sku": "—", "fits": []},
-  {"id": 208, "cat": "filtry", "name": "Фильтр воздушный 3052", "sku": "DZ9112190328X", "fits": []},
-  {"id": 209, "cat": "filtry", "name": "Фильтр воздушный 3047", "sku": "—", "fits": []},
-  {"id": 210, "cat": "filtry", "name": "Фильтроэлемент K2841", "sku": "WG9725190102", "fits": []},
-  {"id": 211, "cat": "filtry", "name": "Фильтроэлемент K3046", "sku": "WG9719190001001", "fits": []},
-  {"id": 212, "cat": "filtry", "name": "Фильтр воздушный 2448", "sku": "—", "fits": []},
-  {"id": 213, "cat": "filtry", "name": "Топливный фильтр тонкой очистки", "sku": "612630080087", "fits": []},
-  {"id": 214, "cat": "filtry", "name": "Топливный фильтр грубой очистки", "sku": "612630080205", "fits": []},
-  {"id": 215, "cat": "filtry", "name": "Топливный фильтр грубой очистки", "sku": "612630080088", "fits": []},
-  {"id": 216, "cat": "filtry", "name": "Топливный фильтр грубой очистки", "sku": "612630080203", "fits": []},
-  {"id": 217, "cat": "sceplenie", "name": "Вал вилки выключения сцепления", "sku": "99112230033", "fits": [], "top": 1},
-  {"id": 218, "cat": "sceplenie", "name": "Корзина сцепления 430 (отжимная)большое отверстие", "sku": "DZ9114160034", "fits": []},
-  {"id": 219, "cat": "sceplenie", "name": "Корзина сцепления 430 (нажимная) большая л.с", "sku": "DZ9114160028", "fits": []},
-  {"id": 220, "cat": "sceplenie", "name": "Корзина сцепления 420", "sku": "BZ1560161090", "fits": []},
-  {"id": 221, "cat": "sceplenie", "name": "Корзина сцепления 430 (нажимная) малая л.с", "sku": "DZ9114160026", "fits": []},
-  {"id": 222, "cat": "sceplenie", "name": "Кольцо упорное корзины сцепления 430", "sku": "CK9725160065", "fits": []},
-  {"id": 223, "cat": "sceplenie", "name": "Диск сцепления 430", "sku": "CK9114160020", "fits": []},
-  {"id": 224, "cat": "sceplenie", "name": "Диск сцепления 430", "sku": "612600170059", "fits": []},
-  {"id": 225, "cat": "sceplenie", "name": "Диск сцепления", "sku": "DZ1560160020", "fits": []},
-  {"id": 226, "cat": "sceplenie", "name": "Ведомый диск в сборе", "sku": "DZ1560160014", "fits": []},
-  {"id": 227, "cat": "sceplenie", "name": "Ведомый диск в сборе 420", "sku": "CK1560161130", "fits": []},
-  {"id": 228, "cat": "sceplenie", "name": "ПГУ", "sku": "WG9719230025", "fits": []},
-  {"id": 229, "cat": "sceplenie", "name": "ПГУ", "sku": "WG9725230041", "fits": []},
-  {"id": 230, "cat": "sceplenie", "name": "ПГУ", "sku": "WG9725230042", "fits": []},
-  {"id": 231, "cat": "sceplenie", "name": "ПГУ", "sku": "DZ9112230166", "fits": []},
-  {"id": 232, "cat": "sceplenie", "name": "ПГУ", "sku": "DZ9112230178", "fits": []},
-  {"id": 233, "cat": "sceplenie", "name": "ПГУ", "sku": "DZ9112230181", "fits": []},
-  {"id": 234, "cat": "sceplenie", "name": "ПГУ", "sku": "WG9114230023", "fits": []},
-  {"id": 235, "cat": "sceplenie", "name": "ПГУ", "sku": "WG9114230029", "fits": []},
-  {"id": 236, "cat": "sceplenie", "name": "ПГУ", "sku": "DZ9112230177", "fits": []},
-  {"id": 237, "cat": "sceplenie", "name": "Рычаг выжимной сцепления", "sku": "DZ9112230020", "fits": []},
-  {"id": 238, "cat": "sceplenie", "name": "Вилка сцепления", "sku": "16775", "fits": []},
-  {"id": 239, "cat": "sceplenie", "name": "Цилиндр сцепления главный Shaanxi старый артикул 81.30715.6135", "sku": "DZ9114230020", "fits": []},
-  {"id": 240, "cat": "sceplenie", "name": "Цилиндр сцепления главный с бочком", "sku": "WG9719230013", "fits": []},
-  {"id": 241, "cat": "elektrika", "name": "Клапан электромагнитный на 2 разъёма", "sku": "WG9719710004", "fits": [], "top": 1},
-  {"id": 242, "cat": "elektrika", "name": "Клапан электромагнитный на 1 разъём", "sku": "WG9100710008", "fits": []},
-  {"id": 243, "cat": "elektrika", "name": "Кнопка для включения стоп-сигнала", "sku": "CK81255200171", "fits": []},
-  {"id": 244, "cat": "elektrika", "name": "Реле стартера", "sku": "612600090293", "fits": []},
-  {"id": 245, "cat": "elektrika", "name": "Диодный мост (выпрямитель) для генератора", "sku": "612600090248", "fits": []},
-  {"id": 246, "cat": "elektrika", "name": "Стартер, 10 зубьев", "sku": "VG1560090001", "fits": []},
-  {"id": 247, "cat": "elektrika", "name": "Стартер, 11 зубьев", "sku": "612600090561612600090293", "fits": []},
-  {"id": 248, "cat": "elektrika", "name": "Генератор 70A", "sku": "VG1095094002", "fits": []},
-  {"id": 249, "cat": "elektrika", "name": "Генератор 70A", "sku": "612600090248", "fits": []},
-  {"id": 250, "cat": "elektrika", "name": "Генератор 55A", "sku": "612600090352", "fits": []},
-  {"id": 251, "cat": "elektrika", "name": "Реле-регулятор генератора", "sku": "612600090248", "fits": []},
-  {"id": 252, "cat": "elektrika", "name": "Генератор 55A", "sku": "612600090259", "fits": []},
-  {"id": 253, "cat": "elektrika", "name": "Генератор 55A", "sku": "VG15600090012", "fits": []},
-  {"id": 254, "cat": "elektrika", "name": "Генератор 55A", "sku": "VG15600090010", "fits": []},
-  {"id": 255, "cat": "elektrika", "name": "Датчик температуры воды", "sku": "VG14090067", "fits": []},
-  {"id": 256, "cat": "elektrika", "name": "Мотор омывателя", "sku": "81264856030", "fits": []},
-  {"id": 257, "cat": "elektrika", "name": "Комбинированный переключатель света", "sku": "81255090124", "fits": []},
-  {"id": 258, "cat": "elektrika", "name": "Ремкомплект генератора (регулятор, выпрямитель, подшипник)", "sku": "612600090248", "fits": []},
-  {"id": 259, "cat": "elektrika", "name": "Реле стартера", "sku": "612600090293", "fits": []},
-  {"id": 260, "cat": "elektrika", "name": "Реле стартера", "sku": "VG1560090001", "fits": []},
-  {"id": 261, "cat": "elektrika", "name": "Шестерня стартера", "sku": "612600090293", "fits": []},
-  {"id": 262, "cat": "elektrika", "name": "Шестерня стартера", "sku": "VG1560090001", "fits": []},
-  {"id": 263, "cat": "elektrika", "name": "Клапан электромагнитный", "sku": "CK81521606115", "fits": []},
-  {"id": 264, "cat": "elektrika", "name": "Клапан электромагнитный", "sku": "DZ9100716009", "fits": []}
-];
+const P = [];
 const BRANDS = [
   {id:'mgp', label:'MGP', name:'MGP', badge:'Собственный бренд', demo:1,
    short:'Наш бренд. Ходовые позиции держим на складе в Благовещенске.',
@@ -953,17 +704,21 @@ const BRANDS = [
    points:['Часть позиций в наличии','Контроль качества на заводе','Цена без посредников'],
    facts:[['Склад','в Благовещенске'],['1–2 дня','отгрузка со склада'],['Гарантия','от производителя']]},
   {id:'forview', label:'Forview', name:'FORVIEW', badge:'Бренд-партнёр', demo:1,
-   short:'Поставляем напрямую от производителя под заказ.',
-   desc:'Запчасти Forview поставляем напрямую от производителя по договору, без посредников. Позиции под заказ, срок и цену фиксируем в счёте.',
-   points:['Прямой контракт с заводом','Поставка под заказ','Документы и сертификаты'],
-   facts:[['Под заказ','с завода'],['20–35 дней','срок поставки'],['Договор','с производителем']]},
+   short:'Завод-партнёр. Поставляем напрямую от производителя под заказ.',
+   desc:'Запчасти Forview поставляем напрямую от производителя по договору, без посредников. Ниже ассортимент завода, подход к качеству и история.',
+   points:['Двигатель, топливная и тормозная системы','Поставка под заказ','Прямой контракт с заводом'],
+   facts:[['Под заказ','с завода'],['Договор','с производителем'],['Китай','производство']],
+   range:'Основные группы запчастей. Точный ассортимент уточняется у завода',
+   groups:['dvigatel','toplivnaya-sistema','tormoznaya-sistema','filtry','sceplenie','elektrika']},
   {id:'createk', label:'Createk', name:'CREATEK', badge:'Базовый каталог',
-   short:'Каталог, с которого начиналась компания. Все позиции под заказ.',
-   desc:'С каталога Createk начиналась компания. Позиции поставляем под заказ, цену и срок называем по запросу.',
-   points:['470+ позиций в каталоге','Только под заказ','Цена и срок по запросу'],
-   facts:[['470+','позиций'],['Под заказ','поставка'],['По запросу','цена']]},
+   short:'Завод, с которого начиналась компания. Поставляем под заказ.',
+   desc:'С продукции Createk начиналась компания. Ниже ассортимент завода, подход к качеству и история. Поставляем под заказ, цену и срок называем по запросу.',
+   points:['Двигатель, КПП, мосты, подвеска','Поставка под заказ','Цена и срок по запросу'],
+   facts:[['16','групп запчастей'],['Под заказ','поставка'],['Китай','производство']],
+   range:'16 групп запчастей для грузовиков, как в прежнем каталоге',
+   groups:['dvigatel','kpp','kuzov-i-kabina','most','podveska','podshipniki','kardannyj-val','remni','rulevoj-mekhanizm','sistema-okhlazhdeniya','sceplenie','tormoznaya-sistema','toplivnaya-sistema','filtry','elektrika','pricepy']},
 ];
-// примеры позиций: реальный ассортимент MGP и Forview нужно получить у клиента
+// примеры позиций: реальный ассортимент MGP нужно получить у клиента
 const MGP_ITEMS = [
   ['filtry','Фильтр масляный','MGP-OF1012',1], ['filtry','Фильтр топливный тонкой очистки','MGP-FF2031',1], ['filtry','Фильтр воздушный','MGP-AF3045',1],
   ['tormoznaya-sistema','Колодки тормозные задние','MGP-BP4410',1], ['tormoznaya-sistema','Барабан тормозной','MGP-BD4502',0], ['tormoznaya-sistema','Энергоаккумулятор тормозной','MGP-BC4620',1],
@@ -976,22 +731,17 @@ const MGP_ITEMS = [
   ['podshipniki','Подшипник ступицы','MGP-HB3315',1], ['kuzov-i-kabina','Фара головного света','MGP-HL2410',1],
   ['kuzov-i-kabina','Зеркало боковое','MGP-MR2502',1], ['rulevoj-mekhanizm','Наконечник рулевой тяги','MGP-TE3610',1],
 ];
-const FV_ITEMS = [
-  ['filtry','Фильтр масляный','FV-1170',0], ['filtry','Фильтр сепаратор топлива','FV-1185',0],
-  ['tormoznaya-sistema','Колодки тормозные передние','FV-2210',0], ['tormoznaya-sistema','Кран тормозной главный','FV-2290',0],
-  ['dvigatel','Турбокомпрессор','FV-3105',0], ['dvigatel','Форсунка топливная','FV-3140',0], ['dvigatel','Гильза цилиндра','FV-3162',0],
-  ['toplivnaya-sistema','ТНВД','FV-4020',0], ['toplivnaya-sistema','Насос подкачки топлива','FV-4055',0],
-  ['sceplenie','ПГУ сцепления','FV-5110',0], ['kpp','Синхронизатор КПП','FV-6201',0],
-  ['most','Сальник ступицы','FV-7130',0], ['podshipniki','Подшипник КПП','FV-7340',0], ['elektrika','Датчик давления масла','FV-8015',0],
-];
 const STEPS = [['Заявка','Артикул, VIN или фото детали'], ['Счёт','Фиксируем цену и срок поставки'], ['Оплата','Со склада полностью, под заказ предоплата'], ['Поставка','Выкуп на заводе, таможня, доставка'], ['Получение','Самовывоз или отправка по России']];
 const ROUTE = [['factory','Завод в Китае','Выкупаем напрямую, без посредников'], ['shield','Проверка качества','Осматриваем партию перед отгрузкой'], ['doc','Таможня','Оформляем документы и сертификаты'], ['box','Склад в Благовещенске','Принимаем и комплектуем заказ'], ['truck','Доставка по России','Самовывоз или транспортная компания']];
 const LEAD = {mgp:'20–30 дней', forview:'20–35 дней', createk:'25–45 дней'};
 
-P.forEach(p => { p.brand = 'createk'; p.stock = false; });
+// каталог только MGP: Createk и Forview показаны страницами о бренде
 let nid = 1000;
 const mk = brand => ([cat, name, sku, stock]) => ({id: ++nid, brand, cat, name, sku, fits: [], stock: !!stock, demo: 1});
-P.push(...MGP_ITEMS.map(mk('mgp')), ...FV_ITEMS.map(mk('forview')));
+P.push(...MGP_ITEMS.map(mk('mgp')));
+const PCATS = CATS.filter(c => P.some(p => p.cat === c.id));
+const QUALITY = [['shield','Сертификация','Какие сертификаты есть у завода и продукции.'], ['factory','Производство','Оборудование, контроль на линии, материалы.'], ['check','Проверка при поставке','Осматриваем партию перед отгрузкой из Китая.'], ['doc','Документы','Передаём сертификаты и декларации вместе с товаром.']];
+const HISTORY = [['Основание','Когда и где основан завод, с какой продукции начинал'], ['Развитие','Новые линии и производства, выход на экспорт'], ['Сегодня','Мощности, сертификаты, ключевые рынки']];
 
 const catById = id => CATS.find(c => c.id === id);
 const brandById = id => BRANDS.find(b => b.id === id);
@@ -999,9 +749,7 @@ const ico = (name, cls='ico') => `<svg class="${cls}"><use href="#i-${name}"/></
 const plural = (n, a, b, c) => { const m10=n%10, m100=n%100; return n+' '+(m10===1&&m100!==11?a:m10>=2&&m10<=4&&(m100<10||m100>=20)?b:c); };
 const ORDER = {mgp:0, forview:1, createk:2};
 const sortP = list => list.slice().sort((x, y) => (y.stock - x.stock) || (ORDER[x.brand] - ORDER[y.brand]));
-// сколько позиций: у Createk по старому сайту, у остальных по примерам
-const total = (brand, cat) => (brand ? [brand] : BRANDS.map(b => b.id)).reduce((s, b) =>
-  s + (b === 'createk' ? (cat ? [catById(cat)] : CATS).reduce((t, c) => t + c.n, 0) : P.filter(p => p.brand === b && (!cat || p.cat === cat)).length), 0);
+const total = cat => P.filter(p => !cat || p.cat === cat).length;
 const status = p => p.stock ? `<span class="status in">В наличии</span>` : `<span class="status order">Под заказ</span>`;
 const more = (shown, all) => shown < all ? `<div style="display:flex;justify-content:center;margin-top:24px"><button class="btn btn-line">Показать ещё</button></div>` : '';
 
@@ -1029,25 +777,30 @@ function brandCard(b){
     <span class="brand-name">${b.name}</span>
     <p>${b.short}</p>
     <ul>${b.points.map(x => `<li>${ico('check')}${x}</li>`).join('')}</ul>
-    <span class="link">Смотреть ${b.label} ${ico('arrow')}</span>
+    <span class="link">${b.id === 'mgp' ? 'Каталог MGP' : 'О бренде ' + b.label} ${ico('arrow')}</span>
   </a>`;
 }
 
 function home(){
   const stock = P.filter(p => p.brand === 'mgp' && p.stock).slice(0, 8);
   return `
+  <section><div class="wrap">
+    <div class="sec-head"><div><h2>Бренды</h2><p>Собственный бренд и заводы-партнёры</p></div></div>
+    <div class="brands">${BRANDS.map(brandCard).join('')}</div>
+  </div></section>
+
   <div class="hero"><div class="wrap">
     <div>
       <span class="eyebrow">Прямые поставки из Китая</span>
       <h1>Запчасти и спецтехника <span>напрямую с заводов Китая</span></h1>
-      <p>Собственный бренд MGP со склада в Благовещенске, Forview и Createk под заказ. Спецтехника в наличии и под заказ. Без посредников: выкупаем на заводе, оформляем таможню и доставляем по России.</p>
+      <p>Собственный бренд MGP со склада в Благовещенске, поставки Forview и Createk под заказ. Спецтехника в наличии и под заказ. Без посредников: выкупаем на заводе, оформляем таможню и доставляем по России.</p>
       <div class="btns">
         <a class="btn btn-red" href="#/b/mgp">MGP в наличии ${ico('arrow')}</a>
         <a class="btn btn-line" href="#/usloviya">Условия работы</a>
       </div>
       <div class="hero-stats">
         <div><b>3 бренда</b><span>MGP, Forview, Createk</span></div>
-        <div><b>${Math.floor(total() / 50) * 50}+</b><span>позиций</span></div>
+        <div><b>2 площадки</b><span>техники: Благовещенск, Краснодар</span></div>
         <div><b>1–2 дня</b><span>отгрузка со склада</span></div>
       </div>
     </div>
@@ -1057,11 +810,6 @@ function home(){
   </div></div>
 
   <section><div class="wrap">
-    <div class="sec-head"><div><h2>Бренды</h2><p>Собственный бренд, партнёр и базовый каталог</p></div></div>
-    <div class="brands">${BRANDS.map(brandCard).join('')}</div>
-  </div></section>
-
-  <section style="padding-top:0"><div class="wrap">
     <div class="sec-head"><div><h2>MGP в наличии</h2><p>Отгружаем со склада в Благовещенске за 1–2 дня</p></div><a href="#/b/mgp" class="link">Весь каталог MGP ${ico('arrow')}</a></div>
     <div class="products">${stock.map(card).join('')}</div>
   </div></section>
@@ -1072,8 +820,8 @@ function home(){
   </div></section>
 
   <section><div class="wrap">
-    <div class="sec-head"><div><h2>Запчасти по узлам</h2><p>Все бренды в одном каталоге</p></div></div>
-    <div class="cats">${CATS.map(c => `<a class="cat" href="#/c/${c.id}">${ico(c.icon)}<b>${c.name}</b><span>${plural(total(null, c.id), 'позиция', 'позиции', 'позиций')}</span></a>`).join('')}</div>
+    <div class="sec-head"><div><h2>Запчасти MGP по узлам</h2><p>Каталог собственного бренда</p></div></div>
+    <div class="cats">${PCATS.map(c => `<a class="cat" href="#/c/${c.id}">${ico(c.icon)}<b>${c.name}</b><span>${plural(total(c.id), 'позиция', 'позиции', 'позиций')}</span></a>`).join('')}</div>
   </div></section>
 
   <section style="padding-top:0"><div class="wrap">
@@ -1103,28 +851,21 @@ function ctaBlock(title = 'Не нашли нужную деталь?', sub = '�
   </div>`;
 }
 
-function category(id, brand){
-  const c = catById(id) || CATS[0];
-  const b = brandById(brand);
-  const items = sortP(P.filter(p => p.cat === c.id && (!b || p.brand === b.id)));
-  const shown = items.slice(0, 24);
-  const all = total(b && b.id, c.id);
-  const sfx = b ? '/' + b.id : '';
-  let grid;
-  if (shown.length) grid = `<div class="products">${shown.map(card).join('')}</div>${more(shown.length, all)}`;
-  else if (b) grid = `<div class="empty">У ${b.label} в разделе «${c.name}» пока нет позиций.<br><a class="link" href="#/c/${c.id}" style="margin-top:10px">Все бренды ${ico('arrow')}</a></div>`;
-  else grid = `<div class="empty">Позиции раздела появятся после переноса каталога.</div>`;
+function category(id){
+  const c = catById(id) || PCATS[0];
+  const shown = sortP(P.filter(p => p.cat === c.id));
+  const all = total(c.id);
+  const grid = shown.length ? `<div class="products">${shown.map(card).join('')}</div>` : `<div class="empty">В этом разделе пока нет позиций MGP.</div>`;
   return `<div class="wrap">
-    <div class="crumbs"><a href="#/">Главная</a>/<a href="#/c/dvigatel">Каталог</a>/<span>${c.name}</span></div>
+    <div class="crumbs"><a href="#/">Главная</a>/<a href="#/b/mgp">MGP</a>/<span>${c.name}</span></div>
     <div class="page-title"><h1>${c.name}</h1><span>${plural(all, 'позиция', 'позиции', 'позиций')}</span></div>
-    <div class="chips">${CATS.map(x => `<a href="#/c/${x.id}${sfx}" class="${x.id === c.id ? 'on' : ''}">${x.name}</a>`).join('')}</div>
+    <div class="chips">${PCATS.map(x => `<a href="#/c/${x.id}" class="${x.id === c.id ? 'on' : ''}">${x.name}</a>`).join('')}</div>
     <div class="layout">
-      <aside class="side">${CATS.map(x => `<a href="#/c/${x.id}${sfx}" class="${x.id === c.id ? 'on' : ''}">${ico(x.icon)}${x.name}</a>`).join('')}</aside>
+      <aside class="side">${PCATS.map(x => `<a href="#/c/${x.id}" class="${x.id === c.id ? 'on' : ''}">${ico(x.icon)}${x.name}</a>`).join('')}</aside>
       <div>
-        <div class="bchips"><a href="#/c/${c.id}" class="${!b ? 'on' : ''}">Все бренды <em>${total(null, c.id)}</em></a>${BRANDS.map(x => { const n = total(x.id, c.id); return `<a href="#/c/${c.id}/${x.id}" class="${b && b.id === x.id ? 'on' : ''} ${n ? '' : 'off'}">${x.label} <em>${n}</em></a>`; }).join('')}</div>
         <div class="toolbar">
           <label class="search"><svg class="ico"><use href="#i-search"/></svg><input type="search" placeholder="Поиск в разделе «${c.name}»"></label>
-          <select aria-label="Сортировка"><option>Сначала в наличии</option><option>По названию</option><option>По бренду</option></select>
+          <select aria-label="Сортировка"><option>Сначала в наличии</option><option>По названию</option></select>
           <span class="count">${shown.length ? `Показано ${shown.length} из ${all}` : ''}</span>
         </div>
         ${grid}
@@ -1144,17 +885,38 @@ function bhero(o){
   </div></div>`;
 }
 
+function aboutBrand(b){
+  return bhero({crumbs: `<span>Бренды</span>/<span>${b.label}</span>`, badge: b.badge, title: b.name, text: b.desc, facts: b.facts, btns: `<div class="btns"><button class="btn btn-red" data-request="">Запросить поставку</button></div>`}) +
+  `<div class="wrap">
+    <div class="note" style="margin-top:28px">Тексты о заводе в прототипе условные. Ассортимент, историю, сертификаты и фото с выставок нужно получить от Алексея.</div>
+    <section style="padding-top:12px"><div class="sec-head"><div><h2>Ассортимент</h2><p>${b.range}</p></div></div>
+      <div class="cats">${b.groups.map(id => { const c = catById(id); return `<div class="cat">${ico(c.icon)}<b>${c.name}</b></div>`; }).join('')}</div>
+    </section>
+    <section style="padding-top:0"><div class="sec-head"><div><h2>Качество</h2></div></div>
+      <div class="grid2">${QUALITY.map(([i, t, x]) => box(i, t, `<p>${x}</p>`)).join('')}</div>
+    </section>
+    <section style="padding-top:0"><div class="sec-head"><div><h2>История завода</h2></div></div>
+      <div class="timeline">${HISTORY.map(([y, t]) => `<div class="tl"><b>${y}</b><span>${t}</span></div>`).join('')}</div>
+    </section>
+    <section style="padding-top:0"><div class="sec-head"><div><h2>Выставки</h2><p>Блок появится, если у завода есть актуальные фото</p></div></div>
+      <div class="expo">${[1, 2, 3].map(() => `<div><div class="expo-img">${ico('factory')}</div><b>Название выставки</b><span>Город, год</span></div>`).join('')}</div>
+    </section>
+    <section style="padding:0">${ctaBlock(`Нужны запчасти ${b.label}?`, 'Пришлите артикул или список позиций. Проверим у завода и назовём цену и срок поставки.')}</section>
+  </div>`;
+}
+
 function brandPage(id, cat){
   const b = brandById(id) || BRANDS[0];
+  if (b.id !== 'mgp') return aboutBrand(b);
   const c = catById(cat);
-  const cats = CATS.filter(x => P.some(p => p.brand === b.id && p.cat === x.id));
+  const cats = PCATS;
   const items = sortP(P.filter(p => p.brand === b.id && (!c || p.cat === c.id)));
   const shown = items.slice(0, 24);
-  const all = total(b.id, c && c.id);
+  const all = total(c && c.id);
   return bhero({dark: b.id === 'mgp', crumbs: `<span>Бренды</span>/${c ? `<a href="#/b/${b.id}">${b.label}</a>/<span>${c.name}</span>` : `<span>${b.label}</span>`}`, badge: b.badge, title: b.name, text: b.desc, facts: b.facts}) +
   `<div class="wrap" style="padding-top:28px">
     ${b.demo ? `<div class="note">Позиции ${b.label} в прототипе приведены для примера. Реальный ассортимент и остатки подставим по данным клиента.</div>` : ''}
-    <div class="bchips"><a href="#/b/${b.id}" class="${!c ? 'on' : ''}">Все разделы <em>${total(b.id)}</em></a>${cats.map(x => `<a href="#/b/${b.id}/${x.id}" class="${c && c.id === x.id ? 'on' : ''}">${x.name} <em>${total(b.id, x.id)}</em></a>`).join('')}</div>
+    <div class="bchips"><a href="#/b/${b.id}" class="${!c ? 'on' : ''}">Все разделы <em>${total()}</em></a>${cats.map(x => `<a href="#/b/${b.id}/${x.id}" class="${c && c.id === x.id ? 'on' : ''}">${x.name} <em>${total(x.id)}</em></a>`).join('')}</div>
     <div class="toolbar">
       <label class="search"><svg class="ico"><use href="#i-search"/></svg><input type="search" placeholder="Поиск по ${b.label}"></label>
       <select aria-label="Сортировка"><option>Сначала в наличии</option><option>По названию</option></select>
@@ -1353,7 +1115,7 @@ function tekhnika(type, city){
 const app = document.getElementById('app');
 function route(){
   const [type, a, b] = location.hash.replace(/^#\/?/, '').split('/');
-  const pages = {c: () => category(a, b), b: () => brandPage(a, b), p: () => product(a), usloviya: terms, tekhnika: () => tekhnika(a, b)};
+  const pages = {c: () => category(a), b: () => brandPage(a, b), p: () => product(a), usloviya: terms, tekhnika: () => tekhnika(a, b)};
   app.innerHTML = (pages[type] || home)();
   closeDrawer();
   const anchor = type === 'usloviya' && a && document.getElementById('t-' + a);
@@ -1364,10 +1126,10 @@ window.addEventListener('hashchange', route);
 /* drawer */
 const drawer = document.getElementById('drawer'), drawerBg = document.getElementById('drawer-bg');
 document.getElementById('drawer-brands').innerHTML = BRANDS.map(b => `<a href="#/b/${b.id}"><b>${b.label}</b><small>${b.badge}</small></a>`).join('') + `<a href="#/tekhnika"><b>Спецтехника</b><small>В наличии и под заказ</small></a>`;
-document.getElementById('drawer-grid').innerHTML = CATS.map(c => `<a href="#/c/${c.id}">${ico(c.icon)}${c.name}<em>${total(null, c.id)}</em></a>`).join('');
+document.getElementById('drawer-grid').innerHTML = PCATS.map(c => `<a href="#/c/${c.id}">${ico(c.icon)}${c.name}<em>${total(c.id)}</em></a>`).join('');
 document.getElementById('drawer-extra').innerHTML = `<a href="#/usloviya">Условия работы</a><a href="#/usloviya/dostavka">Доставка из Китая</a><a href="#/usloviya/opt">Оптовикам</a><a href="#/">Контакты</a>
   <div><a class="foot-phone" href="tel:88002501598">8 800 250-15-98</a><span style="color:var(--muted);font-weight:500;font-size:14px">бесплатно по России</span></div>`;
-document.getElementById('foot-brands').innerHTML = BRANDS.map(b => `<li><a href="#/b/${b.id}">${b.label}</a></li>`).join('') + '<li><a href="#/tekhnika">Спецтехника</a></li><li><a href="#/c/dvigatel">Запчасти по узлам</a></li>';
+document.getElementById('foot-brands').innerHTML = BRANDS.map(b => `<li><a href="#/b/${b.id}">${b.label}</a></li>`).join('') + '<li><a href="#/tekhnika">Спецтехника</a></li><li><a href="#/b/mgp">Каталог MGP</a></li>';
 function openDrawer(){
   const hdr = document.getElementById('header').getBoundingClientRect();
   drawer.style.setProperty('--drawer-top', hdr.bottom + 'px');

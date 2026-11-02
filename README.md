@@ -2,9 +2,9 @@
 
 Прототип нового сайта createk.pro. Страница закрыта от индексации (`noindex`).
 
-**v2 (текущая):** прямые поставки запчастей и спецтехники из Китая. Каталог только MGP (собственный бренд, часть в наличии); Forview и Createk — страницы о бренде: ассортимент, качество, история завода, выставки, страница условий работы, спецтехника в наличии и под заказ. Домен createk.pro сохраняется ради возраста.
+**v2 (текущая):** бренды MGP, Forview, Createk, Impeco. Фильтры MGP в наличии на складе в Краснодаре с ценами; Forview, Createk, Impeco — страницы о бренде. Спецтехника: в наличии, портфолио, заявки под заказ, анонс отдельного сайта. Поставки запчастей из Китая — дополнительная услуга, партиями под заказ.
 
-Позиции и цены MGP (фильтры Ford, Caterpillar, Hitachi) и условия оплаты — из КП ООО «ФавАвто Трейд», октябрь 2026. Модели техники и тексты о заводах условные.
+Позиции, цены и остатки MGP — из КП ООО «ФавАвто Трейд», октябрь 2026. Модели техники, портфолио и тексты о заводах условные.
 
 ## Страницы для показа
 
@@ -16,6 +16,7 @@
 | Бренд MGP | https://luchinwa.github.io/createk-redesign/#/b/mgp |
 | О бренде Forview | https://luchinwa.github.io/createk-redesign/#/b/forview |
 | О бренде Createk | https://luchinwa.github.io/createk-redesign/#/b/createk |
+| О бренде Impeco | https://luchinwa.github.io/createk-redesign/#/b/impeco |
 | Раздел MGP: Ford | https://luchinwa.github.io/createk-redesign/#/c/ford |
 | Карточка с фото и ценой | https://luchinwa.github.io/createk-redesign/#/p/1014 |
 | Условия работы | https://luchinwa.github.io/createk-redesign/#/usloviya |

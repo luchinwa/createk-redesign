@@ -357,13 +357,13 @@ footer a:hover{color:var(--red)}
 .route li span:not(.dot){font-size:13.5px;color:var(--muted)}
 
 /* бренды */
-.brands{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
+.brands{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:16px}
 .brand{display:flex;flex-direction:column;gap:14px;padding:28px;border-radius:16px;border:1px solid var(--line);background:#fff;transition:.15s;min-height:310px}
 .brand:hover{box-shadow:var(--shadow);border-color:var(--ink)}
 .brand.main{background:var(--ink);color:#fff;border-color:var(--ink)}
 .brand-badge{align-self:flex-start;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:6px;background:var(--gray);color:var(--ink-2)}
 .brand.main .brand-badge,.bhero.dark .brand-badge{background:var(--red);color:#fff}
-.brand-name{font-size:40px;font-weight:800;letter-spacing:.04em;line-height:1}
+.brand-name{font-size:34px;font-weight:800;letter-spacing:.04em;line-height:1}
 .brand p{margin:0;color:var(--muted);font-size:15px}
 .brand.main p{color:#bbb}
 .brand ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:14.5px}
@@ -470,7 +470,6 @@ details.faq p{margin:10px 0 0;color:var(--ink-2)}
 
 @media (max-width:1100px){
   .brands{grid-template-columns:1fr 1fr}
-  .brands .brand.main{grid-column:1/-1;min-height:0}
   .steps,.steps.s4{grid-template-columns:repeat(3,1fr)}
   .mtypes{grid-template-columns:repeat(3,1fr)}
   .bhero h1{font-size:44px}
@@ -536,6 +535,20 @@ div.cat:hover{border-color:var(--line);box-shadow:none}
 /* фото товаров */
 .thumb img,.gallery .main img{width:100%;height:100%;object-fit:cover}
 .thumb,.gallery .main{overflow:hidden}
+
+/* понижённый блок поставок из Китая */
+.hero h2{font-size:38px;line-height:1.12;font-weight:800;margin:16px 0 18px;letter-spacing:-.01em}
+.hero h2 span{color:var(--red)}
+/* анонс сайта спецтехники */
+.announce{display:flex;gap:18px;align-items:center;background:var(--gray);border-radius:16px;padding:22px 26px}
+.announce .ico{width:44px;height:44px;color:var(--red);flex:none;stroke-width:1.3}
+.announce b{display:block;font-size:18px;margin-bottom:4px}
+.announce span{color:var(--ink-2);font-size:15px}
+@media (max-width:960px){
+  .hero h2{font-size:27px}
+  .announce{padding:18px;align-items:flex-start}
+  .announce .ico{width:34px;height:34px}
+}
 </style>
 </head>
 <body>
@@ -582,18 +595,18 @@ div.cat:hover{border-color:var(--line);box-shadow:none}
   </defs>
 </svg>
 
-<div class="proto"><b>Прототип v2: прямые поставки из Китая.</b> Название, тексты, сроки, цифры и позиции MGP и Forview условные.</div>
+<div class="proto"><b>Прототип v2.</b> Фильтры MGP и цены из КП. Техника, тексты о заводах и логотип условные.</div>
 
 <div class="topbar">
   <div class="wrap">
     <nav>
       <a href="#/usloviya">Условия работы</a>
-      <a href="#/usloviya/dostavka">Доставка из Китая</a>
+      <a href="#/usloviya/dostavka">Доставка</a>
       <a href="#/tekhnika">Спецтехника</a>
-      <a href="#/usloviya/opt">Оптовикам</a>
+      <a href="#/usloviya/opt">Поставки партиями</a>
       <a href="#/">Контакты</a>
     </nav>
-    <div class="city"><svg class="ico"><use href="#i-pin"/></svg>Благовещенск · Краснодар</div>
+    <div class="city"><svg class="ico"><use href="#i-pin"/></svg>Краснодар</div>
   </div>
 </div>
 
@@ -633,23 +646,23 @@ div.cat:hover{border-color:var(--line);box-shadow:none}
     <div class="foot-grid">
       <div>
         <a href="#/" class="logo" style="margin-bottom:16px"><svg class="logo-mark"><use href="#logo"/></svg><span class="logo-text"><b>CREATEK</b><small>Запчасти и техника из Китая</small></span></a>
-        <p style="margin:0;color:var(--muted);max-width:340px">Прямые поставки запчастей для грузовиков и спецтехники с заводов Китая. Собственный бренд MGP, Forview и Createk. Склад запчастей в Благовещенске, площадки спецтехники в Благовещенске и Краснодаре. Доставка по России.</p>
+        <p style="margin:0;color:var(--muted);max-width:340px">Фильтры собственного бренда MGP и спецтехника в наличии на складе в Краснодаре. Бренды-партнёры Forview, Createk, Impeco. Поставки запчастей из Китая партиями под заказ.</p>
       </div>
       <div><h4>Бренды</h4><ul id="foot-brands"></ul></div>
       <div><h4>Покупателям</h4><ul>
         <li><a href="#/usloviya">Условия работы</a></li>
         <li><a href="#/usloviya/oplata">Оплата</a></li>
-        <li><a href="#/usloviya/dostavka">Доставка из Китая</a></li>
+        <li><a href="#/usloviya/dostavka">Доставка</a></li>
         <li><a href="#/usloviya/garantiya">Гарантия и возврат</a></li>
-        <li><a href="#/usloviya/opt">Оптовикам и автопаркам</a></li>
+        <li><a href="#/usloviya/opt">Поставки партиями</a></li>
       </ul></div>
       <div><h4>Контакты</h4>
         <a class="foot-phone" href="tel:88002501598">8 800 250-15-98</a><span style="color:var(--muted)">бесплатно по России</span>
-        <a class="foot-phone" href="tel:84162580077" style="margin-top:12px">+7 4162 58-00-77</a><span style="color:var(--muted)">Благовещенск, ул. Фрунзе, 91</span>
+        <span style="display:block;margin-top:12px;color:var(--muted)">Склад: Краснодар</span>
         <a href="mailto:fawavto@bk.ru" style="display:block;margin-top:12px;font-weight:700">fawavto@bk.ru</a>
       </div>
     </div>
-    <div class="foot-bottom"><span>© ООО «ФавАвто Трейд», Благовещенск. Информация на сайте не является публичной офертой.</span><a href="#/">Политика обработки персональных данных</a></div>
+    <div class="foot-bottom"><span>© ООО «ФавАвто Трейд». Информация на сайте не является публичной офертой.</span><a href="#/">Политика обработки персональных данных</a></div>
   </div>
 </footer>
 
@@ -702,45 +715,53 @@ const CATS = [
   {id:'pricepy', name:'Прицепы и полуприцепы', icon:'trailer', n:10},
 ];
 const P = [];
+const STORE = 'Краснодар';
 const BRANDS = [
   {id:'mgp', label:'MGP', name:'MGP', badge:'Собственный бренд',
-   short:'Фильтры и расходники для Ford Cargo, F-MAX, Caterpillar и Hitachi. Цены на сайте.',
-   desc:'Собственная марка фильтров и расходников для грузовиков Ford Cargo и F-MAX и спецтехники Caterpillar и Hitachi. Производство в Китае. Часть позиций на складе в Благовещенске, остальное под заказ.',
-   points:['Цены с НДС прямо на сайте','Часть позиций на складе','Под заказ 30–60 дней'],
-   facts:[['Ford, CAT, Hitachi','фильтры и расходники'],['30–60 дней','под заказ'],['С НДС','цены в Благовещенске']]},
-  {id:'forview', label:'Forview', name:'FORVIEW', badge:'Бренд-партнёр', demo:1,
-   short:'Завод-партнёр. Поставляем напрямую от производителя под заказ.',
-   desc:'Запчасти Forview поставляем напрямую от производителя по договору, без посредников. Ниже ассортимент завода, подход к качеству и история.',
-   points:['Двигатель, топливная и тормозная системы','Поставка под заказ','Прямой контракт с заводом'],
-   facts:[['Под заказ','с завода'],['Договор','с производителем'],['Китай','производство']],
+   short:'Фильтры для Ford Cargo, F-MAX, Caterpillar и Hitachi. В наличии на складе в Краснодаре.',
+   desc:'Собственная марка фильтров для грузовиков Ford Cargo и F-MAX и спецтехники Caterpillar и Hitachi. Производство в Китае, товар в наличии на складе в Краснодаре.',
+   points:['В наличии на складе','Цены с НДС на сайте','Ford, Caterpillar, Hitachi'],
+   facts:[['Ford, CAT, Hitachi','фильтры'],['Краснодар','склад'],['С НДС','цены на сайте']]},
+  {id:'forview', label:'Forview', name:'FORVIEW', badge:'Бренд-партнёр',
+   short:'Завод-партнёр. Ассортимент, качество и история производства.',
+   desc:'Запчасти Forview поставляем напрямую от производителя партиями под заказ. Ниже ассортимент завода, подход к качеству и история.',
+   points:['Двигатель, топливная и тормозная системы','Прямой контракт с заводом','Поставка партиями под заказ'],
+   facts:[['Партиями','под заказ'],['Договор','с производителем'],['Китай','производство']],
    range:'Основные группы запчастей. Точный ассортимент уточняется у завода',
    groups:['dvigatel','toplivnaya-sistema','tormoznaya-sistema','filtry','sceplenie','elektrika']},
-  {id:'createk', label:'Createk', name:'CREATEK', badge:'Базовый каталог',
-   short:'Завод, с которого начиналась компания. Поставляем под заказ.',
-   desc:'С продукции Createk начиналась компания. Ниже ассортимент завода, подход к качеству и история. Поставляем под заказ, цену и срок называем по запросу.',
-   points:['Двигатель, КПП, мосты, подвеска','Поставка под заказ','Цена и срок по запросу'],
-   facts:[['16','групп запчастей'],['Под заказ','поставка'],['Китай','производство']],
+  {id:'createk', label:'Createk', name:'CREATEK', badge:'Бренд-партнёр',
+   short:'Завод, с которого начиналась компания. Ассортимент, качество и история.',
+   desc:'С продукции Createk начиналась компания. Ниже ассортимент завода, подход к качеству и история. Поставляем партиями под заказ.',
+   points:['Двигатель, КПП, мосты, подвеска','С этого завода начинали','Поставка партиями под заказ'],
+   facts:[['16','групп запчастей'],['Партиями','под заказ'],['Китай','производство']],
    range:'16 групп запчастей для грузовиков, как в прежнем каталоге',
    groups:['dvigatel','kpp','kuzov-i-kabina','most','podveska','podshipniki','kardannyj-val','remni','rulevoj-mekhanizm','sistema-okhlazhdeniya','sceplenie','tormoznaya-sistema','toplivnaya-sistema','filtry','elektrika','pricepy']},
+  {id:'impeco', label:'Impeco', name:'IMPECO', badge:'Бренд-партнёр',
+   short:'Торговая марка Jinan Zoya International Trade. Ассортимент и история.',
+   desc:'IMPECO — торговая марка компании Jinan Zoya International Trade Co., Ltd (Цзинань, Китай). Ниже ассортимент, подход к качеству и история. Поставляем партиями под заказ.',
+   points:['Компания из Цзинаня, Китай','Прямой контракт','Поставка партиями под заказ'],
+   facts:[['Партиями','под заказ'],['Договор','с производителем'],['Китай','производство']],
+   range:'Ассортимент заполним по данным Алексея',
+   groups:[]},
 ];
-// позиции и цены из КП ООО «ФавАвто Трейд», октябрь 2026
+// позиции, цены и остатки из КП ООО «ФавАвто Трейд», октябрь 2026; фильтры бренда MGP
 const MAKES = [{id:'ford', name:'Ford Cargo и F-MAX', icon:'truck'}, {id:'caterpillar', name:'Caterpillar', icon:'excavator'}, {id:'hitachi', name:'Hitachi', icon:'excavator'}];
 const FORD_ALL = '1833/1842/1848/2533/2633/3542D/3542T/4142D';
 const MGP_ITEMS = [
-  // [раздел, название, артикул, другие номера, применимость, цена, кол-во в наличии, фото]
-  ['ford','Фильтр охлаждающей жидкости','GC468A4469AAN','T217992',FORD_ALL + '/F-MAX',799],
-  ['ford','Фильтр масляный гидроусилителя','98CT3K520AAN','T126506','1842/1848/2533/3430D',634],
-  ['ford','Фильтр топливный сепаратора','MEGC469176BAN','T331801',FORD_ALL + '/F-MAX',1027],
-  ['ford','Фильтр гидроусилителя','GC463C602AAN','7632.141.102HTT/Т220479','1833/1842/1846/1848/2633/3542D/3542T/F-MAX',571],
-  ['ford','Фильтр топливный','GC469176A8N','GC46-9176-AB/Т222644',FORD_ALL,926],
-  ['ford','Фильтр топливный','GC469176CAN','GC46-9176-CA/Т313343',FORD_ALL,926],
-  ['ford','Фильтр топливный','MEGC46-9176-ACN','Т333502',FORD_ALL,926],
-  ['ford','Фильтр масляный двигателя Ecotorq 12.7L','GC466744ADN','GC46-6744-AD/Т298570','1842/1848/3542D/3542T/4142D/F-MAX',928],
-  ['ford','Фильтр салона рециркуляции','MEJC4618D543ABN','T332303','F-MAX',923],
-  ['ford','Фильтр салона основной','MEDC4619N619AAN','T332304','1833/1842/1846/1848/2533/2633/3542D/3542T/4142D',837],
-  ['ford','Фильтр салона основной','MEJC4619N619ABN','T332305','F-MAX',837],
-  ['ford','Фильтр воздушный двигателя, внешний и внутренний','MEGC469601A1AN','T338038',FORD_ALL,4900],
-  ['ford','Фильтр воздушный двигателя, внешний и внутренний','MEJC469601A1AN','T343327','F-MAX',4900],
+  // [раздел, название, артикул, другие номера, применимость, цена, кол-во на складе, фото]
+  ['ford','Фильтр охлаждающей жидкости','GC468A4469AAN','T217992',FORD_ALL + '/F-MAX',799,300],
+  ['ford','Фильтр масляный гидроусилителя','98CT3K520AAN','T126506','1842/1848/2533/3430D',634,301],
+  ['ford','Фильтр топливный сепаратора','MEGC469176BAN','T331801',FORD_ALL + '/F-MAX',1027,240],
+  ['ford','Фильтр гидроусилителя','GC463C602AAN','7632.141.102HTT/Т220479','1833/1842/1846/1848/2633/3542D/3542T/F-MAX',571,150],
+  ['ford','Фильтр топливный','GC469176A8N','GC46-9176-AB/Т222644',FORD_ALL,926,259],
+  ['ford','Фильтр топливный','GC469176CAN','GC46-9176-CA/Т313343',FORD_ALL,926,271],
+  ['ford','Фильтр топливный','MEGC46-9176-ACN','Т333502',FORD_ALL,926,260],
+  ['ford','Фильтр масляный двигателя Ecotorq 12.7L','GC466744ADN','GC46-6744-AD/Т298570','1842/1848/3542D/3542T/4142D/F-MAX',928,278],
+  ['ford','Фильтр салона рециркуляции','MEJC4618D543ABN','T332303','F-MAX',923,80],
+  ['ford','Фильтр салона основной','MEDC4619N619AAN','T332304','1833/1842/1846/1848/2533/2633/3542D/3542T/4142D',837,80],
+  ['ford','Фильтр салона основной','MEJC4619N619ABN','T332305','F-MAX',837,150],
+  ['ford','Фильтр воздушный двигателя, внешний и внутренний','MEGC469601A1AN','T338038',FORD_ALL,4900,144],
+  ['ford','Фильтр воздушный двигателя, внешний и внутренний','MEJC469601A1AN','T343327','F-MAX',4900,144],
   ['caterpillar','Фильтр масляный двигателя','1R-1808','','',1154,189,'1r-1808'],
   ['caterpillar','Фильтр топливный','1R-0749','','',761,45,'1r-0749'],
   ['caterpillar','Фильтр топливный','326-1642','','',1078,209,'326-1642'],
@@ -755,11 +776,9 @@ const MGP_ITEMS = [
   ['hitachi','Фильтр кабины','YA00022308','','ZX330-5G',0],
   ['hitachi','Фильтр сапуна гидробака','4437838','','ZX330-5G',0,0,'4437838'],
 ];
-const STEPS = [['Заявка','Артикул, VIN или фото детали'], ['Счёт','Фиксируем цену и срок поставки'], ['Оплата','Под заказ 50% предоплата, 50% перед отгрузкой с завода'], ['Поставка','Выкуп на заводе, таможня, доставка'], ['Получение','Самовывоз или отправка по России']];
-const ROUTE = [['factory','Завод в Китае','Выкупаем напрямую, без посредников'], ['shield','Проверка качества','Осматриваем партию перед отгрузкой'], ['doc','Таможня','Оформляем документы и сертификаты'], ['box','Склад в Благовещенске','Принимаем и комплектуем заказ'], ['truck','Доставка по России','Самовывоз или транспортная компания']];
-const LEAD = {mgp:'30–60 дней', forview:'по запросу', createk:'по запросу'};
+const STEPS = [['Заявка','Список артикулов и объём партии'], ['Расчёт','Цена, срок и условия под ваш объём'], ['Оплата','50% предоплата, 50% перед отгрузкой с завода'], ['Поставка','Выкуп на заводе, таможня, доставка'], ['Получение','Склад в Краснодаре или отправка по России']];
+const ROUTE = [['factory','Завод в Китае','Выкупаем напрямую, без посредников'], ['shield','Проверка качества','Осматриваем партию перед отгрузкой'], ['doc','Таможня','Оформляем документы и сертификаты'], ['box','Склад в Краснодаре','Принимаем и комплектуем заказ'], ['truck','Доставка по России','Самовывоз или транспортная компания']];
 
-// каталог только MGP: Createk и Forview показаны страницами о бренде
 let nid = 1000;
 const mk = brand => ([cat, name, sku, alt, fits, price, qty, img]) => ({id: ++nid, brand, cat, name, sku, alt: alt ? alt.split('/') : [], fits: fits ? fits.split('/') : [], price, qty, stock: !!qty, img});
 P.push(...MGP_ITEMS.map(mk('mgp')));
@@ -771,10 +790,10 @@ const catById = id => CATS.concat(MAKES).find(c => c.id === id);
 const brandById = id => BRANDS.find(b => b.id === id);
 const ico = (name, cls='ico') => `<svg class="${cls}"><use href="#i-${name}"/></svg>`;
 const plural = (n, a, b, c) => { const m10=n%10, m100=n%100; return n+' '+(m10===1&&m100!==11?a:m10>=2&&m10<=4&&(m100<10||m100>=20)?b:c); };
-const ORDER = {mgp:0, forview:1, createk:2};
-const sortP = list => list.slice().sort((x, y) => (y.stock - x.stock) || (ORDER[x.brand] - ORDER[y.brand]));
+// сначала в наличии, затем с фото
+const sortP = list => list.slice().sort((x, y) => (y.stock - x.stock) || (!!y.img - !!x.img));
 const total = cat => P.filter(p => !cat || p.cat === cat).length;
-const status = p => p.stock ? `<span class="status in">В наличии${p.qty ? ` · ${p.qty} шт` : ''}</span>` : `<span class="status order">Под заказ</span>`;
+const status = p => p.stock ? `<span class="status in">В наличии${p.qty ? ` · ${p.qty} шт` : ''}</span>` : `<span class="status order">Наличие уточняйте</span>`;
 const rub = n => n.toLocaleString('ru-RU') + ' ₽';
 const pic = (p, c) => p.img ? `<img src="img/${p.img}.jpg" alt="${p.name} ${p.sku}" loading="lazy">` : ico(c.icon);
 const fitsOf = p => p.fits.map(f => (p.cat === 'ford' && f !== 'F-MAX' ? 'Ford ' : p.cat === 'hitachi' ? 'Hitachi ' : '') + f);
@@ -804,31 +823,46 @@ function brandCard(b){
     <span class="brand-name">${b.name}</span>
     <p>${b.short}</p>
     <ul>${b.points.map(x => `<li>${ico('check')}${x}</li>`).join('')}</ul>
-    <span class="link">${b.id === 'mgp' ? 'Каталог MGP' : 'О бренде ' + b.label} ${ico('arrow')}</span>
+    <span class="link">${b.id === 'mgp' ? 'Фильтры в наличии' : 'О бренде ' + b.label} ${ico('arrow')}</span>
   </a>`;
 }
 
 function home(){
-  const stock = sortP(P.filter(p => p.img || p.price)).slice(0, 8);
+  const stock = sortP(P.filter(p => p.stock)).slice(0, 8);
   return `
   <section><div class="wrap">
     <div class="sec-head"><div><h2>Бренды</h2><p>Собственный бренд и заводы-партнёры</p></div></div>
     <div class="brands">${BRANDS.map(brandCard).join('')}</div>
   </div></section>
 
+  <section style="padding-top:0"><div class="wrap">
+    <div class="sec-head"><div><h2>Фильтры MGP в наличии</h2><p>Склад в Краснодаре, цены с НДС</p></div><a href="#/b/mgp" class="link">Все фильтры MGP ${ico('arrow')}</a></div>
+    <div class="products">${stock.map(card).join('')}</div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="mach">
+      <div class="mach-img">${ico('excavator')}</div>
+      <div class="mach-text">
+        <span class="eyebrow">В наличии и под заказ</span>
+        <h2>Спецтехника</h2>
+        <p>Техника в наличии на складе в Краснодаре и большое портфолио привезённых и проданных машин. Принимаем заявки на поставку под заказ.</p>
+        <ul class="ticks"><li>${ico('check')}Техника в наличии, можно осмотреть</li><li>${ico('check')}Портфолио поставленной техники</li><li>${ico('check')}Поставка под заказ по заявке</li></ul>
+        <div class="btns"><a class="btn btn-dark" href="#/tekhnika">Смотреть технику</a></div>
+      </div>
+    </div>
+    <div class="sec-head" style="margin-top:40px"><div><h2>Техника в наличии</h2><p>Можно осмотреть на складе в Краснодаре</p></div><a href="#/tekhnika" class="link">Вся техника ${ico('arrow')}</a></div>
+    <div class="products">${MACH.filter((m, i, a) => a.findIndex(x => x.type === m.type) === i).slice(0, 4).map(mcard).join('')}</div>
+  </div></section>
+
   <div class="hero"><div class="wrap">
     <div>
-      <span class="eyebrow">Прямые поставки из Китая</span>
-      <h1>Запчасти и спецтехника <span>напрямую с заводов Китая</span></h1>
-      <p>Собственный бренд MGP со склада в Благовещенске, поставки Forview и Createk под заказ. Спецтехника в наличии и под заказ. Без посредников: выкупаем на заводе, оформляем таможню и доставляем по России.</p>
+      <span class="eyebrow">Дополнительно</span>
+      <h2>Поставки запчастей из Китая <span>партиями под заказ</span></h2>
+      <p>Для крупных партий привозим запчасти напрямую с заводов Китая: выкуп, проверка качества, таможня и доставка. Условия обсуждаем под ваш объём.</p>
       <div class="btns">
-        <a class="btn btn-red" href="#/b/mgp">Каталог MGP ${ico('arrow')}</a>
+        <button class="btn btn-red" data-request="partiya">Обсудить партию</button>
         <a class="btn btn-line" href="#/usloviya">Условия работы</a>
-      </div>
-      <div class="hero-stats">
-        <div><b>3 бренда</b><span>MGP, Forview, Createk</span></div>
-        <div><b>2 площадки</b><span>техники: Благовещенск, Краснодар</span></div>
-        <div><b>1–2 дня</b><span>отгрузка со склада</span></div>
       </div>
     </div>
     <div class="route"><h3>Путь детали</h3><p>От завода в Китае до вашего склада</p>
@@ -837,41 +871,11 @@ function home(){
   </div></div>
 
   <section><div class="wrap">
-    <div class="sec-head"><div><h2>Фильтры MGP</h2><p>Цены в Благовещенске с НДС</p></div><a href="#/b/mgp" class="link">Весь каталог MGP ${ico('arrow')}</a></div>
-    <div class="products">${stock.map(card).join('')}</div>
-  </div></section>
-
-  <section class="trust"><div class="wrap">
-    <div class="sec-head"><div><h2>Как мы работаем</h2><p>Пять шагов от заявки до получения</p></div><a href="#/usloviya" class="link">Все условия ${ico('arrow')}</a></div>
-    ${steps()}
-  </div></section>
-
-  <section><div class="wrap">
-    <div class="sec-head"><div><h2>Каталог MGP по технике</h2><p>Фильтры и расходники собственного бренда</p></div></div>
-    <div class="cats">${PCATS.map(c => `<a class="cat" href="#/c/${c.id}">${ico(c.icon)}<b>${c.name}</b><span>${plural(total(c.id), 'позиция', 'позиции', 'позиций')}</span></a>`).join('')}</div>
-  </div></section>
-
-  <section style="padding-top:0"><div class="wrap">
-    <div class="mach">
-      <div class="mach-img">${ico('excavator')}</div>
-      <div class="mach-text">
-        <span class="eyebrow">В наличии и под заказ</span>
-        <h2>Спецтехника из Китая</h2>
-        <p>Самосвалы, тягачи, погрузчики, экскаваторы и техника на шасси. Большая часть в наличии на площадках в Благовещенске и Краснодаре, остальное привезём под заказ.</p>
-        <ul class="ticks"><li>${ico('check')}Много техники в наличии, можно осмотреть</li><li>${ico('check')}Под заказ: от 30 до 60 дней</li><li>${ico('check')}Таможня и ЭПТС под ключ</li></ul>
-        <div class="btns"><a class="btn btn-dark" href="#/tekhnika">Смотреть технику</a></div>
-      </div>
-    </div>
-    <div class="sec-head" style="margin-top:40px"><div><h2>Техника в наличии</h2><p>Можно осмотреть на площадках в Благовещенске и Краснодаре</p></div><a href="#/tekhnika" class="link">Вся техника ${ico('arrow')}</a></div>
-    <div class="products">${MACH.filter(m => m.stock).filter((m, i, a) => a.findIndex(x => x.type === m.type) === i).slice(0, 4).map(mcard).join('')}</div>
-  </div></section>
-
-  <section style="padding-top:0"><div class="wrap">
     ${ctaBlock()}
   </div></section>`;
 }
 
-function ctaBlock(title = 'Не нашли нужную деталь?', sub = 'Назовите артикул или пришлите фото. Найдём у заводов в Китае и назовём цену и срок.', req = ''){
+function ctaBlock(title = 'Не нашли нужный фильтр?', sub = 'Назовите артикул или пришлите фото. Проверим наличие на складе и подскажем замену.', req = ''){
   return `<div class="cta">
     <div><h2>${title}</h2><p>${sub}</p></div>
     <div class="btns"><a class="btn btn-line" href="tel:88002501598">${ico('phone')}8 800 250-15-98</a><button class="btn btn-dark" data-request="${req}">Оставить заявку</button></div>
@@ -913,11 +917,11 @@ function bhero(o){
 }
 
 function aboutBrand(b){
-  return bhero({crumbs: `<span>Бренды</span>/<span>${b.label}</span>`, badge: b.badge, title: b.name, text: b.desc, facts: b.facts, btns: `<div class="btns"><button class="btn btn-red" data-request="">Запросить поставку</button></div>`}) +
+  return bhero({crumbs: `<span>Бренды</span>/<span>${b.label}</span>`, badge: b.badge, title: b.name, text: b.desc, facts: b.facts, btns: `<div class="btns"><button class="btn btn-red" data-request="partiya">Обсудить поставку</button></div>`}) +
   `<div class="wrap">
     <div class="note" style="margin-top:28px">Тексты о заводе в прототипе условные. Ассортимент, историю, сертификаты и фото с выставок нужно получить от Алексея.</div>
     <section style="padding-top:12px"><div class="sec-head"><div><h2>Ассортимент</h2><p>${b.range}</p></div></div>
-      <div class="cats">${b.groups.map(id => { const c = catById(id); return `<div class="cat">${ico(c.icon)}<b>${c.name}</b></div>`; }).join('')}</div>
+      ${b.groups.length ? `<div class="cats">${b.groups.map(id => { const c = catById(id); return `<div class="cat">${ico(c.icon)}<b>${c.name}</b></div>`; }).join('')}</div>` : `<div class="empty">Группы товаров ${b.label} появятся здесь.</div>`}
     </section>
     <section style="padding-top:0"><div class="sec-head"><div><h2>Качество</h2></div></div>
       <div class="grid2">${QUALITY.map(([i, t, x]) => box(i, t, `<p>${x}</p>`)).join('')}</div>
@@ -928,7 +932,7 @@ function aboutBrand(b){
     <section style="padding-top:0"><div class="sec-head"><div><h2>Выставки</h2><p>Блок появится, если у завода есть актуальные фото</p></div></div>
       <div class="expo">${[1, 2, 3].map(() => `<div><div class="expo-img">${ico('factory')}</div><b>Название выставки</b><span>Город, год</span></div>`).join('')}</div>
     </section>
-    <section style="padding:0">${ctaBlock(`Нужны запчасти ${b.label}?`, 'Пришлите артикул или список позиций. Проверим у завода и назовём цену и срок поставки.')}</section>
+    <section style="padding:0">${ctaBlock(`Нужны запчасти ${b.label} партией?`, 'Поставляем с завода под заказ. Пришлите список позиций и объём, обсудим условия.', 'partiya')}</section>
   </div>`;
 }
 
@@ -936,22 +940,21 @@ function brandPage(id, cat){
   const b = brandById(id) || BRANDS[0];
   if (b.id !== 'mgp') return aboutBrand(b);
   const c = catById(cat);
-  const cats = PCATS;
-  const items = sortP(P.filter(p => p.brand === b.id && (!c || p.cat === c.id)));
+  const items = sortP(P.filter(p => !c || p.cat === c.id));
   const shown = items.slice(0, 24);
   const all = total(c && c.id);
-  return bhero({dark: b.id === 'mgp', crumbs: `<span>Бренды</span>/${c ? `<a href="#/b/${b.id}">${b.label}</a>/<span>${c.name}</span>` : `<span>${b.label}</span>`}`, badge: b.badge, title: b.name, text: b.desc, facts: b.facts}) +
+  return bhero({dark: 1, crumbs: `<span>Бренды</span>/${c ? `<a href="#/b/mgp">MGP</a>/<span>${c.name}</span>` : '<span>MGP</span>'}`, badge: b.badge, title: b.name, text: b.desc, facts: b.facts}) +
   `<div class="wrap" style="padding-top:28px">
-    <div class="note">Позиции и цены из КП ООО «ФавАвто Трейд», октябрь 2026. Уточнить у Алексея: относятся ли все позиции к бренду MGP и что означает количество у фильтров Ford (наличие или партия).</div>
-    <div class="bchips"><a href="#/b/${b.id}" class="${!c ? 'on' : ''}">Все разделы <em>${total()}</em></a>${cats.map(x => `<a href="#/b/${b.id}/${x.id}" class="${c && c.id === x.id ? 'on' : ''}">${x.name} <em>${total(x.id)}</em></a>`).join('')}</div>
+    <div class="note">Позиции, цены и остатки из КП ООО «ФавАвто Трейд», октябрь 2026. У фильтров Hitachi нет цены и количества, нужно уточнить у Алексея.</div>
+    <div class="bchips"><a href="#/b/mgp" class="${!c ? 'on' : ''}">Все фильтры <em>${total()}</em></a>${PCATS.map(x => `<a href="#/b/mgp/${x.id}" class="${c && c.id === x.id ? 'on' : ''}">${x.name} <em>${total(x.id)}</em></a>`).join('')}</div>
     <div class="toolbar">
-      <label class="search"><svg class="ico"><use href="#i-search"/></svg><input type="search" placeholder="Поиск по ${b.label}"></label>
-      <select aria-label="Сортировка"><option>Сначала в наличии</option><option>По названию</option></select>
+      <label class="search"><svg class="ico"><use href="#i-search"/></svg><input type="search" placeholder="Поиск по артикулу или названию"></label>
+      <select aria-label="Сортировка"><option>Сначала в наличии</option><option>По названию</option><option>По цене</option></select>
       <span class="count">Показано ${shown.length} из ${all}</span>
     </div>
     <div class="products">${shown.map(card).join('')}</div>
     ${more(shown.length, all)}
-    <section style="padding-bottom:0">${ctaBlock(`Нужна позиция ${b.label}, которой нет в списке?`, 'Пришлите артикул или фото. Проверим у производителя и назовём цену и срок.')}</section>
+    <section style="padding-bottom:0">${ctaBlock()}</section>
   </div>`;
 }
 
@@ -959,25 +962,23 @@ function product(id){
   const p = P.find(x => x.id == id) || P[0];
   const c = catById(p.cat), b = brandById(p.brand);
   const rest = P.filter(x => x.id !== p.id);
-  const similar = sortP(rest.filter(x => x.cat === p.cat)).concat(rest.filter(x => x.cat !== p.cat && x.brand === p.brand)).slice(0, 4);
-  const lead = p.stock ? 'Со склада в Благовещенске' : LEAD[p.brand] + ', зависит от количества';
+  const similar = sortP(rest.filter(x => x.cat === p.cat)).concat(rest.filter(x => x.cat !== p.cat)).slice(0, 4);
   return `<div class="wrap">
-    <div class="crumbs"><a href="#/">Главная</a>/<a href="#/b/${b.id}">${b.label}</a>/<a href="#/b/${b.id}/${c.id}">${c.name}</a>/<span>${p.sku}</span></div>
+    <div class="crumbs"><a href="#/">Главная</a>/<a href="#/b/mgp">MGP</a>/<a href="#/b/mgp/${c.id}">${c.name}</a>/<span>${p.sku}</span></div>
     <div class="pp">
       <div class="gallery"><div class="main">${pic(p, c)}</div>${p.img ? '' : '<div class="thumbs"><div></div><div></div><div></div><div></div></div>'}</div>
       <div class="pp-info">
-        <div class="sku"><span>Артикул: <b>${p.sku}</b></span><span>Бренд: <a href="#/b/${b.id}"><b>${b.label}</b></a></span></div>
+        <div class="sku"><span>Артикул: <b>${p.sku}</b></span><span>Бренд: <a href="#/b/mgp"><b>${b.label}</b></a></span></div>
         <h1>${p.name}</h1>
         ${p.fits.length ? `<div class="fits">${fitsOf(p).map(f => `<span>${f}</span>`).join('')}</div>` : ''}
         <div class="buybox">
           <div class="pr"><b>${p.price ? rub(p.price) : 'Цена по запросу'}</b>${status(p)}</div>
-          ${p.price ? '<span style="font-size:13.5px;color:var(--muted);margin-top:-10px">С НДС, в Благовещенске</span>' : ''}
+          ${p.price ? '<span style="font-size:13.5px;color:var(--muted);margin-top:-10px">С НДС</span>' : ''}
           <div class="btns"><button class="btn btn-red" data-request="${p.id}">${p.price ? 'Заказать' : 'Запросить цену'}</button><a class="btn btn-line" href="tel:88002501598">${ico('phone')}Позвонить</a></div>
           <ul>
-            ${p.stock ? `<li>${ico('box')}В наличии на складе в Благовещенске</li>`
-              : `<li>${ico('clock')}Под заказ с завода, ${LEAD[p.brand]} в зависимости от количества</li><li>${ico('wallet')}50% предоплата, 50% при готовности к отгрузке с завода</li>`}
-            <li>${ico('shield')}Прямая поставка, документы и сертификаты</li>
-            <li>${ico('truck')}Доставка по России транспортными компаниями</li>
+            <li>${ico('box')}${p.stock ? 'В наличии на складе в Краснодаре' : 'Наличие и цену назовёт менеджер'}</li>
+            <li>${ico('doc')}Документы и сертификаты</li>
+            <li>${ico('truck')}Самовывоз или доставка по России</li>
           </ul>
           <a class="link" href="#/usloviya">Условия работы ${ico('arrow')}</a>
         </div>
@@ -986,12 +987,11 @@ function product(id){
           ${p.alt.length ? `<tr><td>Другие номера</td><td>${p.alt.join(', ')}</td></tr>` : ''}
           <tr><td>Бренд</td><td>${b.label}</td></tr>
           <tr><td>Техника</td><td>${c.name}</td></tr>
-          <tr><td>Наличие</td><td>${p.stock ? `В наличии, ${p.qty} шт` : 'Под заказ'}</td></tr>
-          <tr><td>Срок поставки</td><td>${lead}</td></tr>
           <tr><td>Применимость</td><td>${fitsOf(p).join(', ') || 'Уточняйте у менеджера'}</td></tr>
+          <tr><td>Наличие</td><td>${p.stock ? `${p.qty} шт, склад в Краснодаре` : 'Уточняйте у менеджера'}</td></tr>
           <tr><td>Страна производства</td><td>Китай</td></tr>
         </table></div>
-        <div class="desc"><h2>Описание</h2><p>${p.cat === 'ford' ? 'Цена указана для фильтра с фильтрующим материалом производства КНР. Есть вариант с импортным материалом (Германия, США), его цену уточняйте у менеджера.' : p.price ? 'Цена указана в Благовещенске с НДС. При заказе партии уточняйте у менеджера.' : 'Цену и срок поставки назовёт менеджер по запросу.'}</p></div>
+        <div class="desc"><h2>Описание</h2><p>${p.cat === 'ford' ? 'Цена указана для фильтра с фильтрующим материалом производства КНР. Есть вариант с импортным материалом (Германия, США), его цену уточняйте у менеджера.' : p.price ? 'Цена с НДС. Для крупной партии уточняйте условия у менеджера.' : 'Цену и наличие назовёт менеджер по запросу.'}</p></div>
       </div>
     </div>
     <section style="padding-bottom:0">
@@ -1001,102 +1001,99 @@ function product(id){
   </div>`;
 }
 
-const TOC = [['kak','Как мы работаем'], ['sroki','Наличие и сроки'], ['oplata','Оплата'], ['dostavka','Доставка из Китая'], ['dokumenty','Таможня и документы'], ['garantiya','Гарантия и возврат'], ['opt','Оптовикам и автопаркам'], ['voprosy','Вопросы']];
+const TOC = [['kak','Как мы работаем'], ['sroki','Наличие и сроки'], ['oplata','Оплата'], ['dostavka','Доставка'], ['dokumenty','Таможня и документы'], ['garantiya','Гарантия и возврат'], ['opt','Поставки партиями'], ['voprosy','Вопросы']];
 const box = (icon, title, body) => `<div class="box"><h3>${ico(icon)}${title}</h3>${body}</div>`;
 const ul = list => `<ul>${list.map(x => `<li>${x}</li>`).join('')}</ul>`;
 const faq = (q, a) => `<details class="faq"><summary>${q}</summary><p>${a}</p></details>`;
 
 function terms(){
-  return bhero({crumbs: '<span>Условия работы</span>', badge: 'Покупателям', title: 'Условия работы', text: 'Как мы поставляем запчасти из Китая: наличие и сроки, оплата, доставка, таможня и гарантия.', facts: [['1–2 дня','со склада'],['20–45 дней','под заказ'],['По России','доставка']]}) +
+  return bhero({crumbs: '<span>Условия работы</span>', badge: 'Покупателям', title: 'Условия работы', text: 'Покупка со склада в Краснодаре, спецтехника и поставки запчастей из Китая партиями под заказ.', facts: [['Краснодар','склад'],['30–60 дней','поставка под заказ'],['По России','доставка']]}) +
   `<div class="wrap"><div class="terms">
     <nav class="toc">${TOC.map(([id, t]) => `<a href="#/usloviya/${id}">${t}</a>`).join('')}</nav>
     <div>
       <div class="note">Условия из коммерческого предложения ООО «ФавАвто Трейд». Детали Алексей обговаривает с каждым клиентом на переговорах.</div>
 
       <div class="tblock" id="t-kak"><h2>Как мы работаем</h2>
-        <p>Работаем напрямую с заводами в Китае, без посредников. Часть позиций MGP держим на складе в Благовещенске, остальное привозим под заказ.</p>
+        <p>Фильтры MGP и спецтехнику продаём со склада в Краснодаре. Запчасти других брендов привозим с заводов Китая партиями под заказ, условия обсуждаем под объём.</p>
         ${steps()}
       </div>
 
       <div class="tblock" id="t-sroki"><h2>Наличие и сроки</h2>
-        <p>Точный срок называем в счёте. Он зависит от завода, объёма партии и способа доставки.</p>
+        <p>Точный срок поставки под заказ называем в счёте. Он зависит от завода и объёма партии.</p>
         <div class="tscroll"><table class="ttable">
           <tr><th>Что</th><th>Откуда</th><th>Срок</th></tr>
-          <tr><td>MGP в наличии</td><td>Склад в Благовещенске</td><td><b>1–2 рабочих дня</b></td></tr>
-          <tr><td>MGP под заказ</td><td>Завод в Китае</td><td><b>30–60 дней</b>, зависит от количества</td></tr>
-          <tr><td>Forview</td><td>Завод производителя</td><td><b>По запросу</b></td></tr>
-          <tr><td>Createk</td><td>Завод производителя</td><td><b>По запросу</b></td></tr>
-          <tr><td>Спецтехника в наличии</td><td>Площадки в Благовещенске и Краснодаре</td><td><b>1–3 дня</b></td></tr>
-          <tr><td>Спецтехника под заказ</td><td>Завод, по договору</td><td><b>30–60 дней</b></td></tr>
+          <tr><td>Фильтры MGP</td><td>Склад в Краснодаре</td><td><b>1–2 рабочих дня</b></td></tr>
+          <tr><td>Спецтехника в наличии</td><td>Склад в Краснодаре</td><td><b>1–3 дня</b></td></tr>
+          <tr><td>Запчасти партиями под заказ</td><td>Завод в Китае</td><td><b>30–60 дней</b>, зависит от количества</td></tr>
+          <tr><td>Спецтехника под заказ</td><td>Завод, по договору</td><td><b>По заявке</b></td></tr>
         </table></div>
       </div>
 
       <div class="tblock" id="t-oplata"><h2>Оплата</h2>
         <div class="grid2">
           ${box('doc', 'Юрлица и ИП', '<p>Безналичный расчёт по счёту, договор поставки. Работаем с НДС.</p>')}
-          ${box('wallet', 'Частные лица', '<p>Оплата картой или переводом по счёту, наличными в офисе в Благовещенске.</p>')}
-          ${box('clock', 'Под заказ', '<p>50% предоплата, 50% по мере готовности товара к отгрузке с завода-изготовителя.</p>')}
-          ${box('shield', 'Цены и курс', '<p>Цены указаны в Благовещенске с НДС. Оплата в рублях по курсу банка на день оплаты.</p>')}
+          ${box('wallet', 'Частные лица', '<p>Оплата картой или переводом по счёту.</p>')}
+          ${box('clock', 'Поставка под заказ', '<p>50% предоплата, 50% по мере готовности товара к отгрузке с завода-изготовителя.</p>')}
+          ${box('shield', 'Цены и курс', '<p>Цены указаны с НДС. Поставки под заказ оплачиваются в рублях по курсу банка на день оплаты.</p>')}
         </div>
       </div>
 
-      <div class="tblock" id="t-dostavka"><h2>Доставка из Китая</h2>
-        <p>Груз идёт с завода до Благовещенска через пограничный переход. Здесь проходим таможню, принимаем товар на склад и отправляем дальше.</p>
+      <div class="tblock" id="t-dostavka"><h2>Доставка</h2>
+        <p>Товар со склада в Краснодаре отправляем по России. Поставки под заказ идут с завода через пограничный переход, проходят таможню и приходят на склад.</p>
         <div class="grid2">
-          ${box('box', 'По Благовещенску', '<p>Самовывоз со склада или доставка по городу.</p>')}
+          ${box('box', 'Самовывоз', '<p>Со склада в Краснодаре.</p>')}
           ${box('truck', 'По России', '<p>Отправляем транспортной компанией на выбор клиента. Довозим до терминала бесплатно.</p>')}
           ${box('factory', 'Сборные грузы', '<p>Объединяем заказ с другими партиями, чтобы снизить стоимость доставки из Китая.</p>')}
-          ${box('clock', 'Отслеживание', '<p>Сообщаем статус на каждом этапе: выкуп, отгрузка с завода, таможня, склад.</p>')}
+          ${box('clock', 'Отслеживание', '<p>По поставкам под заказ сообщаем статус на каждом этапе: выкуп, отгрузка, таможня, склад.</p>')}
         </div>
       </div>
 
       <div class="tblock" id="t-dokumenty"><h2>Таможня и документы</h2>
-        <p>Таможенное оформление берём на себя, оно включено в цену. Вместе с товаром передаём полный пакет документов.</p>
+        <p>Таможенное оформление поставок под заказ берём на себя. Вместе с товаром передаём полный пакет документов.</p>
         ${box('doc', 'Что вы получаете', ul(['Договор поставки и счёт', 'УПД или товарная накладная', 'Таможенная декларация (по запросу)', 'Сертификаты и декларации соответствия']))}
       </div>
 
       <div class="tblock" id="t-garantiya"><h2>Гарантия и возврат</h2>
         <div class="grid2">
-          ${box('shield', 'Гарантия', '<p>На запчасти действует гарантия производителя. На MGP мы отвечаем сами как владелец бренда.</p>')}
+          ${box('shield', 'Гарантия', '<p>На запчасти действует гарантия производителя. За MGP отвечаем сами как владелец бренда.</p>')}
           ${box('check', 'Брак и пересорт', '<p>Меняем деталь или возвращаем деньги после проверки. Заявку принимаем в течение 14 дней.</p>')}
         </div>
       </div>
 
-      <div class="tblock" id="t-opt"><h2>Оптовикам и автопаркам</h2>
-        <p>Для магазинов, СТО и автопарков: особые цены и поставки по графику.</p>
+      <div class="tblock" id="t-opt"><h2>Поставки партиями</h2>
+        <p>Прямые поставки запчастей с заводов Китая делаем под заказ, для партий от интересного объёма. Условия обсуждаем индивидуально.</p>
         <div class="grid2">
-          ${box('hand', 'Цена от объёма', '<p>Скидка зависит от суммы заказа и регулярности закупок.</p>')}
-          ${box('users', 'Персональный менеджер', '<p>Один контакт по всем заказам, подбор по VIN и спискам артикулов.</p>')}
-          ${box('clock', 'Поставки по графику', '<p>Формируем партии под вашу потребность, ходовые позиции резервируем на складе.</p>')}
+          ${box('hand', 'Цена от объёма', '<p>Цена и условия зависят от суммы и регулярности закупок.</p>')}
+          ${box('users', 'Персональный менеджер', '<p>Один контакт по всем заказам, подбор по спискам артикулов.</p>')}
+          ${box('clock', 'Поставки по графику', '<p>Формируем партии под вашу потребность.</p>')}
           ${box('wallet', 'Отсрочка платежа', '<p>Для постоянных клиентов после нескольких заказов.</p>')}
         </div>
       </div>
 
       <div class="tblock" id="t-voprosy"><h2>Вопросы</h2>
-        ${faq('Можно заказать деталь, которой нет в каталоге?', 'Да. Пришлите артикул, VIN или фото детали. Найдём у заводов и назовём цену и срок.')}
-        ${faq('Почему у части позиций цена по запросу?', 'Цена зависит от партии и курса. У позиций из прайса цена указана с НДС в Благовещенске, остальное считаем по запросу.')}
-        ${faq('Чем MGP отличается от других брендов?', 'MGP наш собственный бренд. Мы сами выбираем заводы, контролируем качество и держим ходовые позиции на складе.')}
-        ${faq('Можно посмотреть технику до покупки?', 'Да. Технику в наличии можно осмотреть и проверить на площадках в Благовещенске и Краснодаре.')}
-        ${faq('Можно забрать заказ самому?', 'Да, со склада в Благовещенске. Адрес и часы работы сообщит менеджер.')}
+        ${faq('Можно заказать деталь, которой нет в каталоге?', 'Да, партией. Пришлите список артикулов и объём, обсудим поставку с завода.')}
+        ${faq('Почему у части позиций цена по запросу?', 'Цену на эти позиции уточняем. У остальных цена указана с НДС.')}
+        ${faq('Чем MGP отличается от других брендов?', 'MGP наш собственный бренд. Мы сами выбираем заводы, контролируем качество и держим товар на складе в Краснодаре.')}
+        ${faq('Можно посмотреть технику до покупки?', 'Да. Технику в наличии можно осмотреть и проверить на складе в Краснодаре.')}
+        ${faq('Можно забрать заказ самому?', 'Да, со склада в Краснодаре. Адрес и часы работы сообщит менеджер.')}
       </div>
     </div>
   </div>
-  <section style="padding-bottom:0">${ctaBlock('Остались вопросы по условиям?', 'Позвоните или оставьте заявку. Менеджер расскажет, как будет идти ваша поставка.')}</section>
+  <section style="padding-bottom:0">${ctaBlock('Остались вопросы по условиям?', 'Позвоните или оставьте заявку. Менеджер ответит на вопросы и подготовит предложение.')}</section>
   </div>`;
 }
 
-const CITIES = ['Благовещенск', 'Краснодар'];
-const slug = city => city === 'Краснодар' ? 'krasnodar' : 'blagoveshchensk';
 const MTYPES = [['dumper','dumper','Самосвалы'], ['tyagach','truck','Тягачи'], ['loader','loader','Погрузчики'], ['excavator','excavator','Экскаваторы'], ['shassi','crane','Техника на шасси']];
-// примеры техники: реальный парк и остатки нужно получить у клиента
+// примеры техники: реальный парк, портфолио и фото нужно получить у клиента
 const MACH = [
-  ['dumper','Самосвал 6×4','Грузоподъёмность 25 т · 380 л.с.',1], ['dumper','Самосвал 8×4','Грузоподъёмность 31 т · 430 л.с.',1], ['dumper','Самосвал 6×4 карьерный','Грузоподъёмность 40 т · 430 л.с.',0],
-  ['tyagach','Седельный тягач 6×4','430 л.с. · КПП 12 ступеней',1], ['tyagach','Седельный тягач 4×2','400 л.с. · магистральный',1], ['tyagach','Седельный тягач 6×4 газовый','460 л.с. · метан',0],
-  ['loader','Фронтальный погрузчик','Ковш 3 м³ · 5 т',1], ['loader','Фронтальный погрузчик','Ковш 1,8 м³ · 3 т',1], ['loader','Телескопический погрузчик','Подъём 4 т · 17 м',0],
-  ['excavator','Экскаватор гусеничный','Масса 22 т · ковш 1,2 м³',1], ['excavator','Экскаватор гусеничный','Масса 35 т · ковш 1,8 м³',0], ['excavator','Экскаватор колёсный','Масса 15 т · ковш 0,6 м³',1],
-  ['shassi','Автобетоносмеситель','Барабан 10 м³ · шасси 6×4',1], ['shassi','Кран-манипулятор','12 т · шасси 6×4',1], ['shassi','Автокран','25 т · стрела 33 м',0],
-].map(([type, name, spec, stock], i) => ({id: 'm' + (i + 1), type, name, spec, stock: !!stock, city: stock ? CITIES[i % 3 ? 0 : 1] : ''}));
-const MSTEPS = [['Подбор','Подбираем модель и комплектацию под задачу'], ['Договор','Фиксируем цену, срок и этапы оплаты'], ['Поставка','Выкуп на заводе, доставка, таможня'], ['Передача','ЭПТС и передача техники в Благовещенске или Краснодаре']];
+  ['dumper','Самосвал 6×4','Грузоподъёмность 25 т · 380 л.с.'], ['dumper','Самосвал 8×4','Грузоподъёмность 31 т · 430 л.с.'],
+  ['tyagach','Седельный тягач 6×4','430 л.с. · КПП 12 ступеней'], ['tyagach','Седельный тягач 4×2','400 л.с. · магистральный'],
+  ['loader','Фронтальный погрузчик','Ковш 3 м³ · 5 т'], ['loader','Фронтальный погрузчик','Ковш 1,8 м³ · 3 т'],
+  ['excavator','Экскаватор гусеничный','Масса 22 т · ковш 1,2 м³'], ['excavator','Экскаватор колёсный','Масса 15 т · ковш 0,6 м³'],
+  ['shassi','Автобетоносмеситель','Барабан 10 м³ · шасси 6×4'], ['shassi','Кран-манипулятор','12 т · шасси 6×4'],
+].map(([type, name, spec], i) => ({id: 'm' + (i + 1), type, name, spec, stock: true}));
+const PORTFOLIO = [['dumper','Самосвалы'], ['excavator','Экскаваторы'], ['loader','Погрузчики'], ['truck','Тягачи'], ['crane','Техника на шасси'], ['dumper','Самосвалы']];
+const MSTEPS = [['Заявка','Тип техники, задача, бюджет'], ['Подбор и договор','Модель, комплектация, цена и срок'], ['Поставка','Выкуп на заводе, доставка, таможня'], ['Передача','ЭПТС и передача техники']];
 const mtype = id => MTYPES.find(t => t[0] === id);
 
 function mcard(m){
@@ -1105,7 +1102,7 @@ function mcard(m){
     <div class="card-body">
       <span class="sku">${m.spec}</span>
       <h3>${m.name}</h3>
-      ${m.stock ? `<span class="status in">В наличии · ${m.city}</span>` : status(m)}
+      <span class="status in">В наличии · ${STORE}</span>
       <div class="card-foot">
         <span class="price">Цена по запросу</span>
         <button class="req" data-request="${m.id}">Запросить</button>
@@ -1114,29 +1111,30 @@ function mcard(m){
   </article>`;
 }
 
-function tekhnika(type, city){
-  const t = mtype(type), c = CITIES.find(x => slug(x) === city);
-  const list = MACH.filter(m => (!t || m.type === t[0]) && (!c || m.city === c)).sort((x, y) => y.stock - x.stock);
-  const sfx = c ? '/' + slug(c) : '', tid = t ? t[0] : 'all';
-  const inStock = MACH.filter(m => m.stock).length;
-  return bhero({dark: 1, crumbs: '<span>Спецтехника</span>', badge: 'В наличии и под заказ', title: 'Спецтехника из Китая', text: 'Самосвалы, тягачи, погрузчики, экскаваторы и техника на шасси. Большая часть в наличии на площадках в Благовещенске и Краснодаре, остальное привезём с завода под заказ.', btns: `<div class="btns"><button class="btn btn-red" data-request="tekhnika">Запросить подбор</button><a class="btn btn-line" style="border-color:#fff;color:#fff" href="tel:88002501598">${ico('phone')}8 800 250-15-98</a></div>`, facts: [['2 площадки','Благовещенск и Краснодар'],['30–60 дней','под заказ с завода'],['ЭПТС','документы для учёта']]}) +
+function tekhnika(type){
+  const t = mtype(type);
+  const list = MACH.filter(m => !t || m.type === t[0]);
+  return bhero({dark: 1, crumbs: '<span>Спецтехника</span>', badge: 'В наличии и под заказ', title: 'Спецтехника', text: 'Техника в наличии на складе в Краснодаре и большое портфолио привезённых и проданных машин. Принимаем заявки на поставку под заказ.', btns: `<div class="btns"><button class="btn btn-red" data-request="tekhnika">Оставить заявку</button><a class="btn btn-line" style="border-color:#fff;color:#fff" href="tel:88002501598">${ico('phone')}8 800 250-15-98</a></div>`, facts: [['Краснодар','техника в наличии'],['Портфолио','поставленных машин'],['Под заказ','по заявке']]}) +
   `<div class="wrap">
-    <section style="padding-bottom:44px"><div class="sec-head"><div><h2>Техника</h2><p>${plural(inStock, 'единица', 'единицы', 'единиц')} в наличии, можно осмотреть на площадке</p></div></div>
-      <div class="note">Модели и характеристики в прототипе приведены для примера. Реальный парк и остатки подставим по данным клиента.</div>
-      <div class="bchips"><a href="#/tekhnika/all${sfx}" class="${!t ? 'on' : ''}">Вся техника <em>${MACH.filter(m => !c || m.city === c).length}</em></a>${MTYPES.map(([id, , name]) => `<a href="#/tekhnika/${id}${sfx}" class="${t && t[0] === id ? 'on' : ''}">${name} <em>${MACH.filter(m => m.type === id && (!c || m.city === c)).length}</em></a>`).join('')}</div>
-      <div class="bchips"><a href="#/tekhnika/${tid}" class="${!c ? 'on' : ''}">Все, включая под заказ</a>${CITIES.map(x => `<a href="#/tekhnika/${tid}/${slug(x)}" class="${c === x ? 'on' : ''}">${ico('pin', 'ico chip-ico')}В наличии: ${x} <em>${MACH.filter(m => m.city === x && (!t || m.type === t[0])).length}</em></a>`).join('')}</div>
+    <section style="padding-bottom:44px"><div class="sec-head"><div><h2>В наличии</h2><p>Можно осмотреть на складе в Краснодаре</p></div></div>
+      <div class="note">Модели и характеристики в прототипе приведены для примера. Реальный парк и фото подставим по данным Алексея.</div>
+      <div class="bchips"><a href="#/tekhnika" class="${!t ? 'on' : ''}">Вся техника <em>${MACH.length}</em></a>${MTYPES.map(([id, , name]) => { const n = MACH.filter(m => m.type === id).length; return `<a href="#/tekhnika/${id}" class="${t && t[0] === id ? 'on' : ''} ${n ? '' : 'off'}">${name} <em>${n}</em></a>`; }).join('')}</div>
       <div class="products">${list.map(mcard).join('')}</div>
     </section>
-    <section style="padding-top:0"><div class="sec-head"><div><h2>Под заказ: как проходит поставка</h2><p>Если нужной модели или комплектации нет в наличии</p></div></div>${steps(MSTEPS, 's4')}</section>
+    <section style="padding-top:0"><div class="sec-head"><div><h2>Портфолио</h2><p>Техника, которую мы привезли и продали</p></div></div>
+      <div class="expo">${PORTFOLIO.map(([i, name]) => `<div><div class="expo-img">${ico(i)}</div><b>${name}: модель</b><span>Год поставки, регион</span></div>`).join('')}</div>
+    </section>
+    <section style="padding-top:0"><div class="sec-head"><div><h2>Поставка под заказ</h2><p>Если нужной модели нет в наличии</p></div></div>${steps(MSTEPS, 's4')}</section>
     <section style="padding-top:0"><div class="sec-head"><div><h2>Условия</h2></div></div>
       <div class="grid2">
-        ${box('box', 'Техника в наличии', '<p>Осмотр и проверка на площадке в Благовещенске или Краснодаре. Оформление и передача за 1–3 дня.</p>')}
-        ${box('wallet', 'Под заказ', '<p>Комплектация под задачу, срок 30–60 дней. Оплата поэтапно по договору: аванс при заказе, остаток перед отгрузкой с завода.</p>')}
+        ${box('box', 'Техника в наличии', '<p>Осмотр и проверка на складе в Краснодаре. Оформление и передача за 1–3 дня.</p>')}
+        ${box('wallet', 'Под заказ', '<p>Подбор под задачу, срок и оплата по договору. Условия обсуждаем по каждой заявке.</p>')}
         ${box('doc', 'Документы', '<p>Договор, таможенная декларация, ЭПТС. Техника готова к постановке на учёт.</p>')}
-        ${box('truck', 'Доставка и сервис', '<p>Тралом или своим ходом с ближайшей площадки в ваш город. Заводская гарантия, запчасти для обслуживания поставляем сами.</p>')}
+        ${box('truck', 'Доставка', '<p>Тралом или своим ходом из Краснодара в ваш город.</p>')}
       </div>
     </section>
-    <section style="padding:0">${ctaBlock('Нужна техника под задачу?', 'Опишите, что нужно: тип техники, объём работ, город. Подберём варианты и рассчитаем срок.', 'tekhnika')}</section>
+    <section style="padding-top:0"><div class="announce">${ico('excavator')}<div><b>Скоро отдельный сайт о спецтехнике</b><span>Там будет полный каталог, портфолио и подбор техники. Пока заявки принимаем здесь.</span></div></div></section>
+    <section style="padding:0">${ctaBlock('Нужна техника под задачу?', 'Опишите, что нужно: тип техники, объём работ, город. Подберём варианты из наличия или под заказ.', 'tekhnika')}</section>
   </div>`;
 }
 
@@ -1144,7 +1142,7 @@ function tekhnika(type, city){
 const app = document.getElementById('app');
 function route(){
   const [type, a, b] = location.hash.replace(/^#\/?/, '').split('/');
-  const pages = {c: () => category(a), b: () => brandPage(a, b), p: () => product(a), usloviya: terms, tekhnika: () => tekhnika(a, b)};
+  const pages = {c: () => category(a), b: () => brandPage(a, b), p: () => product(a), usloviya: terms, tekhnika: () => tekhnika(a)};
   app.innerHTML = (pages[type] || home)();
   closeDrawer();
   const anchor = type === 'usloviya' && a && document.getElementById('t-' + a);
@@ -1156,9 +1154,9 @@ window.addEventListener('hashchange', route);
 const drawer = document.getElementById('drawer'), drawerBg = document.getElementById('drawer-bg');
 document.getElementById('drawer-brands').innerHTML = BRANDS.map(b => `<a href="#/b/${b.id}"><b>${b.label}</b><small>${b.badge}</small></a>`).join('') + `<a href="#/tekhnika"><b>Спецтехника</b><small>В наличии и под заказ</small></a>`;
 document.getElementById('drawer-grid').innerHTML = PCATS.map(c => `<a href="#/c/${c.id}">${ico(c.icon)}${c.name}<em>${total(c.id)}</em></a>`).join('');
-document.getElementById('drawer-extra').innerHTML = `<a href="#/usloviya">Условия работы</a><a href="#/usloviya/dostavka">Доставка из Китая</a><a href="#/usloviya/opt">Оптовикам</a><a href="#/">Контакты</a>
+document.getElementById('drawer-extra').innerHTML = `<a href="#/usloviya">Условия работы</a><a href="#/usloviya/dostavka">Доставка</a><a href="#/usloviya/opt">Поставки партиями</a><a href="#/">Контакты</a>
   <div><a class="foot-phone" href="tel:88002501598">8 800 250-15-98</a><span style="color:var(--muted);font-weight:500;font-size:14px">бесплатно по России</span></div>`;
-document.getElementById('foot-brands').innerHTML = BRANDS.map(b => `<li><a href="#/b/${b.id}">${b.label}</a></li>`).join('') + '<li><a href="#/tekhnika">Спецтехника</a></li><li><a href="#/b/mgp">Каталог MGP</a></li>';
+document.getElementById('foot-brands').innerHTML = BRANDS.map(b => `<li><a href="#/b/${b.id}">${b.label}</a></li>`).join('') + '<li><a href="#/tekhnika">Спецтехника</a></li>';
 function openDrawer(){
   const hdr = document.getElementById('header').getBoundingClientRect();
   drawer.style.setProperty('--drawer-top', hdr.bottom + 'px');
@@ -1176,19 +1174,23 @@ document.getElementById('msearch-btn').addEventListener('click', () => {
 
 /* request modal */
 const modalBg = document.getElementById('modal-bg');
+const REQ = {
+  tekhnika: ['Заявка на спецтехнику', '<b>Спецтехника</b>Из наличия в Краснодаре или под заказ', 'Тип техники, объём работ, город'],
+  partiya: ['Поставка партией', '<b>Запчасти из Китая под заказ</b>Цена и срок зависят от объёма партии', 'Список артикулов и объём партии'],
+};
 document.addEventListener('click', e => {
   const r = e.target.closest('[data-request]');
   if (r) {
-    const id = r.dataset.request || (location.hash.match(/#\/p\/(\d+)/) || [])[1];
+    const id = r.dataset.request || (location.hash.match(/#\/p\/(\d+)/) || [])[1] || (location.hash.startsWith('#/tekhnika') ? 'tekhnika' : '');
     const m = MACH.find(x => x.id === id);
-    const mach = !m && (id === 'tekhnika' || (!id && location.hash.startsWith('#/tekhnika')));
-    const p = !mach && (m || P.find(x => x.id == id));
+    const p = !REQ[id] && (m || P.find(x => x.id == id));
     const item = document.getElementById('m-item');
-    document.getElementById('m-title').textContent = mach ? 'Подбор спецтехники' : p ? 'Запросить цену' : 'Оставить заявку';
-    document.getElementById('m-msg').placeholder = mach ? 'Тип техники, объём работ, город' : 'Артикул, количество, VIN или что-то ещё';
-    item.hidden = !p && !mach;
-    if (mach) item.innerHTML = '<b>Спецтехника под заказ</b>Подберём варианты и рассчитаем срок поставки';
-    else if (p) item.innerHTML = `<b>${p.name}</b>${m ? m.spec : brandById(p.brand).label + ' · ' + p.sku} · ${p.stock ? 'в наличии' + (m ? ', ' + m.city : '') : 'под заказ'}`;
+    const [title, text, hint] = REQ[id] || [p ? (p.price ? 'Заказать' : 'Запросить цену') : 'Оставить заявку', '', 'Артикул, количество или что-то ещё'];
+    document.getElementById('m-title').textContent = title;
+    document.getElementById('m-msg').placeholder = hint;
+    item.hidden = !p && !REQ[id];
+    if (REQ[id]) item.innerHTML = text;
+    else if (p) item.innerHTML = `<b>${p.name}</b>${m ? m.spec + ' · в наличии, ' + STORE : 'MGP · ' + p.sku + (p.price ? ' · ' + rub(p.price) : '')}`;
     document.getElementById('m-form').hidden = false;
     document.getElementById('m-done').hidden = true;
     modalBg.classList.add('open');

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Createk — прототип v2</title>
+<title>MGP — прототип v3</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -549,6 +549,46 @@ div.cat:hover{border-color:var(--line);box-shadow:none}
   .announce{padding:18px;align-items:flex-start}
   .announce .ico{width:34px;height:34px}
 }
+
+/* ===== v3: MGP во главе, синяя гамма бренда ===== */
+:root{--red:#1478C8;--red-dark:#0E5E9F;--red-soft:#E8F2FB}
+.logo-text b{letter-spacing:.08em}
+.mgp-hero .wrap{grid-template-columns:1fr 1.1fr}
+.mgp-hero h1 span{color:var(--red)}
+.hero-photos{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:10px;aspect-ratio:4/3}
+.hero-photos a{border-radius:14px;overflow:hidden;background:#e8e8e3}
+.hero-photos a:first-child{grid-row:1/3}
+.hero-photos img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.hero-photos a:hover img{transform:scale(1.03)}
+.dirs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.dirs a{display:grid;grid-template-columns:44px 1fr;column-gap:14px;align-items:center;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:#fff;transition:.15s}
+.dirs a:hover{border-color:var(--ink);box-shadow:var(--shadow)}
+.dirs .ico{grid-row:1/3;width:40px;height:40px;color:var(--red);stroke-width:1.4}
+.dirs b{font-size:17px}
+.dirs span{font-size:13.5px;color:var(--muted)}
+.products.p3,.brands.p3{grid-template-columns:repeat(3,1fr)}
+.brands.p3 .brand{min-height:0}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.gallery .thumbs .tph{overflow:hidden}
+.gallery .thumbs .tph img{width:100%;height:100%;object-fit:cover}
+.mach-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mach-photo::after{display:none}
+.expo.pf{grid-template-columns:repeat(4,1fr)}
+.expo-img img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+.expo-img:has(img){background:none}
+@media (max-width:1100px){
+  .products.p3{grid-template-columns:repeat(3,1fr)}
+  .expo.pf{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:960px){
+  .mgp-hero .wrap{grid-template-columns:1fr}
+  .hero-photos{aspect-ratio:3/2}
+  .dirs{grid-template-columns:1fr;gap:8px}
+  .dirs a{padding:14px 16px}
+  .products.p3{grid-template-columns:repeat(2,1fr)}
+  .brands.p3{grid-template-columns:1fr}
+  .expo.pf{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
@@ -592,18 +632,19 @@ div.cat:hover{border-color:var(--line);box-shadow:none}
     <symbol id="i-dumper" viewBox="0 0 24 24"><path d="M2 14 3.5 7h10l1 7z"/><path d="M14.5 9h3.5l3 3.5V16H2v-2"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
     <symbol id="i-crane" viewBox="0 0 24 24"><path d="M2 16h12v-4h4l3 3v1H2"/><path d="M5 12l10-8M15 4v5"/><circle cx="6" cy="18.5" r="1.8"/><circle cx="17" cy="18.5" r="1.8"/></symbol>
     <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c.5-4 3.5-6 7-6s6.5 2 7 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14c3 0 5 2 5.5 5"/></symbol>
+    <symbol id="logo-mgp" viewBox="0 0 48 48"><rect x="9" y="9" width="30" height="30" rx="4" transform="rotate(45 24 24)" fill="#1C8AD3"/><rect x="11.5" y="11.5" width="25" height="25" rx="3" transform="rotate(45 24 24)" fill="none" stroke="#fff" stroke-width="1.4"/><text x="24" y="28.2" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" font-weight="800" font-style="italic" fill="#fff">MGP</text></symbol>
   </defs>
 </svg>
 
-<div class="proto"><b>Прототип v2.</b> Фильтры MGP и цены из КП. Техника, тексты о заводах и логотип условные.</div>
+<div class="proto"><b>Прототип v3: MGP во главе.</b> Погрузчики, фильтры, техника и цены из КП. Фото техники из архива клиента для примера, логотип перерисован условно.</div>
 
 <div class="topbar">
   <div class="wrap">
     <nav>
-      <a href="#/usloviya">Условия работы</a>
-      <a href="#/usloviya/dostavka">Доставка</a>
+      <a href="#/l">Погрузчики MGP</a>
+      <a href="#/z">Запчасти MGP</a>
       <a href="#/tekhnika">Спецтехника</a>
-      <a href="#/usloviya/opt">Поставки партиями</a>
+      <a href="#/usloviya">Условия работы</a>
       <a href="#/">Контакты</a>
     </nav>
     <div class="city"><svg class="ico"><use href="#i-pin"/></svg>Краснодар</div>
@@ -614,11 +655,11 @@ div.cat:hover{border-color:var(--line);box-shadow:none}
   <div class="wrap">
     <button class="icon-btn" data-open-drawer aria-label="Каталог"><svg class="ico"><use href="#i-menu"/></svg></button>
     <a href="#/" class="logo" aria-label="На главную">
-      <svg class="logo-mark"><use href="#logo"/></svg>
-      <span class="logo-text"><b>CREATEK</b><small>Запчасти и техника из Китая</small></span>
+      <svg class="logo-mark"><use href="#logo-mgp"/></svg>
+      <span class="logo-text"><b>MGP</b><small>Погрузчики и запчасти</small></span>
     </a>
     <button class="catalog-btn" data-open-drawer><svg class="ico"><use href="#i-menu"/></svg>Каталог</button>
-    <label class="search"><svg class="ico"><use href="#i-search"/></svg><input type="search" placeholder="Название или артикул, например GC46-6744-AD или 1R-1808"></label>
+    <label class="search"><svg class="ico"><use href="#i-search"/></svg><input type="search" placeholder="Погрузчик, фильтр или артикул, например 1R-1808"></label>
     <div class="phones">
       <a href="tel:88002501598">8 800 250-15-98</a>
       <span>Бесплатно по России</span>
@@ -632,9 +673,9 @@ div.cat:hover{border-color:var(--line);box-shadow:none}
 <div class="drawer-bg" id="drawer-bg"></div>
 <nav class="drawer" id="drawer" aria-label="Каталог">
   <div class="drawer-head"><b>Каталог</b><button class="icon-btn" data-close-drawer aria-label="Закрыть"><svg class="ico"><use href="#i-x"/></svg></button></div>
-  <div class="drawer-label">Бренды</div>
+  <div class="drawer-label">Разделы</div>
   <div class="drawer-brands" id="drawer-brands"></div>
-  <div class="drawer-label">Каталог MGP</div>
+  <div class="drawer-label">Запчасти MGP</div>
   <div class="drawer-grid" id="drawer-grid"></div>
   <div class="drawer-extra" id="drawer-extra"></div>
 </nav>
@@ -645,10 +686,10 @@ div.cat:hover{border-color:var(--line);box-shadow:none}
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="#/" class="logo" style="margin-bottom:16px"><svg class="logo-mark"><use href="#logo"/></svg><span class="logo-text"><b>CREATEK</b><small>Запчасти и техника из Китая</small></span></a>
-        <p style="margin:0;color:var(--muted);max-width:340px">Фильтры собственного бренда MGP и спецтехника в наличии на складе в Краснодаре. Бренды-партнёры Forview, Createk, Impeco. Поставки запчастей из Китая партиями под заказ.</p>
+        <a href="#/" class="logo" style="margin-bottom:16px"><svg class="logo-mark"><use href="#logo-mgp"/></svg><span class="logo-text"><b>MGP</b><small>Погрузчики и запчасти</small></span></a>
+        <p style="margin:0;color:var(--muted);max-width:340px">Погрузчики и фильтры собственного бренда MGP, спецтехника в наличии на складе в Краснодаре. Бренды-партнёры Forview, Createk, Impeco. Поставки запчастей из Китая партиями под заказ.</p>
       </div>
-      <div><h4>Бренды</h4><ul id="foot-brands"></ul></div>
+      <div><h4>Каталог</h4><ul id="foot-brands"></ul></div>
       <div><h4>Покупателям</h4><ul>
         <li><a href="#/usloviya">Условия работы</a></li>
         <li><a href="#/usloviya/oplata">Оплата</a></li>
@@ -718,10 +759,10 @@ const P = [];
 const STORE = 'Краснодар';
 const BRANDS = [
   {id:'mgp', label:'MGP', name:'MGP', badge:'Собственный бренд',
-   short:'Фильтры для Ford Cargo, F-MAX, Caterpillar и Hitachi. В наличии на складе в Краснодаре.',
-   desc:'Собственная марка фильтров для грузовиков Ford Cargo и F-MAX и спецтехники Caterpillar и Hitachi. Производство в Китае, товар в наличии на складе в Краснодаре.',
+   short:'Погрузчики и фильтры собственного бренда. В наличии на складе в Краснодаре.',
+   desc:'Собственный бренд: мини-погрузчики и фронтальные погрузчики, фильтры для Ford Cargo, F-MAX, Caterpillar и Hitachi. Производство в Китае, товар в наличии на складе в Краснодаре.',
    points:['В наличии на складе','Цены с НДС на сайте','Ford, Caterpillar, Hitachi'],
-   facts:[['Ford, CAT, Hitachi','фильтры'],['Краснодар','склад'],['С НДС','цены на сайте']]},
+   facts:[['Погрузчики','и фильтры'],['Краснодар','склад'],['С НДС','цены на сайте']]},
   {id:'forview', label:'Forview', name:'FORVIEW', badge:'Бренд-партнёр',
    short:'Завод-партнёр. Ассортимент, качество и история производства.',
    desc:'Запчасти Forview поставляем напрямую от производителя партиями под заказ. Ниже ассортимент завода, подход к качеству и история.',
@@ -797,6 +838,84 @@ const status = p => p.stock ? `<span class="status in">В наличии${p.qty 
 const rub = n => n.toLocaleString('ru-RU') + ' ₽';
 const pic = (p, c) => p.img ? `<img src="img/${p.img}.jpg" alt="${p.name} ${p.sku}" loading="lazy">` : ico(c.icon);
 const fitsOf = p => p.fits.map(f => (p.cat === 'ford' && f !== 'F-MAX' ? 'Ford ' : p.cat === 'hitachi' ? 'Hitachi ' : '') + f);
+// погрузчики MGP из КП ООО «ФавАвто Трейд», все в наличии в Краснодаре с ЭПСМ
+const LOADERS = [
+  {id:'mg85pe', name:'Мини-погрузчик MG85PE', type:'Мини-погрузчик', price:'281 000 ¥', note:'с НДС, по курсу банка на день оплаты',
+   imgs:['mg85pe-1','mg85pe-3','mg85pe-4','mg85pe-2','mg85pe-5'],
+   key:[['Нагрузка','850 кг'],['Ковш','0,5 м³'],['Двигатель','Xinchai 490, 40 кВт'],['Масса','3 200 кг']],
+   kit:'Быстросъём, палетные вилы в комплекте. Кондиционер, печка. Управление джойстиками.',
+   specs:[['Рабочая нагрузка','850 кг'],['Макс. скорость','12 км/ч'],['Поток гидравлики','75 л/мин'],['Двигатель','China Xinchai 490'],['Мощность двигателя','40 кВт'],['Топливный бак','60 л'],['Масса','3 200 кг'],['Объём ковша','0,5 м³'],['Ширина ковша','1 880 мм'],['Общая рабочая высота','4 000 мм'],['Высота до шарнира ковша','3 100 мм'],['Высота до верха кабины','2 160 мм'],['Высота сброса','2 400 мм'],['Расстояние до сброса','750 мм'],['Угол сброса на макс. высоте','40°'],['Длина без ковша / с ковшом','2 750 / 3 490 мм'],['Колёсная база','991 мм'],['Клиренс','205 мм'],['Преодолеваемый уклон','20°'],['Радиус поворота без ковша','1 198 мм'],['Управление','гидравлическое, джойстики']]},
+  {id:'mgp928', name:'Фронтальный погрузчик MGP 928 pro', type:'Фронтальный погрузчик', price:'1 400 000 ₽', note:'с НДС',
+   imgs:['mg928-1','mg928-2'],
+   key:[['Нагрузка','1 500 кг'],['Ковш','1 м³'],['Двигатель','Yunnei 490, 36 кВт'],['КПП','автомат']],
+   kit:'Быстросъём. В комплекте палетные вилы, камера заднего вида, кондиционер и предпусковой подогреватель двигателя.',
+   specs:[['Эксплуатационная масса','4 000 кг'],['Номинальная нагрузка','1 500 кг'],['Объём ковша','1–1,1 м³'],['Ширина ковша','1 800 мм'],['Высота сброса','3 200 мм'],['Вылет при сбросе','700 мм'],['Макс. высота подъёма','4 010 мм'],['Двигатель','Yunnei 490, 4 цилиндра'],['Мощность','36 кВт'],['Коробка передач','автомат'],['Макс. скорость','35 км/ч'],['Длина × ширина × высота','5 540 × 1 800 × 2 740 мм'],['Колёсная база','2 200 мм'],['Колея','1 400 мм'],['Управление','один рычаг']]},
+  {id:'mgp946', name:'Фронтальный погрузчик MGP 946 pro', type:'Фронтальный погрузчик', price:'4 000 000 ₽', note:'с НДС',
+   imgs:['mg946-1','mg946-2'],
+   key:[['Нагрузка','3 000 кг'],['Ковш','1,8 м³'],['Двигатель','Weichai, 92 кВт'],['Масса','9 300 кг']],
+   kit:'Быстросъём. Кондиционер, печка, тройной клапан, подогрев двигателя 220 В. Гидравлическое пилотное управление, два рычага.',
+   specs:[['Общая масса','9 300 кг'],['Номинальная грузоподъёмность','3 000 кг'],['Объём ковша','1,8 м³'],['Ширина ковша','2 400 мм'],['Высота выгрузки','3 800 мм'],['Двигатель','Weichai, дизель, 6 цилиндров'],['Мощность','92 кВт'],['Гидротрансформатор','315'],['Шины','17,5-25'],['Длина × ширина × высота','7 200 × 2 400 × 3 300 мм'],['Колёсная база','3 150 мм'],['Макс. допустимая масса','12 400 кг']]},
+];
+const loaderById = id => LOADERS.find(l => l.id === id);
+const img = (name, alt) => `<img src="img/${name}.jpg" alt="${alt}" loading="lazy">`;
+
+function lcard(l){
+  return `<article class="card">
+    <a href="#/l/${l.id}" class="thumb">${img(l.imgs[0], l.name)}<span class="tag mgp">MGP</span></a>
+    <div class="card-body">
+      <span class="sku">${l.type} · ${l.key.slice(0, 2).map(k => k[1]).join(' · ')}</span>
+      <h3><a href="#/l/${l.id}">${l.name}</a></h3>
+      <span class="status in">В наличии · ${STORE}, с ЭПСМ</span>
+      <div class="card-foot">
+        <span class="price">${l.price}<small>${l.note}</small></span>
+        <a class="req" href="#/l/${l.id}" style="display:inline-flex;align-items:center">Подробнее</a>
+      </div>
+    </div>
+  </article>`;
+}
+
+function loaders(){
+  return bhero({dark: 1, crumbs: '<span>Погрузчики MGP</span>', badge: 'Собственный бренд', title: 'Погрузчики MGP', text: 'Мини-погрузчики и фронтальные погрузчики MGP в наличии на складе в Краснодаре. Все с ЭПСМ, готовы к постановке на учёт.', facts: [['Краснодар','в наличии'],['ЭПСМ','документы'],['Быстросъём','навесное']]}) +
+  `<div class="wrap" style="padding-top:28px">
+    <div class="products">${LOADERS.map(lcard).join('')}</div>
+    <section style="padding-bottom:0">${ctaBlock('Подобрать погрузчик под задачу?', 'Расскажите, что нужно грузить и где работать. Подскажем модель и навесное оборудование.')}</section>
+  </div>`;
+}
+
+function loader(id){
+  const l = loaderById(id) || LOADERS[0];
+  const rest = LOADERS.filter(x => x.id !== l.id);
+  return `<div class="wrap">
+    <div class="crumbs"><a href="#/">Главная</a>/<a href="#/l">Погрузчики MGP</a>/<span>${l.name.replace(/^.*? (MG)/, '$1')}</span></div>
+    <div class="pp">
+      <div class="gallery"><div class="main">${img(l.imgs[0], l.name)}</div>
+        <div class="thumbs">${l.imgs.slice(0, 4).map(i => `<div class="tph">${img(i, l.name)}</div>`).join('')}</div></div>
+      <div class="pp-info">
+        <div class="sku"><span>Бренд: <b>MGP</b></span><span>${l.type}</span></div>
+        <h1>${l.name}</h1>
+        <div class="fits">${l.key.map(([k, v]) => `<span>${k}: ${v}</span>`).join('')}</div>
+        <div class="buybox">
+          <div class="pr"><b>${l.price}</b><span class="status in">В наличии</span></div>
+          <span style="font-size:13.5px;color:var(--muted);margin-top:-10px">${l.note[0].toUpperCase() + l.note.slice(1)}</span>
+          <div class="btns"><button class="btn btn-red" data-request="${l.id}">Заказать</button><a class="btn btn-line" href="tel:88002501598">${ico('phone')}Позвонить</a></div>
+          <ul>
+            <li>${ico('box')}В наличии на складе в Краснодаре, с ЭПСМ</li>
+            <li>${ico('check')}${l.kit}</li>
+            <li>${ico('truck')}Самовывоз или доставка тралом по России</li>
+          </ul>
+        </div>
+        <div class="specs"><h2>Технические характеристики</h2><table>
+          ${l.specs.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')}
+        </table></div>
+      </div>
+    </div>
+    <section style="padding-bottom:0">
+      <div class="sec-head"><div><h2>Другие погрузчики MGP</h2></div></div>
+      <div class="products">${rest.map(lcard).join('')}</div>
+    </section>
+  </div>`;
+}
+
 const more = (shown, all) => shown < all ? `<div style="display:flex;justify-content:center;margin-top:24px"><button class="btn btn-line">Показать ещё</button></div>` : '';
 
 function card(p){
@@ -828,31 +947,56 @@ function brandCard(b){
 }
 
 function home(){
-  const stock = sortP(P.filter(p => p.stock)).slice(0, 8);
+  const parts = sortP(P.filter(p => p.img && p.stock)).concat(sortP(P.filter(p => !p.img && p.stock))).slice(0, 4);
   return `
+  <div class="hero mgp-hero"><div class="wrap">
+    <div>
+      <span class="eyebrow">Собственный бренд</span>
+      <h1><span>MGP</span>: погрузчики и запчасти</h1>
+      <p>Мини-погрузчики и фронтальные погрузчики MGP в наличии на складе в Краснодаре, с ЭПСМ. Фильтры и расходники MGP с ценами.</p>
+      <div class="btns">
+        <a class="btn btn-red" href="#/l">Погрузчики в наличии ${ico('arrow')}</a>
+        <a class="btn btn-line" href="#/z">Запчасти MGP</a>
+      </div>
+    </div>
+    <div class="hero-photos">${['mg946-1', 'mg928-1', 'mg85pe-1'].map((i, n) => `<a href="#/l/${['mgp946', 'mgp928', 'mg85pe'][n]}">${img(i, 'Погрузчик MGP')}</a>`).join('')}</div>
+  </div></div>
+
+  <section style="padding-bottom:0"><div class="wrap">
+    <div class="dirs">
+      <a href="#/l">${ico('loader')}<b>Погрузчики MGP</b><span>${plural(LOADERS.length, 'модель', 'модели', 'моделей')} в наличии</span></a>
+      <a href="#/z">${ico('filter')}<b>Запчасти MGP</b><span>Фильтры для Ford, CAT, Hitachi</span></a>
+      <a href="#/tekhnika">${ico('truck')}<b>Спецтехника</b><span>В наличии и под заказ</span></a>
+    </div>
+  </div></section>
+
   <section><div class="wrap">
-    <div class="sec-head"><div><h2>Бренды</h2><p>Собственный бренд и заводы-партнёры</p></div></div>
-    <div class="brands">${BRANDS.map(brandCard).join('')}</div>
+    <div class="sec-head"><div><h2>Погрузчики MGP в наличии</h2><p>Склад в Краснодаре, все с ЭПСМ</p></div><a href="#/l" class="link">Все погрузчики ${ico('arrow')}</a></div>
+    <div class="products p3">${LOADERS.map(lcard).join('')}</div>
   </div></section>
 
   <section style="padding-top:0"><div class="wrap">
-    <div class="sec-head"><div><h2>Фильтры MGP в наличии</h2><p>Склад в Краснодаре, цены с НДС</p></div><a href="#/b/mgp" class="link">Все фильтры MGP ${ico('arrow')}</a></div>
-    <div class="products">${stock.map(card).join('')}</div>
+    <div class="sec-head"><div><h2>Запчасти MGP</h2><p>Фильтры и расходники в наличии, цены с НДС</p></div><a href="#/z" class="link">Все запчасти ${ico('arrow')}</a></div>
+    <div class="bchips">${PCATS.map(c => `<a href="#/z/${c.id}">${c.name} <em>${total(c.id)}</em></a>`).join('')}<a class="off">Для погрузчиков MGP <em>скоро</em></a></div>
+    <div class="products">${parts.map(card).join('')}</div>
   </div></section>
 
   <section style="padding-top:0"><div class="wrap">
     <div class="mach">
-      <div class="mach-img">${ico('excavator')}</div>
+      <div class="mach-img mach-photo">${img('pump-56', 'Спецтехника')}</div>
       <div class="mach-text">
         <span class="eyebrow">В наличии и под заказ</span>
         <h2>Спецтехника</h2>
-        <p>Техника в наличии на складе в Краснодаре и большое портфолио привезённых и проданных машин. Принимаем заявки на поставку под заказ.</p>
-        <ul class="ticks"><li>${ico('check')}Техника в наличии, можно осмотреть</li><li>${ico('check')}Портфолио поставленной техники</li><li>${ico('check')}Поставка под заказ по заявке</li></ul>
+        <p>Манипуляторы, тралы, автобетононасосы, автовышки. Часть техники в наличии в Краснодаре, остальное привозим под заказ. Большое портфолио поставленных машин.</p>
+        <ul class="ticks"><li>${ico('check')}${plural(MSTOCK.length, 'единица', 'единицы', 'единиц')} в наличии</li><li>${ico('check')}Под заказ: бетононасосы до 62 м, автовышки до 45 м</li><li>${ico('check')}Портфолио поставленной техники</li></ul>
         <div class="btns"><a class="btn btn-dark" href="#/tekhnika">Смотреть технику</a></div>
       </div>
     </div>
-    <div class="sec-head" style="margin-top:40px"><div><h2>Техника в наличии</h2><p>Можно осмотреть на складе в Краснодаре</p></div><a href="#/tekhnika" class="link">Вся техника ${ico('arrow')}</a></div>
-    <div class="products">${MACH.filter((m, i, a) => a.findIndex(x => x.type === m.type) === i).slice(0, 4).map(mcard).join('')}</div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="sec-head"><div><h2>Бренды-партнёры</h2><p>Заводы, с которыми работаем</p></div></div>
+    <div class="brands p3">${BRANDS.filter(b => b.id !== 'mgp').map(brandCard).join('')}</div>
   </div></section>
 
   <div class="hero"><div class="wrap">
@@ -862,7 +1006,7 @@ function home(){
       <p>Для крупных партий привозим запчасти напрямую с заводов Китая: выкуп, проверка качества, таможня и доставка. Условия обсуждаем под ваш объём.</p>
       <div class="btns">
         <button class="btn btn-red" data-request="partiya">Обсудить партию</button>
-        <a class="btn btn-line" href="#/usloviya">Условия работы</a>
+        <a class="btn btn-line" href="#/usloviya/opt">Условия поставки</a>
       </div>
     </div>
     <div class="route"><h3>Путь детали</h3><p>От завода в Китае до вашего склада</p>
@@ -871,11 +1015,17 @@ function home(){
   </div></div>
 
   <section><div class="wrap">
-    ${ctaBlock()}
+    <div class="sec-head"><div><h2>Полезное</h2><p>Статьи для владельцев техники</p></div></div>
+    <div class="expo">${ARTICLES.map(([t, s]) => `<div><div class="expo-img">${ico('doc')}</div><b>${t}</b><span>${s}</span></div>`).join('')}</div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    ${ctaBlock('Нужен погрузчик или запчасти?', 'Позвоните или оставьте заявку. Подскажем модель, проверим наличие и назовём цену.')}
   </div></section>`;
 }
+const ARTICLES = [['Мини-погрузчик или фронтальный: что выбрать', 'Скоро'], ['Навесное оборудование для мини-погрузчика', 'Скоро'], ['Интервалы замены фильтров на Ford Cargo', 'Скоро']];
 
-function ctaBlock(title = 'Не нашли нужный фильтр?', sub = 'Назовите артикул или пришлите фото. Проверим наличие на складе и подскажем замену.', req = ''){
+function ctaBlock(title = 'Не нашли нужную позицию?', sub = 'Назовите артикул или пришлите фото. Проверим наличие на складе и подскажем замену.', req = ''){
   return `<div class="cta">
     <div><h2>${title}</h2><p>${sub}</p></div>
     <div class="btns"><a class="btn btn-line" href="tel:88002501598">${ico('phone')}8 800 250-15-98</a><button class="btn btn-dark" data-request="${req}">Оставить заявку</button></div>
@@ -888,11 +1038,11 @@ function category(id){
   const all = total(c.id);
   const grid = shown.length ? `<div class="products">${shown.map(card).join('')}</div>` : `<div class="empty">В этом разделе пока нет позиций MGP.</div>`;
   return `<div class="wrap">
-    <div class="crumbs"><a href="#/">Главная</a>/<a href="#/b/mgp">MGP</a>/<span>${c.name}</span></div>
+    <div class="crumbs"><a href="#/">Главная</a>/<a href="#/z">Запчасти MGP</a>/<span>${c.name}</span></div>
     <div class="page-title"><h1>${c.name}</h1><span>${plural(all, 'позиция', 'позиции', 'позиций')}</span></div>
-    <div class="chips">${PCATS.map(x => `<a href="#/c/${x.id}" class="${x.id === c.id ? 'on' : ''}">${x.name}</a>`).join('')}</div>
+    <div class="chips">${PCATS.map(x => `<a href="#/z/${x.id}" class="${x.id === c.id ? 'on' : ''}">${x.name}</a>`).join('')}</div>
     <div class="layout">
-      <aside class="side">${PCATS.map(x => `<a href="#/c/${x.id}" class="${x.id === c.id ? 'on' : ''}">${ico(x.icon)}${x.name}</a>`).join('')}</aside>
+      <aside class="side">${PCATS.map(x => `<a href="#/z/${x.id}" class="${x.id === c.id ? 'on' : ''}">${ico(x.icon)}${x.name}</a>`).join('')}</aside>
       <div>
         <div class="toolbar">
           <label class="search"><svg class="ico"><use href="#i-search"/></svg><input type="search" placeholder="Поиск в разделе «${c.name}»"></label>
@@ -939,14 +1089,20 @@ function aboutBrand(b){
 function brandPage(id, cat){
   const b = brandById(id) || BRANDS[0];
   if (b.id !== 'mgp') return aboutBrand(b);
+  return parts(cat, true);
+}
+
+function parts(cat, brand){
+  const b = BRANDS[0];
   const c = catById(cat);
   const items = sortP(P.filter(p => !c || p.cat === c.id));
   const shown = items.slice(0, 24);
   const all = total(c && c.id);
-  return bhero({dark: 1, crumbs: `<span>Бренды</span>/${c ? `<a href="#/b/mgp">MGP</a>/<span>${c.name}</span>` : '<span>MGP</span>'}`, badge: b.badge, title: b.name, text: b.desc, facts: b.facts}) +
+  return bhero({dark: 1, crumbs: c ? `<a href="#/z">Запчасти MGP</a>/<span>${c.name}</span>` : '<span>Запчасти MGP</span>', badge: b.badge, title: brand ? 'MGP' : c ? c.name : 'Запчасти MGP', text: b.desc, facts: b.facts}) +
+  (brand ? `<div class="wrap"><section style="padding-bottom:0"><div class="sec-head"><div><h2>Погрузчики MGP</h2><p>В наличии в Краснодаре</p></div><a href="#/l" class="link">Все погрузчики ${ico('arrow')}</a></div><div class="products p3">${LOADERS.map(lcard).join('')}</div></section></div>` : '') +
   `<div class="wrap" style="padding-top:28px">
     <div class="note">Позиции, цены и остатки из КП ООО «ФавАвто Трейд», октябрь 2026. У фильтров Hitachi нет цены и количества, нужно уточнить у Алексея.</div>
-    <div class="bchips"><a href="#/b/mgp" class="${!c ? 'on' : ''}">Все фильтры <em>${total()}</em></a>${PCATS.map(x => `<a href="#/b/mgp/${x.id}" class="${c && c.id === x.id ? 'on' : ''}">${x.name} <em>${total(x.id)}</em></a>`).join('')}</div>
+    <div class="bchips"><a href="#/z" class="${!c ? 'on' : ''}">Все фильтры <em>${total()}</em></a>${PCATS.map(x => `<a href="#/z/${x.id}" class="${c && c.id === x.id ? 'on' : ''}">${x.name} <em>${total(x.id)}</em></a>`).join('')}</div>
     <div class="toolbar">
       <label class="search"><svg class="ico"><use href="#i-search"/></svg><input type="search" placeholder="Поиск по артикулу или названию"></label>
       <select aria-label="Сортировка"><option>Сначала в наличии</option><option>По названию</option><option>По цене</option></select>
@@ -964,7 +1120,7 @@ function product(id){
   const rest = P.filter(x => x.id !== p.id);
   const similar = sortP(rest.filter(x => x.cat === p.cat)).concat(rest.filter(x => x.cat !== p.cat)).slice(0, 4);
   return `<div class="wrap">
-    <div class="crumbs"><a href="#/">Главная</a>/<a href="#/b/mgp">MGP</a>/<a href="#/b/mgp/${c.id}">${c.name}</a>/<span>${p.sku}</span></div>
+    <div class="crumbs"><a href="#/">Главная</a>/<a href="#/z">Запчасти MGP</a>/<a href="#/z/${c.id}">${c.name}</a>/<span>${p.sku}</span></div>
     <div class="pp">
       <div class="gallery"><div class="main">${pic(p, c)}</div>${p.img ? '' : '<div class="thumbs"><div></div><div></div><div></div><div></div></div>'}</div>
       <div class="pp-info">
@@ -1014,7 +1170,7 @@ function terms(){
       <div class="note">Условия из коммерческого предложения ООО «ФавАвто Трейд». Детали Алексей обговаривает с каждым клиентом на переговорах.</div>
 
       <div class="tblock" id="t-kak"><h2>Как мы работаем</h2>
-        <p>Фильтры MGP и спецтехнику продаём со склада в Краснодаре. Запчасти других брендов привозим с заводов Китая партиями под заказ, условия обсуждаем под объём.</p>
+        <p>Погрузчики и фильтры MGP, спецтехнику продаём со склада в Краснодаре. Запчасти других брендов привозим с заводов Китая партиями под заказ, условия обсуждаем под объём.</p>
         ${steps()}
       </div>
 
@@ -1022,10 +1178,11 @@ function terms(){
         <p>Точный срок поставки под заказ называем в счёте. Он зависит от завода и объёма партии.</p>
         <div class="tscroll"><table class="ttable">
           <tr><th>Что</th><th>Откуда</th><th>Срок</th></tr>
+          <tr><td>Погрузчики MGP</td><td>Склад в Краснодаре, с ЭПСМ</td><td><b>1–3 дня</b></td></tr>
           <tr><td>Фильтры MGP</td><td>Склад в Краснодаре</td><td><b>1–2 рабочих дня</b></td></tr>
           <tr><td>Спецтехника в наличии</td><td>Склад в Краснодаре</td><td><b>1–3 дня</b></td></tr>
           <tr><td>Запчасти партиями под заказ</td><td>Завод в Китае</td><td><b>30–60 дней</b>, зависит от количества</td></tr>
-          <tr><td>Спецтехника под заказ</td><td>Завод, по договору</td><td><b>По заявке</b></td></tr>
+          <tr><td>Спецтехника под заказ</td><td>Завод, по договору</td><td><b>20–60 дней</b>, зависит от модели</td></tr>
         </table></div>
       </div>
 
@@ -1083,52 +1240,59 @@ function terms(){
   </div>`;
 }
 
-const MTYPES = [['dumper','dumper','Самосвалы'], ['tyagach','truck','Тягачи'], ['loader','loader','Погрузчики'], ['excavator','excavator','Экскаваторы'], ['shassi','crane','Техника на шасси']];
-// примеры техники: реальный парк, портфолио и фото нужно получить у клиента
-const MACH = [
-  ['dumper','Самосвал 6×4','Грузоподъёмность 25 т · 380 л.с.'], ['dumper','Самосвал 8×4','Грузоподъёмность 31 т · 430 л.с.'],
-  ['tyagach','Седельный тягач 6×4','430 л.с. · КПП 12 ступеней'], ['tyagach','Седельный тягач 4×2','400 л.с. · магистральный'],
-  ['loader','Фронтальный погрузчик','Ковш 3 м³ · 5 т'], ['loader','Фронтальный погрузчик','Ковш 1,8 м³ · 3 т'],
-  ['excavator','Экскаватор гусеничный','Масса 22 т · ковш 1,2 м³'], ['excavator','Экскаватор колёсный','Масса 15 т · ковш 0,6 м³'],
-  ['shassi','Автобетоносмеситель','Барабан 10 м³ · шасси 6×4'], ['shassi','Кран-манипулятор','12 т · шасси 6×4'],
-].map(([type, name, spec], i) => ({id: 'm' + (i + 1), type, name, spec, stock: true}));
-const PORTFOLIO = [['dumper','Самосвалы'], ['excavator','Экскаваторы'], ['loader','Погрузчики'], ['truck','Тягачи'], ['crane','Техника на шасси'], ['dumper','Самосвалы']];
-const MSTEPS = [['Заявка','Тип техники, задача, бюджет'], ['Подбор и договор','Модель, комплектация, цена и срок'], ['Поставка','Выкуп на заводе, доставка, таможня'], ['Передача','ЭПТС и передача техники']];
-const mtype = id => MTYPES.find(t => t[0] === id);
+// спецтехника из КП ООО «ФавАвто Трейд»; фото из присланного архива, для примера
+const MSTOCK = [
+  {id:'sqs125', name:'Манипулятор XCMG SQS125-4 на шасси ISUZU ELF', spec:'5 т · стрела до 11,2 м · шасси 2024 г.', price:'8 000 000 ₽', img:'sqs125-1'},
+  {id:'amur', name:'Трал AMUR LYR9400, 40 т', spec:'2024 г. · пневмоподвеска · с ЭПТС', price:'5 000 000 ₽', img:'amur-1'},
+  {id:'pump30', name:'Автобетононасос 30 м на шасси ISUZU', spec:'4×2 · 279 кВт · до 90 м³/ч', price:'1 800 000 ¥', img:'pump-isuzu30'},
+];
+const MORDER = [
+  {id:'pump52', name:'Автобетононасос SYM5350THB 52 м, Mercedes-Benz 6×4', spec:'2020 г. · до 170 м³/ч', price:'от 2 800 000 ¥', lead:'до 30 дней', img:'pump-52'},
+  {id:'pump56', name:'Автобетононасос SYM5418THB 56 м, Mercedes-Benz 8×4', spec:'2021 г. · до 180 м³/ч', price:'2 942 000 ¥', lead:'до 40 дней', img:'pump-56'},
+  {id:'pump62', name:'Автобетононасос SYM5463THBFB 62 м, Mercedes-Benz 8×4', spec:'до 180 м³/ч', price:'3 421 000 ¥', lead:'до 30 дней', img:'pump-62'},
+  {id:'pumpx62', name:'Автобетононасос XCMG 62 м, Mercedes-Benz Arocs', spec:'2021 г. · до 170 м³/ч', price:'3 500 000 ¥', lead:'до 30 дней', img:'pump-xcmg62'},
+  {id:'sqs200', name:'Манипулятор XCMG SQS200 на ISUZU GIGA 6×4', spec:'9 т · стрела 18,6 м · 2024 г.', price:'1 256 000 ¥', lead:'40–60 дней', img:'sqs200'},
+  {id:'lift28', name:'Автовышка ISUZU ELF 28 м', spec:'2024 г. · люлька 195 кг', price:'480 000 ¥', lead:'по запросу', img:'lift-28'},
+  {id:'lift45', name:'Автовышка ISUZU GIGA 45 м', spec:'2024 г. · люлька 400 кг', price:'915 200 ¥', lead:'по запросу', img:'lift-45'},
+];
+const MACH = MSTOCK.concat(MORDER);
+const PORTFOLIO = [['pf-pump','Автобетононасос на шасси Scania'], ['pf-manip','Манипулятор на ISUZU GIGA'], ['pf-mixer','Автобетоносмеситель на ISUZU'], ['pf-crane','Автокран на ISUZU'], ['pf-loader','Фронтальные погрузчики'], ['pf-tow','Эвакуатор на ISUZU ELF'], ['pf-reefer','Рефрижератор на ISUZU ELF'], ['pf-reefer2','Рефрижератор на ISUZU GIGA'], ['pf-tractor','Седельные тягачи'], ['pf-tractor2','Седельный тягач'], ['pf-dump','Самосвал на ISUZU'], ['pf-curtain','Шторный полуприцеп'], ['pf-selfmixer','Самозагружающийся бетоносмеситель'], ['pf-backhoe','Экскаватор-погрузчик'], ['pf-forklift','Вилочный погрузчик'], ['pf-pump2','Автобетононасос']];
+const MSTEPS = [['Заявка','Тип техники, задача, бюджет'], ['Подбор и договор','Модель, комплектация, цена и срок'], ['Поставка','Выкуп на заводе, доставка, таможня'], ['Передача','ЭПТС и передача техники в Краснодаре']];
 
 function mcard(m){
+  const stock = MSTOCK.includes(m);
   return `<article class="card">
-    <div class="thumb">${ico(mtype(m.type)[1])}<span class="tag">${mtype(m.type)[2]}</span></div>
+    <div class="thumb">${img(m.img, m.name)}</div>
     <div class="card-body">
       <span class="sku">${m.spec}</span>
       <h3>${m.name}</h3>
-      <span class="status in">В наличии · ${STORE}</span>
+      ${stock ? `<span class="status in">В наличии · ${STORE}</span>` : `<span class="status order">Под заказ · ${m.lead}</span>`}
       <div class="card-foot">
-        <span class="price">Цена по запросу</span>
+        <span class="price">${m.price}<small>с НДС</small></span>
         <button class="req" data-request="${m.id}">Запросить</button>
       </div>
     </div>
   </article>`;
 }
 
-function tekhnika(type){
-  const t = mtype(type);
-  const list = MACH.filter(m => !t || m.type === t[0]);
-  return bhero({dark: 1, crumbs: '<span>Спецтехника</span>', badge: 'В наличии и под заказ', title: 'Спецтехника', text: 'Техника в наличии на складе в Краснодаре и большое портфолио привезённых и проданных машин. Принимаем заявки на поставку под заказ.', btns: `<div class="btns"><button class="btn btn-red" data-request="tekhnika">Оставить заявку</button><a class="btn btn-line" style="border-color:#fff;color:#fff" href="tel:88002501598">${ico('phone')}8 800 250-15-98</a></div>`, facts: [['Краснодар','техника в наличии'],['Портфолио','поставленных машин'],['Под заказ','по заявке']]}) +
+function tekhnika(){
+  return bhero({dark: 1, crumbs: '<span>Спецтехника</span>', badge: 'В наличии и под заказ', title: 'Спецтехника', text: 'Техника в наличии на складе в Краснодаре, поставки под заказ и большое портфолио привезённых и проданных машин.', btns: `<div class="btns"><button class="btn btn-red" data-request="tekhnika">Оставить заявку</button><a class="btn btn-line" style="border-color:#fff;color:#fff" href="tel:88002501598">${ico('phone')}8 800 250-15-98</a></div>`, facts: [['Краснодар','техника в наличии'],['Под заказ','по заявке'],['Портфолио','поставленных машин']]}) +
   `<div class="wrap">
-    <section style="padding-bottom:44px"><div class="sec-head"><div><h2>В наличии</h2><p>Можно осмотреть на складе в Краснодаре</p></div></div>
-      <div class="note">Модели и характеристики в прототипе приведены для примера. Реальный парк и фото подставим по данным Алексея.</div>
-      <div class="bchips"><a href="#/tekhnika" class="${!t ? 'on' : ''}">Вся техника <em>${MACH.length}</em></a>${MTYPES.map(([id, , name]) => { const n = MACH.filter(m => m.type === id).length; return `<a href="#/tekhnika/${id}" class="${t && t[0] === id ? 'on' : ''} ${n ? '' : 'off'}">${name} <em>${n}</em></a>`; }).join('')}</div>
-      <div class="products">${list.map(mcard).join('')}</div>
+    <div class="note" style="margin-top:28px">Модели и цены из КП ООО «ФавАвто Трейд». Фото взяты из присланного архива для примера.</div>
+    <section style="padding-top:12px"><div class="sec-head"><div><h2>В наличии</h2><p>Можно осмотреть на складе в Краснодаре</p></div></div>
+      <div class="products p3">${MSTOCK.map(mcard).join('')}</div>
+    </section>
+    <section style="padding-top:0"><div class="sec-head"><div><h2>Под заказ</h2><p>Цены в юанях с НДС, по курсу банка на день оплаты</p></div></div>
+      <div class="products">${MORDER.map(mcard).join('')}</div>
     </section>
     <section style="padding-top:0"><div class="sec-head"><div><h2>Портфолио</h2><p>Техника, которую мы привезли и продали</p></div></div>
-      <div class="expo">${PORTFOLIO.map(([i, name]) => `<div><div class="expo-img">${ico(i)}</div><b>${name}: модель</b><span>Год поставки, регион</span></div>`).join('')}</div>
+      <div class="expo pf">${PORTFOLIO.map(([i, name]) => `<div><div class="expo-img">${img(i, name)}</div><b>${name}</b></div>`).join('')}</div>
     </section>
-    <section style="padding-top:0"><div class="sec-head"><div><h2>Поставка под заказ</h2><p>Если нужной модели нет в наличии</p></div></div>${steps(MSTEPS, 's4')}</section>
+    <section style="padding-top:0"><div class="sec-head"><div><h2>Как проходит поставка под заказ</h2></div></div>${steps(MSTEPS, 's4')}</section>
     <section style="padding-top:0"><div class="sec-head"><div><h2>Условия</h2></div></div>
       <div class="grid2">
         ${box('box', 'Техника в наличии', '<p>Осмотр и проверка на складе в Краснодаре. Оформление и передача за 1–3 дня.</p>')}
-        ${box('wallet', 'Под заказ', '<p>Подбор под задачу, срок и оплата по договору. Условия обсуждаем по каждой заявке.</p>')}
+        ${box('wallet', 'Под заказ', '<p>Цена в юанях с НДС, оплата в рублях по курсу банка на день оплаты. Срок и этапы оплаты фиксируем в договоре.</p>')}
         ${box('doc', 'Документы', '<p>Договор, таможенная декларация, ЭПТС. Техника готова к постановке на учёт.</p>')}
         ${box('truck', 'Доставка', '<p>Тралом или своим ходом из Краснодара в ваш город.</p>')}
       </div>
@@ -1142,7 +1306,7 @@ function tekhnika(type){
 const app = document.getElementById('app');
 function route(){
   const [type, a, b] = location.hash.replace(/^#\/?/, '').split('/');
-  const pages = {c: () => category(a), b: () => brandPage(a, b), p: () => product(a), usloviya: terms, tekhnika: () => tekhnika(a)};
+  const pages = {c: () => parts(a), z: () => parts(a), b: () => brandPage(a, b), p: () => product(a), l: () => a ? loader(a) : loaders(), usloviya: terms, tekhnika};
   app.innerHTML = (pages[type] || home)();
   closeDrawer();
   const anchor = type === 'usloviya' && a && document.getElementById('t-' + a);
@@ -1152,11 +1316,11 @@ window.addEventListener('hashchange', route);
 
 /* drawer */
 const drawer = document.getElementById('drawer'), drawerBg = document.getElementById('drawer-bg');
-document.getElementById('drawer-brands').innerHTML = BRANDS.map(b => `<a href="#/b/${b.id}"><b>${b.label}</b><small>${b.badge}</small></a>`).join('') + `<a href="#/tekhnika"><b>Спецтехника</b><small>В наличии и под заказ</small></a>`;
-document.getElementById('drawer-grid').innerHTML = PCATS.map(c => `<a href="#/c/${c.id}">${ico(c.icon)}${c.name}<em>${total(c.id)}</em></a>`).join('');
+document.getElementById('drawer-brands').innerHTML = [['#/l','Погрузчики MGP','В наличии'], ['#/z','Запчасти MGP','Фильтры с ценами'], ['#/tekhnika','Спецтехника','В наличии и под заказ'], ['#/b/createk','Бренды-партнёры','Createk, Forview, Impeco']].map(([h, b, s]) => `<a href="${h}"><b>${b}</b><small>${s}</small></a>`).join('');
+document.getElementById('drawer-grid').innerHTML = PCATS.map(c => `<a href="#/z/${c.id}">${ico(c.icon)}${c.name}<em>${total(c.id)}</em></a>`).join('');
 document.getElementById('drawer-extra').innerHTML = `<a href="#/usloviya">Условия работы</a><a href="#/usloviya/dostavka">Доставка</a><a href="#/usloviya/opt">Поставки партиями</a><a href="#/">Контакты</a>
   <div><a class="foot-phone" href="tel:88002501598">8 800 250-15-98</a><span style="color:var(--muted);font-weight:500;font-size:14px">бесплатно по России</span></div>`;
-document.getElementById('foot-brands').innerHTML = BRANDS.map(b => `<li><a href="#/b/${b.id}">${b.label}</a></li>`).join('') + '<li><a href="#/tekhnika">Спецтехника</a></li>';
+document.getElementById('foot-brands').innerHTML = '<li><a href="#/l">Погрузчики MGP</a></li><li><a href="#/z">Запчасти MGP</a></li><li><a href="#/tekhnika">Спецтехника</a></li>' + BRANDS.filter(b => b.id !== 'mgp').map(b => `<li><a href="#/b/${b.id}">${b.label}</a></li>`).join('');
 function openDrawer(){
   const hdr = document.getElementById('header').getBoundingClientRect();
   drawer.style.setProperty('--drawer-top', hdr.bottom + 'px');
@@ -1182,15 +1346,15 @@ document.addEventListener('click', e => {
   const r = e.target.closest('[data-request]');
   if (r) {
     const id = r.dataset.request || (location.hash.match(/#\/p\/(\d+)/) || [])[1] || (location.hash.startsWith('#/tekhnika') ? 'tekhnika' : '');
-    const m = MACH.find(x => x.id === id);
+    const m = MACH.find(x => x.id === id) || loaderById(id);
     const p = !REQ[id] && (m || P.find(x => x.id == id));
     const item = document.getElementById('m-item');
-    const [title, text, hint] = REQ[id] || [p ? (p.price ? 'Заказать' : 'Запросить цену') : 'Оставить заявку', '', 'Артикул, количество или что-то ещё'];
+    const [title, text, hint] = REQ[id] || [m ? 'Заявка' : p ? (p.price ? 'Заказать' : 'Запросить цену') : 'Оставить заявку', '', 'Артикул, количество или что-то ещё'];
     document.getElementById('m-title').textContent = title;
     document.getElementById('m-msg').placeholder = hint;
     item.hidden = !p && !REQ[id];
     if (REQ[id]) item.innerHTML = text;
-    else if (p) item.innerHTML = `<b>${p.name}</b>${m ? m.spec + ' · в наличии, ' + STORE : 'MGP · ' + p.sku + (p.price ? ' · ' + rub(p.price) : '')}`;
+    else if (p) item.innerHTML = `<b>${p.name}</b>${m ? (m.spec || m.type) + ' · ' + m.price : 'MGP · ' + p.sku + (p.price ? ' · ' + rub(p.price) : '')}`;
     document.getElementById('m-form').hidden = false;
     document.getElementById('m-done').hidden = true;
     modalBg.classList.add('open');
